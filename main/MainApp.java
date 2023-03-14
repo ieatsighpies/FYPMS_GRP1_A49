@@ -9,12 +9,13 @@ public class MainApp {
         Login login_page = new Login(sc, console);
 
         while(true){
-            login_page.printMenu();
             boolean status = login_page.attemptLogin();
             if(status){
+                String current_user = login_page.getUser();
                 break;
             }
         }
+        
         
 
     }
