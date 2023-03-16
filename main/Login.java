@@ -74,7 +74,7 @@ public class Login extends Page{
 
         /* read file to match with user input */
         try{
-            FileReader fr = new FileReader(System.getProperty("user.dir") + "\\main\\" + "student_list.csv");
+            FileReader fr = new FileReader(System.getProperty("user.dir") + "\\main\\Data\\student_list.csv");
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
@@ -110,7 +110,7 @@ public class Login extends Page{
 
         /* read file to match with user input */
         try{
-            FileReader fr = new FileReader(System.getProperty("user.dir") + "\\main\\" + "faculty_list.csv");
+            FileReader fr = new FileReader(System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv");
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){

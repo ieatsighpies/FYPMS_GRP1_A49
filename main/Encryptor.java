@@ -68,6 +68,7 @@ public class Encryptor {
         return verify;  
     }  
 
+    /* Convert  */
     public byte[] convertSalt(String salt){
         byte[] byteSalt = Base64.getDecoder().decode(salt);
         return byteSalt;

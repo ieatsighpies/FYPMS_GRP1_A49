@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.util.Base64;
 import java.util.Scanner;
 
 public class MainPage extends Page{
@@ -68,7 +67,7 @@ public class MainPage extends Page{
 
         /* Read and write file */
         try{
-            BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\main\\faculty_list.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv"));
             StringBuffer inputBuffer = new StringBuffer();
 
             while((currentLine = br.readLine()) != null){
@@ -81,7 +80,7 @@ public class MainPage extends Page{
             }
             br.close();
 
-            FileOutputStream fileout = new FileOutputStream(System.getProperty("user.dir") + "\\main\\faculty_list.csv");
+            FileOutputStream fileout = new FileOutputStream(System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv");
             fileout.write(inputBuffer.toString().getBytes());
             fileout.close();
 

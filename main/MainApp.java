@@ -16,19 +16,44 @@ public class MainApp {
                 break;
             }
         }
+
         MainPage main_page = new MainPage(sc, console, current_user);
-        String new_pass;
-        System.out.println("Enter new pass:");
-        new_pass = sc.next();
-        if(login_page.getUserType()==1){
-            main_page.setPasswordStudent(new_pass);
+
+        // insert menu
+        int option = -1;
+        while(option != 9){
+            if(option == 1){
+                String new_pass;
+                System.out.println("Enter new pass:");
+                new_pass = sc.next();
+                if(login_page.getUserType()==1){
+                    main_page.setPasswordStudent(new_pass);
+                }
+                else if(login_page.getUserType()==2){
+                    main_page.setPasswordStaff(new_pass);
         }
-        else if(login_page.getUserType()==2){
-            main_page.setPasswordStaff(new_pass);
+            }
+            else if(option == 2){
+                //function 2
+            }
+            else if(option == 2){
+                //function 2
+            }
+            else if(option == 2){
+                //function 3
+            }
+            else if(option == 2){
+                //function 4
+            }
+            else if(option == 2){
+                //function 5
+            }
         }
         
-        
-        
+
+    }
+
+    public static void printMenu(){
 
     }
 
