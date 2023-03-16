@@ -69,77 +69,66 @@ public class Login extends Page{
     }
 
     public boolean authenicateStudent(String username, String password){
-        String currentLine;
-        String data[];
-
-        /* read file to match with user input */
-        try{
-            FileReader fr = new FileReader(System.getProperty("user.dir") + "\\main\\Data\\student_list.csv");
-            BufferedReader br = new BufferedReader(fr);
-
-            while((currentLine = br.readLine()) != null){
-                data = currentLine.split("\\s*,\\s*");
-                /* Regenerate encrypted password */                
-                Encryptor encryptor = new Encryptor(password);
-                byte[] byteSalt = encryptor.convertSalt(data[3]);
-                String encryptedPass = encryptor.generateHashedPassword(byteSalt);
-
-                /* Verify */
-                if(data[1].split("@")[0].equalsIgnoreCase(username)){
-                    /* accept if using default password */
-                    if(data[2].equals("password")){
-                        return true;
-                    }
-                    /* else verify against encrypted password */
-                    else if(data[2].equals(encryptedPass)){
-                        return true;
-                    }
-                } 
-            }
-
-        } catch(Exception e){
-            System.out.println(e);
+        
+        /* Create FileHandler object */
+        FileHandler filehandler = new FileHandler();
+        String filepath = System.getProperty("user.dir") + "\\main\\Data\\student_list.csv";
+        
+        /* Get target line from csv */
+        String data[] = filehandler.readFile(filepath, username, 2);
+        if(data == null){
+            return false;
         }
 
-        return false;
+        /* Regenerate encrypted password */                
+        Encryptor encryptor = new Encryptor(password);
+        byte[] byteSalt = encryptor.convertSalt(data[4]);
+        String encryptedPass = encryptor.generateHashedPassword(byteSalt);
+
+        /* accept if using default password */
+        if(password.equals("password")){
+            return true;
+        }
+        /* else verify against encrypted password */
+        else if(data[3].equals(encryptedPass)){
+            return true;
+        }
+        /* no match return false */
+        else{
+            return false;
+        }
+  
     }
 
     public boolean authenicateStaff(String username, String password){
-        String currentLine;
-        String data[];
-
-        /* read file to match with user input */
-        try{
-            FileReader fr = new FileReader(System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv");
-            BufferedReader br = new BufferedReader(fr);
-
-            while((currentLine = br.readLine()) != null){
-                data = currentLine.split(",");
-
-                /* Regenerate encrypted password */                
-                Encryptor encryptor = new Encryptor(password);
-                byte[] byteSalt = encryptor.convertSalt(data[3]);
-
-                /* Verify */
-                String encryptedPass = encryptor.generateHashedPassword(byteSalt);
-                if(data[1].split("@")[0].equalsIgnoreCase(username)){
-                    /* accept if using default password */
-                    if(data[2].equals("password")){
-                        return true;
-                    }
-                    /* else verify against encrypted password */
-                    else if(data[2].equals(encryptedPass)){
-                        return true;
-                    }
-                } 
-            }
-
-        } catch(Exception e){
-            System.out.println(e);
+        
+        /* Create FileHandler object */
+        FileHandler filehandler = new FileHandler();
+        String filepath = System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv";
+        
+        /* Get target line from csv */
+        String data[] = filehandler.readFile(filepath, username, 2);
+        if(data == null){
+            return false;
         }
 
-        return false;
-    }
+        /* Regenerate encrypted password */                
+        Encryptor encryptor = new Encryptor(password);
+        byte[] byteSalt = encryptor.convertSalt(data[4]);
+        String encryptedPass = encryptor.generateHashedPassword(byteSalt);
 
+        /* accept if using default password */
+        if(password.equals("password")){
+            return true;
+        }
+        /* else verify against encrypted password */
+        else if(data[3].equals(encryptedPass)){
+            return true;
+        }
+        /* no match return false */
+        else{
+            return false;
+        }
+    }
 
 }

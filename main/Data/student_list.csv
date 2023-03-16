@@ -1,12 +1,12 @@
-Name,Email,Password,Salt
-CHERN ,YCHERN@e.ntu.edu.sg,password,abcd
-KOH ,KOH1@e.ntu.edu.sg,+/3QvbXhooravkiLJHYA1e8ArICF/kagB0GM04s+u5o=,ufE07J1SF+SZNAACfai3wA==
-BRANDON ,BR015@e.ntu.edu.sg,password,abcd
-CALVIN ,CT113@e.ntu.edu.sg,password,abcd
-CHAN,YCN019@e.ntu.edu.sg,password,abcd
-DENISE,DL007@e.ntu.edu.sg,password,abcd
-DONG,DON84@e.ntu.edu.sg,password,abcd
-ERNEST,ELI34@e.ntu.edu.sg,password,abcd
-LEE ,LE51@e.ntu.edu.sg,password,abcd
-LIU ,SL22@e.ntu.edu.sg,password,abcd
-RAWAL,AKY013@e.ntu.edu.sg,password,abcd
+Name,Email,UserID,Password,Salt
+CHERN ,YCHERN@e.ntu.edu.sg,YCHERN,password,salt
+KOH ,KOH1@e.ntu.edu.sg,KOH1,password,salt
+BRANDON ,BR015@e.ntu.edu.sg,BR015,password,salt
+CALVIN ,CT113@e.ntu.edu.sg,CT113,password,salt
+CHAN,YCN019@e.ntu.edu.sg,YCN019,password,salt
+DENISE,DL007@e.ntu.edu.sg,DL007,password,salt
+DONG,DON84@e.ntu.edu.sg,DON84,password,salt
+ERNEST,ELI34@e.ntu.edu.sg,ELI34,password,salt
+LEE ,LE51@e.ntu.edu.sg,LE51,password,salt
+LIU ,SL22@e.ntu.edu.sg,SL22,password,salt
+RAWAL,AKY013@e.ntu.edu.sg,AKY013,password,salt
