@@ -4,20 +4,20 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class Login {
-    Scanner sc;
-    Console console;
-    String userID;
+public class Login extends Page{
     String userPass;
     int userType;
 
     public Login(Scanner sc, Console console){
-        this.sc = sc;
-        this.console = console;
+        super(sc, console);
     }
 
     public String getUser(){
-        return this.userID;
+        return super.getUser();
+    }
+
+    public int getUserType(){
+        return this.userType;
     }
 
     public boolean attemptLogin(){
@@ -40,7 +40,7 @@ public class Login {
 
         /* get userID and userPass */
         System.out.println("Enter UserID: ");
-        this.userID = sc.next().toLowerCase();
+        this.userID = sc.next();
         this.userPass = new String(console.readPassword("Enter Password: "));
 
         if(userType == 1){
@@ -78,10 +78,23 @@ public class Login {
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                data = currentLine.split(",");
-                if(data[1].split("@")[0].toLowerCase().equals(username) && data[2].equals(password)){
-                    return true;
-                }
+                data = currentLine.split("\\s*,\\s*");
+                /* Regenerate encrypted password */                
+                Encryptor encryptor = new Encryptor(password);
+                byte[] byteSalt = encryptor.convertSalt(data[3]);
+                String encryptedPass = encryptor.generateHashedPassword(byteSalt);
+
+                /* Verify */
+                if(data[1].split("@")[0].equalsIgnoreCase(username)){
+                    /* accept if using default password */
+                    if(data[2].equals("password")){
+                        return true;
+                    }
+                    /* else verify against encrypted password */
+                    else if(data[2].equals(encryptedPass)){
+                        return true;
+                    }
+                } 
             }
 
         } catch(Exception e){
@@ -102,9 +115,23 @@ public class Login {
 
             while((currentLine = br.readLine()) != null){
                 data = currentLine.split(",");
-                if(data[1].split("@")[0].toLowerCase().equals(username) && data[2].equals(password)){
-                    return true;
-                }
+
+                /* Regenerate encrypted password */                
+                Encryptor encryptor = new Encryptor(password);
+                byte[] byteSalt = encryptor.convertSalt(data[3]);
+
+                /* Verify */
+                String encryptedPass = encryptor.generateHashedPassword(byteSalt);
+                if(data[1].split("@")[0].equalsIgnoreCase(username)){
+                    /* accept if using default password */
+                    if(data[2].equals("password")){
+                        return true;
+                    }
+                    /* else verify against encrypted password */
+                    else if(data[2].equals(encryptedPass)){
+                        return true;
+                    }
+                } 
             }
 
         } catch(Exception e){
