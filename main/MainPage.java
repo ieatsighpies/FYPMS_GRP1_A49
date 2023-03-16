@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.util.Base64;
 import java.util.Scanner;
 
 public class MainPage extends Page{
@@ -19,8 +18,6 @@ public class MainPage extends Page{
     }
 
     public void setPasswordStudent(String newPassword){
-        String currentLine;
-        String data[];
 
         /* Encrypt new password */
         Encryptor encryptor = new Encryptor(newPassword);
@@ -28,36 +25,18 @@ public class MainPage extends Page{
         byte[] byteSalt = encryptor.convertSalt(salt);
         String encryptedPass = encryptor.generateHashedPassword(byteSalt);
 
+        /* Make FileHandler object */
+        FileHandler filehandler = new FileHandler();
 
         /* Read and write file */
-        try{
-            BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\main\\student_list.csv"));
-            StringBuffer inputBuffer = new StringBuffer();
-
-            while((currentLine = br.readLine()) != null){
-                data = currentLine.split(",");
-                if(data[1].split("@")[0].equalsIgnoreCase(this.userID)){
-                    currentLine = data[0] + "," + data[1] + "," + encryptedPass + "," + salt;
-                }
-                inputBuffer.append(currentLine);
-                inputBuffer.append("\n");
-            }
-            br.close();
-
-            FileOutputStream fileout = new FileOutputStream(System.getProperty("user.dir") + "\\main\\student_list.csv");
-            fileout.write(inputBuffer.toString().getBytes());
-            fileout.close();
-
-        } catch(Exception e){
-            System.out.println(e);
-        }
-
+        String filepath = System.getProperty("user.dir") + "\\main\\Data\\student_list.csv"; // set filepath
+        String line[] = filehandler.readFile(filepath, this.userID, 2); // set target line
+        String newline = String.join(",", line[0], line[1], line[2], encryptedPass, salt); // make new string to replace target string
+        filehandler.writeToFile(filepath, this.userID, 2, newline); // write new string to target string
     
     }
 
     public void setPasswordStaff(String newPassword){
-        String currentLine;
-        String data[];
 
         /* Encrypt new password */
         Encryptor encryptor = new Encryptor(newPassword);
@@ -65,30 +44,15 @@ public class MainPage extends Page{
         byte[] byteSalt = encryptor.convertSalt(salt);
         String encryptedPass = encryptor.generateHashedPassword(byteSalt);
 
+        /* Make FileHandler object */
+        FileHandler filehandler = new FileHandler();
 
         /* Read and write file */
-        try{
-            BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\main\\faculty_list.csv"));
-            StringBuffer inputBuffer = new StringBuffer();
-
-            while((currentLine = br.readLine()) != null){
-                data = currentLine.split(",");
-                if(data[1].split("@")[0].equalsIgnoreCase(this.userID)){
-                    currentLine = data[0] + "," + data[1] + "," + encryptedPass + "," + salt;
-                }
-                inputBuffer.append(currentLine);
-                inputBuffer.append("\n");
-            }
-            br.close();
-
-            FileOutputStream fileout = new FileOutputStream(System.getProperty("user.dir") + "\\main\\faculty_list.csv");
-            fileout.write(inputBuffer.toString().getBytes());
-            fileout.close();
-
-        } catch(Exception e){
-            System.out.println(e);
-        }
-
+        String filepath = System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv"; // set filepath
+        String line[] = filehandler.readFile(filepath, this.userID, 2); // set target line
+        String newline = String.join(",", line[0], line[1], line[2], encryptedPass, salt); // make new string to replace target string
+        filehandler.writeToFile(filepath, this.userID, 2, newline); // write new string to target string
+        
     
     }
 }

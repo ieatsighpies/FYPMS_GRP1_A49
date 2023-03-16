@@ -1,5 +1,7 @@
-with open('faculty_list.csv', 'r') as istr:
+with open('Data\student_list.csv', 'r') as istr:
     with open('output.csv', 'w') as ostr:
         for line in istr:
-            line = line.rstrip('\n') + ',salt'
+            data = line.split(",")
+            username = data[1].split("@")[0]
+            line = data[0] + "," + data[1] + "," + username + ',' + 'password' + ',' + 'salt'
             print(line, file=ostr)
