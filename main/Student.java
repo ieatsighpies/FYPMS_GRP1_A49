@@ -7,8 +7,11 @@ public class Student extends User{
     //to differentiate from students without a project
     private boolean deregistered;
 
-    public Student(){
-
+    public Student(String name, String email){
+        super(name, email);
+        project = -1;
+        this.assignStatus = false;
+        this.deregistered = false;
     }
     public String getName(){
         return Student.name;
