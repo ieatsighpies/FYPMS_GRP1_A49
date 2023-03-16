@@ -30,7 +30,11 @@ public class Student extends User{
     }
 
     public void setProject(Student s, Project project){
-        Student.project = project.projectID;
-        project.studentID = getUserID;
+        if(s.getAssignStatus){
+            Student.project = project.projectID;
+            project.studentID = s.getUserID;
+        }
+        else
+            System.out.println("Student has already registered for a project.");
     }
 }
