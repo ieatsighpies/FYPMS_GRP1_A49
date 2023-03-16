@@ -1,9 +1,36 @@
 package main;
 
-public class Student {
+public class Student extends User{
+    //student HAS-A project
     private Project project;
     private boolean assignStatus;
-    private boolean unassigned;
+    //to differentiate from students without a project
+    private boolean deregistered;
 
-    public 
+    public Student(){
+
+    }
+    public String getName(){
+        return Student.name;
+    }
+    public String getEmail(){
+        return Student.email;
+    }
+    public String getUserID(){
+        return Student.userID;
+    }
+    public boolean getAssignStatus(){
+        return Student.assignStatus;
+    }
+    public boolean getDeregisteredStatus(){
+        return Student.deregistered;
+    }
+    public Project getProject(){
+        return Student.project;
+    }
+
+    public void setProject(Student s, Project project){
+        Student.project = project.projectID;
+        project.studentID = getUserID;
+    }
 }
