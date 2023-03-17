@@ -1,61 +1,16 @@
 package main;
-import java.io.Console;
-import java.util.Scanner;
+
+import main.Pages.Exit;
+import main.Pages.Page;
+import main.Pages.Welcome;
 
 public class MainApp {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Console console = System.console();
-        Login login_page = new Login(sc, console);
-        String current_user;
 
-        while(true){
-            boolean status = login_page.attemptLogin();
-            if(status){
-                current_user = login_page.getUser();
-                break;
-            }
-        }
-
-        MainPage main_page = new MainPage(sc, console, current_user);
-
-        // insert menu
-        int option = -1;
-        while(option != 9){
-            if(option == 1){
-                String new_pass;
-                System.out.println("Enter new pass:");
-                new_pass = sc.next();
-                if(login_page.getUserType()==1){
-                    main_page.setPasswordStudent(new_pass);
-                }
-                else if(login_page.getUserType()==2){
-                    main_page.setPasswordStaff(new_pass);
-        }
-            }
-            else if(option == 2){
-                //function 2
-            }
-            else if(option == 2){
-                //function 2
-            }
-            else if(option == 2){
-                //function 3
-            }
-            else if(option == 2){
-                //function 4
-            }
-            else if(option == 2){
-                //function 5
-            }
-        }
-        
+        Page currentPage = new Welcome(null, 0);
+        do {
+            currentPage = currentPage.executable();
+        } while (!(currentPage instanceof Exit));
 
     }
-
-    public static void printMenu(){
-
-    }
-
-
 }
