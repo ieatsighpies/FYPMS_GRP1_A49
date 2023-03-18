@@ -1,15 +1,18 @@
-package main;
+package main.Utils;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 
 public class FileHandler {
-    public FileHandler(){
-    }
+
+    /* get filepath */
+    // public String getFilepath(String filename){
+    //     return System
+    // }
 
     /* read file and return target line */
-    public String[] readFile(String filePath, String check, int col){
+    public static String[] readFile(String filePath, String check, int col){
         String currentLine;
         String data[] = {};
 
@@ -24,10 +27,34 @@ public class FileHandler {
                     return data;
                 }
             }
+            br.close();
         } catch(Exception e){
             System.out.println(e);
         }
         return null;
+    }
+
+    /* find target string in file by specified column, return boolean */
+    public static boolean findFile(String filePath, String check, int col){
+        String currentLine;
+        String data[] = {};
+
+        /* read file line by line, break when value found against checker */
+        try{
+            FileReader fr = new FileReader(filePath);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((currentLine = br.readLine()) != null){
+                data = currentLine.split("\\s*,\\s*");
+                if(data[col].equalsIgnoreCase(check)){
+                    return true;
+                }
+            }
+            br.close();
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        return false;
     }
 
     /* write given line to target line. 
@@ -35,7 +62,7 @@ public class FileHandler {
      * col is the column index that u want to check against
      * newString is the new string you want to replace target string with
      */
-    public void writeToFile(String filepath, String check, int col, String newString){
+    public static void writeFile(String filepath, String check, int col, String newString){
         String currentLine;
         String data[];
 
