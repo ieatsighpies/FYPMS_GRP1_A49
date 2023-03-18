@@ -3,6 +3,7 @@ package main.Pages;
 import java.io.Console;
 import java.util.Scanner;
 
+import main.Utils.ConsoleUtils;
 import main.Utils.Encryptor;
 import main.Utils.FileHandler;
 
@@ -21,11 +22,27 @@ public class StudentMain extends Page{
     @Override
     public Page executable(){
 
-        System.out.println("You reached the StudentMain");
-        System.out.println("Menu:");
-        System.out.println("[1] Change Password");
-        System.out.println("[2] .......");
-        System.out.println("[9] Log-out");
+        ConsoleUtils.clearScreen();
+        System.out.println("╔══════════════════════════════════════════════════════════╗");
+        System.out.println("║ ███╗   ██╗████████╗██╗   ██╗███████╗██╗   ██╗██████╗ ██╗ ║");
+        System.out.println("║ ████╗  ██║╚══██╔══╝██║   ██║██╔════╝╚██╗ ██╔╝██╔══██╗██║ ║");
+        System.out.println("║ ██╔██╗ ██║   ██║   ██║   ██║█████╗   ╚████╔╝ ██████╔╝██║ ║");
+        System.out.println("║ ██║╚██╗██║   ██║   ██║   ██║██╔══╝    ╚██╔╝  ██╔═══╝ ██║ ║");
+        System.out.println("║ ██║ ╚████║   ██║   ╚██████╔╝██║        ██║   ██║     ██║ ║");
+        System.out.println("║ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚═╝        ╚═╝   ╚═╝     ╚═╝ ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║                       -Student Menu-                     ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.printf("║ %-57s║\n", "Welcome, " + this.userID);
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║[1] Reset password                                        ║");
+        System.out.println("║[2] View available projects                               ║");
+        System.out.println("║[3] View my project                                       ║");
+        System.out.println("║[4] Request de-register project                           ║");
+        System.out.println("║[5] Request project title change                          ║");
+        System.out.println("║[6] View request history                                  ║");
+        System.out.println("║[7] Log-out                                               ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         // get option
         System.out.print("Enter your option: ");
@@ -33,21 +50,19 @@ public class StudentMain extends Page{
         System.out.println();
 
         // loop to ask for valid input
-        while(!(optionstr.matches("^[1-9]{1}$"))){
+        while(!(optionstr.matches("^[1-7]{1}$"))){
 
-            System.out.println("Enter a valid user type:");
+            System.out.println("Enter a valid option:");
             optionstr = sc.nextLine().trim();
         }
 
         int option = Integer.parseInt(optionstr);
 
         switch (option){
-            // this should redirect to a new page, but for now, just testing
+
+            // SetPassword Page
             case 1:
-                System.out.print("Enter your new password:");
-                String newpass = sc.nextLine();
-                setPasswordStudent(newpass); 
-                break;
+                return new SetPassword(this, -1, this.userID, "1");
 
             case 9:
                 System.out.println("Temp exit, should be log out here");
@@ -55,23 +70,6 @@ public class StudentMain extends Page{
         }
 
         return this;
-    }
-
-    // temporarily put this function here
-    public void setPasswordStudent(String newPassword){
-
-        /* Encrypt new password */
-        Encryptor encryptor = new Encryptor(newPassword);
-        String salt = encryptor.generateSalt();
-        byte[] byteSalt = encryptor.convertSalt(salt);
-        String encryptedPass = encryptor.generateHashedPassword(byteSalt);
-
-        /* Read and write file */
-        String filepath = System.getProperty("user.dir") + "\\main\\Data\\student_list.csv"; // set filepath
-        String line[] = FileHandler.readFile(filepath, this.userID, 2); // set target line
-        String newline = String.join(",", line[0], line[1], line[2], encryptedPass, salt); // make new string to replace target string
-        FileHandler.writeFile(filepath, this.userID, 2, newline); // write new string to target string
-    
     }
 
 }

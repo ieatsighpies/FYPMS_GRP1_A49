@@ -3,7 +3,7 @@ package main.Pages;
 import java.io.IOException;
 import java.util.Scanner;
 
-import main.Utils.ClearConsole;
+import main.Utils.ConsoleUtils;
 
 public class Welcome extends Page{
     Scanner sc = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class Welcome extends Page{
     public Page executable(){
         
         // print menu
-        ClearConsole.clearScreen();
+        ConsoleUtils.clearScreen();
         System.out.println("╔══════════════════════════════════════════════════════════╗");
         System.out.println("║ ███╗   ██╗████████╗██╗   ██╗███████╗██╗   ██╗██████╗ ██╗ ║");
         System.out.println("║ ████╗  ██║╚══██╔══╝██║   ██║██╔════╝╚██╗ ██╔╝██╔══██╗██║ ║");

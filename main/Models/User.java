@@ -9,8 +9,7 @@ public class User {
     public User(String name, String email){
         this.name = name;
         this.email = email;
-        String[] userid = email.split("@");
-        this.userID = userid[0];
+        this.userID = email.split("@")[0];
     }
 
     public String getName(){
