@@ -1,19 +1,16 @@
-package main;
+package main.Models;
 
 public class User {
     String name;
     String email;
     String userID;
-    String password;
     int type;
 
-    public User(String name, String email, String password, int type){
+    public User(String name, String email){
         this.name = name;
         this.email = email;
         String[] userid = email.split("@");
         this.userID = userid[0];
-        this.password = password;
-        this.type = type;
     }
 
     public String getName(){
@@ -22,10 +19,6 @@ public class User {
 
     public String getEmail(){
         return this.email;
-    }
-
-    public String getPassword(){
-        return this.password;
     }
 
     public String getUserID(){
