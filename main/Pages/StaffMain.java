@@ -62,8 +62,8 @@ public class StaffMain extends Page{
                 return new SetPassword(this, -1, this.userID, "2");
 
             case 8:
-                System.out.println("Temp exit, should be log out here");
-                return new Exit(this);
+                System.out.println("Logging out.");
+                return this.getPreviousPage().getPreviousPage();
         }
 
         return this;

@@ -64,9 +64,9 @@ public class StudentMain extends Page{
             case 1:
                 return new SetPassword(this, -1, this.userID, "1");
 
-            case 9:
-                System.out.println("Temp exit, should be log out here");
-                return new Exit(this);
+            case 7:
+                System.out.println("Logging out.");
+                return this.getPreviousPage().getPreviousPage();
         }
 
         return this;
