@@ -1,6 +1,6 @@
 Name,Email,UserID,Password,Salt
 A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,ASMADHUKUMAR,password,salt
-Alexei Sourin,ASSOURIN@ntu.edu.sg,ASSOURIN,password,salt
+Alexei Sourin,ASSOURIN@ntu.edu.sg,ASSOURIN,c9cF1CcJiIoZ2lF7s4IGYRQp/mMslp9b/IxIyObapSc=,UMQtDWyufYmM8hoc3Cz8tQ==
 Anupam Chattopadhyay,ANUPAM@NTU.EDU.SG,ANUPAM,password,salt
 Anwitaman Datta,ANWITAMAN@NTU.EDU.SG,ANWITAMAN,password,salt
 Arvind Easwaran,ARVINDE@NTU.EDU.SG,ARVINDE,password,salt
@@ -23,7 +23,7 @@ He Ying,YHE@NTU.EDU.SG,YHE,password,salt
 Huang Shell Ying,ASSYHUANG@ntu.edu.sg,ASSYHUANG,password,salt
 Hui Siu Cheung,ASSCHUI@ntu.edu.sg,ASSCHUI,password,salt
 Joty Shafiq Rayhan,SRJOTY@NTU.EDU.SG,SRJOTY,password,salt
-"Ke Yiping, Kelly", Kelly",password,salt
+Ke Yiping Kelly,YPKE@NTU.EDU.SG,YPKE,password,salt
 Kong Wai-Kin Adams,ADAMSKONG@NTU.EDU.SG,ADAMSKONG,password,salt
 Kwoh Chee Keong,ASCKKWOH@ntu.edu.sg,ASCKKWOH,password,salt
 Lam Siew Kei,ASSKLAM@NTU.EDU.SG,ASSKLAM,password,salt
@@ -50,7 +50,7 @@ Ng Wee Keong,AWKNG@ntu.edu.sg,AWKNG,password,salt
 Oh Hong Lye,HLOH@NTU.EDU.SG,HLOH,password,salt
 Ong Yew Soon,ASYSOng@ntu.edu.sg,ASYSOng,password,salt
 Owen Noel Newton Fernando,OFERNANDO@NTU.EDU.SG,OFERNANDO,password,salt
-"Pan, Sinno Jialin", Sinno Jialin",password,salt
+Pan Sinno Jialin,SINNOPAN@NTU.EDU.SG,SINNOPAN,password,salt
 Qian Kemao,MKMQIAN@NTU.EDU.SG,MKMQIAN,password,salt
 Quek Hiok Chai,ASHCQUEK@ntu.edu.sg,ASHCQUEK,password,salt
 Rajapakse Jagath Chandana,ASJAGATH@NTU.EDU.SG,ASJAGATH,password,salt
@@ -65,7 +65,7 @@ Tang Xueyan,ASXYTANG@NTU.EDU.SG,ASXYTANG,password,salt
 Tay Kian Boon,kianboon.tay@ntu.edu.sg,kianboon.tay,password,salt
 Thambipillai Srikanthan,ASTSRIKAN@ntu.edu.sg,ASTSRIKAN,password,salt
 Vidya Sudarshan,vidya.sudarshan@ntu.edu.sg,vidya.sudarshan,password,salt
-"Vun Chan Hua, Nicholas", Nicholas",password,salt
+Vun Chan Hua Nicholas,ASCHVUN@ntu.edu.sg,ASCHVUN,password,salt
 Wen Yonggang,YGWEN@ntu.edu.sg,YGWEN,password,salt
 Yeo Chai Kiat,ASCKYEO@ntu.edu.sg,ASCKYEO,password,salt
 Yu Han,HAN.YU@NTU.EDU.SG,HAN.YU,password,salt

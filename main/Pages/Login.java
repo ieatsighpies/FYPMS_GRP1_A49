@@ -1,6 +1,7 @@
 package main.Pages;
 
 import main.Utils.Authenticator;
+import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 
 import java.util.Scanner;
@@ -22,9 +23,14 @@ public class Login extends Page{
 
     @Override
     public Page executable(){
-
-        System.out.println("Login to FYP application");
-        System.out.println("Leave any field empty to return to user selection page.");
+        ConsoleUtils.clearScreen();
+        System.out.println("╔══════════════════════════════════════════════════════════╗");
+        System.out.printf("║%s║\n", userType.equals("1")
+                                            ? "                     -Student Login-                      "
+                                            : "                      -Staff Login-                       ");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║   -Leave any field empty to return to user selection-    ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         do{
             // get userID
@@ -48,7 +54,7 @@ public class Login extends Page{
             else{
                 return userType.equals("1") 
                     ? new StudentMain(this, 1, this.userID)
-                    : new StaffMain(this, 2);
+                    : new StaffMain(this, 2, this.userID);
             }
             if(!(this.userPass.isBlank() || this.userID.isBlank())){
                 System.out.println("Re-attempting login.");

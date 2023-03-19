@@ -19,7 +19,7 @@ public class Authenticator {
         String encryptedPass = encryptor.generateHashedPassword(byteSalt);
 
         /* accept if using default password */
-        if(password.equals("password")){
+        if(password.equals("password") && data[3].equals("password")){
             return true;
         }
         /* else verify against encrypted password */

@@ -3,38 +3,71 @@ package main.Pages;
 import java.io.Console;
 import java.util.Scanner;
 
+import main.Utils.ConsoleUtils;
+
 public class StaffMain extends Page{
     Scanner sc = new Scanner(System.in);
     Console console = System.console();
+
+    String userID;
     
-    public StaffMain(Page previousPage, int accesslevel){
+    public StaffMain(Page previousPage, int accesslevel, String userID){
         super(previousPage, accesslevel);
+        this.userID = userID;
     }
 
     @Override
     public Page executable(){
-        System.out.println("You reached the StaffMain");
-        return new Exit(this.getPreviousPage());
+        ConsoleUtils.clearScreen();
+        System.out.println("╔══════════════════════════════════════════════════════════╗");
+        System.out.println("║ ███╗   ██╗████████╗██╗   ██╗███████╗██╗   ██╗██████╗ ██╗ ║");
+        System.out.println("║ ████╗  ██║╚══██╔══╝██║   ██║██╔════╝╚██╗ ██╔╝██╔══██╗██║ ║");
+        System.out.println("║ ██╔██╗ ██║   ██║   ██║   ██║█████╗   ╚████╔╝ ██████╔╝██║ ║");
+        System.out.println("║ ██║╚██╗██║   ██║   ██║   ██║██╔══╝    ╚██╔╝  ██╔═══╝ ██║ ║");
+        System.out.println("║ ██║ ╚████║   ██║   ╚██████╔╝██║        ██║   ██║     ██║ ║");
+        System.out.println("║ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚═╝        ╚═╝   ╚═╝     ╚═╝ ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║                        -Staff Menu-                      ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.printf("║ %-57s║\n", "Welcome, " + this.userID);
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║[1] Reset password                                        ║");
+        System.out.println("║[2] View projects                                         ║");
+        System.out.println("║[3] View created projects                                 ║");
+        System.out.println("║[4] View student requests                                 ║");
+        System.out.println("║[5] Edit project title                                    ║");
+        System.out.println("║[6] Request to transfer student                           ║");
+        System.out.println("║[7] View request history                                  ║");
+        System.out.println("║[8] Log-out                                               ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
+
+        // get option
+        System.out.print("Enter your option: ");
+        String optionstr = sc.nextLine().trim();
+        System.out.println();
+
+        // loop to ask for valid input
+        while(!(optionstr.matches("^[1-8]{1}$"))){
+
+            System.out.println("Enter a valid option:");
+            optionstr = sc.nextLine().trim();
+        }
+
+        int option = Integer.parseInt(optionstr);
+
+        switch (option){
+
+            // SetPassword Page
+            case 1:
+                return new SetPassword(this, -1, this.userID, "2");
+
+            case 8:
+                System.out.println("Logging out.");
+                return this.getPreviousPage().getPreviousPage();
+        }
+
+        return this;
     }
-
-    
-    // public void setPasswordStaff(String newPassword){
-
-    //     /* Encrypt new password */
-    //     Encryptor encryptor = new Encryptor(newPassword);
-    //     String salt = encryptor.generateSalt();
-    //     byte[] byteSalt = encryptor.convertSalt(salt);
-    //     String encryptedPass = encryptor.generateHashedPassword(byteSalt);
-
-    //     /* Make FileHandler object */
-    //     FileHandler filehandler = new FileHandler();
-
-    //     /* Read and write file */
-    //     String filepath = System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv"; // set filepath
-    //     String line[] = filehandler.readFile(filepath, this.userID, 2); // set target line
-    //     String newline = String.join(",", line[0], line[1], line[2], encryptedPass, salt); // make new string to replace target string
-    //     filehandler.writeToFile(filepath, this.userID, 2, newline); // write new string to target string
-        
     
     
 }
