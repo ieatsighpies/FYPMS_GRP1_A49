@@ -2,10 +2,10 @@ package main.Models;
 
 public class Student extends User implements Request {
     //student HAS-A project
-    private Project project;
+    protected Project project;
     private boolean assignStatus;
     //to differentiate from students without a project
-    private boolean deregistered;
+    protected boolean deregistered;
 
     public Student(String name, String email){
         super(name, email);
@@ -32,19 +32,19 @@ public class Student extends User implements Request {
         return project;
     }
 
-    public void setProject(Student s, Project project){
-        if(s.assignStatus || s.deregistered== false){
-            s.project = project;
-            project.setStudent(s);
-        }
-        else
-            System.out.println("Student has already registered for a project.");
-    }
-    @Override
-    public void request(String newProjectTitle){
-        if((this.project.getTitle).newProjectTitle.compareTo()==0) return -1;
-        else{
-            
-        }
-    }
+    // public void setProject(Student s, Project project){
+    //     if(s.assignStatus || s.deregistered== false){
+    //         s.project = project;
+    //         project.setStudent(s);
+    //     }
+    //     else
+    //         System.out.println("Student has already registered for a project.");
+    // }
+    // @Override
+    // public void request(String newProjectTitle){
+    //     if((this.project.getTitle).newProjectTitle.compareTo()==0) return -1;
+    //     else{
+
+    //     }
+    // }
 }
