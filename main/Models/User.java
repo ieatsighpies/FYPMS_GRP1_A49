@@ -1,10 +1,12 @@
 package main.Models;
 
+enum type {STUDENT, FACULTY, COORDINATOR}
+
 public class User {
     String name;
     String email;
     String userID;
-    int type;
+    type type;
 
     public User(String name, String email){
         this.name = name;
