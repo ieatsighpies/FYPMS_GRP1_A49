@@ -1,6 +1,6 @@
 package main.Models;
 
-public class Student extends User{
+public class    Student extends User{
     //student HAS-A project
     private Project project;
     private boolean assignStatus;
