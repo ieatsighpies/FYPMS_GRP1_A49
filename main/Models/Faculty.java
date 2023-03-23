@@ -1,7 +1,7 @@
 package main.Models;
 
 public class Faculty extends User {
-	private project[] project;
+	private Project[] project;
 	private boolean isCoordinator;
 	private int type;
 

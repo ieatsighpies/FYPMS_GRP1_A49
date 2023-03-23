@@ -33,7 +33,7 @@ public class Student extends User{
     }
 
     public void setProject(Student s, Project project){
-        if(s.assignStatus || s.deregistered== true){
+        if(s.assignStatus || s.deregistered== false){
             s.project = project;
             project.setStudent(s);
         }
