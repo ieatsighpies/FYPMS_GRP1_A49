@@ -2,15 +2,12 @@ package main.Models;
 
 import java.util.ArrayList;
 
-public class Faculty extends User {
+public class Supervisor extends User {
 	private ArrayList<Project> project;
 
-	public Faculty(String name, String email, ArrayList<Project> project) {
+	public Supervisor(String name, String email, ArrayList<Project> project) {
         super(name, email);
         this.project = project;
-    }
-    public Faculty(String name, String email){
-        super(name, email);
     }
 
     public String getName() {
