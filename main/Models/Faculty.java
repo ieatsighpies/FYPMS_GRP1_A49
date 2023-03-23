@@ -1,11 +1,13 @@
 package main.Models;
 
+import java.util.ArrayList;
+
 public class Faculty extends User {
-	private Project[] project;
+	private ArrayList<Project> project;
 	private boolean isCoordinator;
 	private int type;
 
-	public Faculty(String name, String email, boolean isCoordinator, Project[] project) {
+	public Faculty(String name, String email, boolean isCoordinator, ArrayList<Project> project) {
         super(name, email);
         this.isCoordinator = isCoordinator;
         this.project = project;
@@ -24,7 +26,7 @@ public class Faculty extends User {
     }
 
     public Project getProject(int projectID) {
-        return this.project[projectID];
+        return this.project.get(projectID);
     }
 }
 
