@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Faculty extends User {
 	private ArrayList<Project> project;
-	private boolean isCoordinator;
-	private int type;
 
-	public Faculty(String name, String email, boolean isCoordinator, ArrayList<Project> project) {
+	public Faculty(String name, String email, ArrayList<Project> project) {
         super(name, email);
-        this.isCoordinator = isCoordinator;
         this.project = project;
+    }
+    public Faculty(String name, String email){
+        super(name, email);
     }
 
     public String getName() {
