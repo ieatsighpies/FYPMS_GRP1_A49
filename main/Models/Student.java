@@ -1,6 +1,6 @@
 package main.Models;
 
-public class    Student extends User{
+public class Student extends User{
     //student HAS-A project
     private Project project;
     private boolean assignStatus;
@@ -14,28 +14,28 @@ public class    Student extends User{
         this.deregistered = false;
     }
     public String getName(){
-        return Student.name;
+        return name;
     }
     public String getEmail(){
-        return Student.email;
+        return email;
     }
     public String getUserID(){
-        return Student.userID;
+        return userID;
     }
     public boolean getAssignStatus(){
-        return Student.assignStatus;
+        return assignStatus;
     }
     public boolean getDeregisteredStatus(){
-        return Student.deregistered;
+        return deregistered;
     }
     public Project getProject(){
-        return Student.project;
+        return project;
     }
 
     public void setProject(Student s, Project project){
-        if(s.getAssignStatus){
-            Student.project = project.projectID;
-            project.studentID = s.getUserID;
+        if(s.assignStatus || s.deregistered== true){
+            s.project = project;
+            project.setStudent(s);
         }
         else
             System.out.println("Student has already registered for a project.");
