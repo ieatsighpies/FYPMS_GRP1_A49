@@ -1,6 +1,6 @@
 package main.Models;
 
-public class Student extends User{
+public class Student extends User implements Request {
     //student HAS-A project
     private Project project;
     private boolean assignStatus;
@@ -39,5 +39,12 @@ public class Student extends User{
         }
         else
             System.out.println("Student has already registered for a project.");
+    }
+    @Override
+    public void request(String newProjectTitle){
+        if((this.project.getTitle).newProjectTitle.compareTo()==0) return -1;
+        else{
+            
+        }
     }
 }
