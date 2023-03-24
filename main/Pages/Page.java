@@ -10,9 +10,8 @@ public abstract class Page {
     private Page previousPage;
     public int accesslevel = -1;
     
-    public Page(Page previousPage, int accesslevel){
+    public Page(Page previousPage){
         this.previousPage = previousPage;
-        this.accesslevel = accesslevel;
     }
 
     public abstract Page executable();

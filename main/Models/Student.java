@@ -42,9 +42,14 @@ public class Student extends User implements Request {
     }
     @Override
     public void request(String newProjectTitle){
-        if((this.project.getTitle).newProjectTitle.compareTo()==0) return -1;
+        if((this.project.getTitle()).compareTo(newProjectTitle)==0) return;
         else{
             
         }
+    }
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     }
 }

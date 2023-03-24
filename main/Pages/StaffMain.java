@@ -3,17 +3,18 @@ package main.Pages;
 import java.io.Console;
 import java.util.Scanner;
 
+import main.Models.Faculty;
 import main.Utils.ConsoleUtils;
 
 public class StaffMain extends Page{
     Scanner sc = new Scanner(System.in);
     Console console = System.console();
 
-    String userID;
+    Faculty staff;
     
-    public StaffMain(Page previousPage, int accesslevel, String userID){
-        super(previousPage, accesslevel);
-        this.userID = userID;
+    public StaffMain(Page previousPage, Faculty staff){
+        super(previousPage);
+        this.staff = staff;
     }
 
     @Override
@@ -59,7 +60,7 @@ public class StaffMain extends Page{
 
             // SetPassword Page
             case 1:
-                return new SetPassword(this, -1, this.userID, "2");
+                return new SetPassword(this, this.staff.getUserID(), "2");
 
             case 8:
                 System.out.println("Logging out.");

@@ -16,8 +16,8 @@ public class SetPassword extends Page{
     String filepath;
     String userID;
     
-    public SetPassword(Page previousPage, int accesslevel, String userID, String userType){
-        super(previousPage, accesslevel);
+    public SetPassword(Page previousPage, String userID, String userType){
+        super(previousPage);
         this.userType = userType;
         this.userID = userID;
     }

@@ -10,8 +10,8 @@ public class Welcome extends Page{
     String userPass;
     String userType;
 
-    public Welcome(Page previousPage, int accesslevel){
-        super(previousPage, accesslevel);
+    public Welcome(Page previousPage){
+        super(previousPage);
     }
 
     @Override
@@ -50,7 +50,9 @@ public class Welcome extends Page{
             this.userType = sc.nextLine().trim();
         }
 
-        return new Login(this, -1, this.userType);
+        return userType.equals("1") 
+                    ? new StudentLogin(this, this.userType)
+                    : new StaffLogin(this, this.userType);
 
         
     }

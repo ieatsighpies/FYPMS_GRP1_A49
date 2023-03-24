@@ -3,7 +3,7 @@ package main.Pages;
 public class Exit extends Page{
     
     public Exit(Page previousPage){
-        super(previousPage, -1);
+        super(previousPage);
     }
 
     @Override
