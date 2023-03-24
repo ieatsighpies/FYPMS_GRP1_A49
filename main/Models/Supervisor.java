@@ -6,9 +6,9 @@ public class Supervisor extends User {
 	private ArrayList<Project> projects = new ArrayList<Project>();
     protected int countSupervising=0;
 
-	public Supervisor(String name, String email, ArrayList<Project> projects) {
+	public Supervisor(String name, String email) {
         super(name, email);
-        this.projects = projects;
+        // this.projects = projects;
     }
 
     public String getName() {

@@ -4,7 +4,7 @@ import java.io.Console;
 import java.util.Scanner;
 
 import main.Models.Coordinator;
-import main.Models.Faculty;
+import main.Models.Supervisor;
 import main.Utils.Authenticator;
 import main.Utils.FileHandler;
 
@@ -14,7 +14,7 @@ public class StaffLogin extends Page{
     
     private String userType;
     private String userID;
-    private Faculty staff;
+    private Supervisor staff;
     private Coordinator coordinator;
     private String userPass;
 
@@ -64,7 +64,7 @@ public class StaffLogin extends Page{
                 // initialise faculty object
                 String[] data = FileHandler.readFile(filepath_faculty, this.userID, 2);
                 this.staff = this.userType.equals("2")
-                                    ? new Faculty(data[1], data[2])
+                                    ? new Supervisor(data[1], data[2])
                                     : new Coordinator(data[1], data[2]);
                 return this.userType.equals("2") 
                             ? new StaffMain(this, this.staff)

@@ -3,16 +3,16 @@ package main.Pages;
 import java.io.Console;
 import java.util.Scanner;
 
-import main.Models.Faculty;
+import main.Models.Supervisor;
 import main.Utils.ConsoleUtils;
 
 public class StaffMain extends Page{
     Scanner sc = new Scanner(System.in);
     Console console = System.console();
 
-    Faculty staff;
+    Supervisor staff;
     
-    public StaffMain(Page previousPage, Faculty staff){
+    public StaffMain(Page previousPage, Supervisor staff){
         super(previousPage);
         this.staff = staff;
     }
@@ -62,6 +62,9 @@ public class StaffMain extends Page{
             case 1:
                 return new SetPassword(this, this.staff.getUserID(), "2");
 
+            case 6:
+                return new TransferStudent(this);
+            // Logout
             case 8:
                 System.out.println("Logging out.");
                 return this.getPreviousPage().getPreviousPage();

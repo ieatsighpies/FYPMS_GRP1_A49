@@ -6,8 +6,8 @@ import main.Models.Project;
 
 public class Coordinator extends Supervisor{
 
-    public Coordinator(String name, String email, ArrayList<Project> projects){
-        super(name, email,projects);
+    public Coordinator(String name, String email){
+        super(name, email);
     }
 
     public String getName() {
@@ -22,7 +22,7 @@ public class Coordinator extends Supervisor{
         return super.userID;
     }
 
-    public Project getProject(int projectID) {
-        return this.project.get(projectID);
-    }
+    // public Project getProject(int projectID) {
+    //     return this.projects.get(projectID);
+    // }
 }
