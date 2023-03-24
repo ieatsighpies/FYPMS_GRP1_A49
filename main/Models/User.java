@@ -1,10 +1,10 @@
 package main.Models;
 
 public class User {
-    String name;
-    String email;
-    String userID;
-    int type;
+    protected String name;
+    protected String email;
+    protected String userID;
+    protected int type;
 
     public User(String name, String email){
         this.name = name;

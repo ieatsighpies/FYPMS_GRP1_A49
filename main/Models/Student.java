@@ -12,7 +12,7 @@ public class Student extends User {
         this.deregistered = false;
     }
     public String getName(){
-        return name;
+        return this.name;
     }
     public String getEmail(){
         return email;
@@ -25,7 +25,8 @@ public class Student extends User {
     }
     public Project getProject(){
         if(this.project.status==projectStatus.ALLOCATED)
-            return project;
+            return this.project;
+        return null;
     }
 
     // public void setProject(Student s, Project project){

@@ -64,6 +64,10 @@ public class StudentMain extends Page{
             case 1:
                 return new SetPassword(this, this.student.getUserID(), "1");
 
+            // View available project
+            case 2:
+                return new StudentProjectView(this);
+
             case 7:
                 System.out.println("Logging out.");
                 return this.getPreviousPage().getPreviousPage();
