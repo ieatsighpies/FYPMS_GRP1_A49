@@ -2,10 +2,16 @@ package main.Models;
 
 public class Project {
     private int projectID;
-    protected String title;
-    protected String studentID;
+    protected String supervisorName;
+    protected String supervisorEmail;
     protected String supervisorID;
+    protected String title;
     protected projectStatus status;
+    protected String studentName;
+    protected String studentEmail;
+    protected String studentID;
+    
+    
 
     public int getID(){return this.projectID;}
     public String getTitle(){return this.title;}
