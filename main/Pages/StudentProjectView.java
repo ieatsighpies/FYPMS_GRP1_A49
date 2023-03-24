@@ -18,6 +18,7 @@ public class StudentProjectView extends Page{
 
     @Override
     public Page executable(){
+        
         // print avaliable project
         ConsoleUtils.clearScreen();                              
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");

@@ -30,7 +30,7 @@ public class CoordinatorMain extends Page{
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║                     -Coordinator Menu-                   ║");
         System.out.println("╠══════════════════════════════════════════════════════════╣");
-        System.out.printf("║ %-57s║\n", "Welcome, " + this.coordinator.getUserID());
+        System.out.printf("║ Welcome, \u001B[33m%-48s\u001B[0m║\n", this.coordinator.getName());
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║[1] Reset password                                        ║");
         System.out.println("║[2] View projects                                         ║");

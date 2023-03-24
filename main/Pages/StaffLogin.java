@@ -35,7 +35,7 @@ public class StaffLogin extends Page{
             // get userID
             System.out.print("Enter UserID:");
             this.userID = sc.nextLine().trim();
-            System.out.println(this.userID);
+            System.out.println();
 
             // get userPass
             this.userPass = new String(console.readPassword("Enter Password:"));
@@ -59,13 +59,13 @@ public class StaffLogin extends Page{
             else if(!passcheck){
                 System.out.println("Invalid login details.");
             }
-            // redirect to student main if verified
+            // redirect to staff main if verified
             else{
                 // initialise faculty object
                 String[] data = FileHandler.readFile(filepath_faculty, this.userID, 2);
                 this.staff = this.userType.equals("2")
-                                    ? new Supervisor(data[1], data[2])
-                                    : new Coordinator(data[1], data[2]);
+                                    ? new Supervisor(data[0], data[1])
+                                    : new Coordinator(data[0], data[1]);
                 return this.userType.equals("2") 
                             ? new StaffMain(this, this.staff)
                             : new CoordinatorMain(this, (Coordinator) this.staff);
