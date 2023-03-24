@@ -2,12 +2,12 @@ package main.Models;
 
 import java.util.ArrayList;
 
-public class Coordinator extends Faculty{
+import main.Models.Project;
 
-    private ArrayList<Project> project;
+public class Coordinator extends Supervisor{
 
-	public Coordinator(String name, String email) {
-        super(name, email);
+    public Coordinator(String name, String email, ArrayList<Project> projects){
+        super(name, email,projects);
     }
 
     public String getName() {

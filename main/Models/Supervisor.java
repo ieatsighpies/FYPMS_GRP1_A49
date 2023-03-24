@@ -2,11 +2,13 @@ package main.Models;
 
 import java.util.ArrayList;
 
-public class Faculty extends User {
-	private ArrayList<Project> project;
+public class Supervisor extends User {
+	private ArrayList<Project> projects = new ArrayList<Project>();
+    protected int countSupervising=0;
 
-	public Faculty(String name, String email) {
+	public Supervisor(String name, String email, ArrayList<Project> projects) {
         super(name, email);
+        this.projects = projects;
     }
 
     public String getName() {
@@ -20,14 +22,10 @@ public class Faculty extends User {
     public String getUserID() {
         return super.userID;
     }
-
     public Project getProject(int projectID) {
-        return this.project.get(projectID);
+        return this.projects.get(projectID-1);
     }
 
-    public String getuserType() {
-        return null;
-    }
 }
 
 
