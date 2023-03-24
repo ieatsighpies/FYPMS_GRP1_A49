@@ -32,6 +32,26 @@ public class Student extends User {
         return project;
     }
 
+    public void setProject(Student s, Project project){
+        if(s.assignStatus || s.deregistered== false){
+            s.project = project;
+            project.setStudent(s);
+        }
+        else
+            System.out.println("Student has already registered for a project.");
+    }
+    // @Override
+    // public void request(String newProjectTitle){
+    //     if((this.project.getTitle()).compareTo(newProjectTitle)==0) return;
+    //     else{
+            
+    //     }
+    // }
+    // @Override
+    // public int compareTo(Object o) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    // }
     // public void setProject(Student s, Project project){
     //     if(s.assignStatus || s.deregistered== false){
     //         s.project = project;
