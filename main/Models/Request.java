@@ -12,7 +12,7 @@ public class Request {
         requestStatus = false;
     }
     //student requesting to de-register proj
-    public Request(Student s, Project s.project){
+    public Request(Student s, Project project){
         requestStatus = false;
     }
     //transferring student to replacement supervisor

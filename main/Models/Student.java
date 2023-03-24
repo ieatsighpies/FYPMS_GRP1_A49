@@ -1,6 +1,6 @@
 package main.Models;
 
-public class Student extends User implements Request {
+public class Student extends User {
     //student HAS-A project
     protected Project project;
     private boolean assignStatus;

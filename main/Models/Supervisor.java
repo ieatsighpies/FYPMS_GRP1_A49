@@ -23,7 +23,7 @@ public class Supervisor extends User {
         return super.userID;
     }
     public Project getProject(int projectID) {
-        return this.project.get(projectID-1);
+        return this.projects.get(projectID-1);
     }
 
 }
