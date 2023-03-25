@@ -30,12 +30,12 @@ public class StaffMain extends Page{
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║                        -Staff Menu-                      ║");
         System.out.println("╠══════════════════════════════════════════════════════════╣");
-        System.out.printf("║ %-57s║\n", "Welcome, " + this.userID);
+        System.out.printf("║ Welcome, \u001B[33m%-48s\u001B[0m║\n", this.staff.getName());
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║[1] Reset password                                        ║");
         System.out.println("║[2] View projects                                         ║");
-        System.out.println("║[3] View created projects                                 ║");
-        System.out.println("║[4] View student requests                                 ║");
+        System.out.println("║[3] View student requests                                 ║");
+        System.out.println("║[4] Create Project                                        ║");
         System.out.println("║[5] Edit project title                                    ║");
         System.out.println("║[6] Request to transfer student                           ║");
         System.out.println("║[7] View request history                                  ║");
@@ -61,7 +61,16 @@ public class StaffMain extends Page{
             // SetPassword Page
             case 1:
                 return new SetPassword(this, this.staff.getUserID(), "2");
-
+            
+            // View Projects
+            case 2:
+                return new supervisorProjectView(this, this.staff);
+            
+            // Create Project
+            case 4:
+                return new CreateProjectPage(this, this.staff);
+                
+            // Request to transfer student
             case 6:
                 return new TransferStudent(this);
             // Logout

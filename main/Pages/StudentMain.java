@@ -33,7 +33,7 @@ public class StudentMain extends Page{
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║                       -Student Menu-                     ║");
         System.out.println("╠══════════════════════════════════════════════════════════╣");
-        System.out.printf("║ %-57s║\n", "Welcome, " + this.student.getUserID());
+        System.out.printf("║ Welcome, \u001B[33m%-48s\u001B[0m║\n", this.student.getName());
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║[1] Reset password                                        ║");
         System.out.println("║[2] View available projects                               ║");
