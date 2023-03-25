@@ -25,4 +25,41 @@ public class Request {
     public Request(int projectID, int supervisorID){
         requestStatus = false;
     }
+    
+    public String getRequestID() {
+        return requestID;
+    }
+    public void setRequestID(String requestID) {
+        this.requestID = requestID;
+    }
+    public String getRequesterID() {
+        return requesterID;
+    }
+    public void setRequesterID(String requesterID) {
+        this.requesterID = requesterID;
+    }
+    public String getRequesteeID() {
+        return requesteeID;
+    }
+    public void setRequesteeID(String requesteeID) {
+        this.requesteeID = requesteeID;
+    }
+    public int getRequestType() {
+        return requestType;
+    }
+    public void setRequestType(int requestType) {
+        this.requestType = requestType;
+    }
+    public boolean isRequestStatus() {
+        return requestStatus;
+    }
+    public void setRequestStatus(boolean requestStatus) {
+        this.requestStatus = requestStatus;
+    }
+    public String getComments() {
+        return comments;
+    }
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
 }

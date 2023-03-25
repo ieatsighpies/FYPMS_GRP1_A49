@@ -69,10 +69,10 @@ public class StaffMain extends Page{
             // Create Project
             case 4:
                 return new CreateProjectPage(this, this.staff);
-                
+
             // Request to transfer student
             case 6:
-                return new TransferStudent(this);
+                return new TransferStudent(this, this.staff);
             // Logout
             case 8:
                 System.out.println("Logging out.");

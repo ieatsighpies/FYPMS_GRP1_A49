@@ -25,8 +25,17 @@ public class Supervisor extends User {
         return super.getUserID();
     }
 
-    public Project getProject(int projectID) {
-        return this.projects.get(projectID-1);
+    public int getSupCount(){
+        return this.countSupervising;
+    }
+
+    public Project getProjectbyID(String projectID) {
+        for(Project p : this.projects){
+            if(p.projectID.equals(projectID)){
+                return p;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Project> getProjects(){
@@ -61,26 +70,27 @@ public class Supervisor extends User {
     }
 
     public void updateProject(){
+        this.projects = new ArrayList<Project>();
         this.countSupervising = 0;
         this.initialiseProject();
     }
 
     public void printProjects(){                           
-        System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
-        System.out.println("║                                     ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                     ║");
-        System.out.println("║                                     ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                     ║");
-        System.out.println("║                                     ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   ███████╗                                     ║");
-        System.out.println("║                                     ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   ╚════██║                                     ║");
-        System.out.println("║                                     ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   ███████║                                     ║");
-        System.out.println("║                                     ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                     ║");
-        System.out.println("╠═════╦═════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
-        System.out.println("║ID   ║Project Title                                                                    ║Student Name    ║Student Email            ║Status   ║");
+        System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║                                             ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                             ║");
+        System.out.println("║                                             ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                             ║");
+        System.out.println("║                                             ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   ███████╗                                             ║");
+        System.out.println("║                                             ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   ╚════██║                                             ║");
+        System.out.println("║                                             ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   ███████║                                             ║");
+        System.out.println("║                                             ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                             ║");
+        System.out.println("╠══════════════════╦════════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
+        System.out.println("║ID                ║Project Title                                                                       ║Student Name    ║Student Email            ║Status   ║");
         
         for(Project p : this.projects){
-            System.out.println("╠═════╬═════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
-            System.out.printf("║%-5.5s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
+            System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
+            System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
         }
-        System.out.println("╚═════╩═════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
+        System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
 
 }
