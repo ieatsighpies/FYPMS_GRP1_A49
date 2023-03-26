@@ -1,28 +1,30 @@
 package main.Models;
 
+import main.Models.requestStatus_ENUM;
+
 public class Request {
     protected String requestID;
     protected String requesterID;
     protected String requesteeID;
     protected int requestType;
-    protected boolean requestStatus;
+    protected requestStatus_ENUM requestStatus;
     protected String comments;
-    
+
 
     //student requesting to register for proj --type1
     public Request(Student s, int projectID){
-        requestStatus = false;
+        requestStatus = requestStatus_ENUM.PENDING;
     }
     //student requesting to change proj title --type2
     public Request(Student s, String newProjectTitle){
-        requestStatus = false;
+        requestStatus = requestStatus_ENUM.PENDING;
     }
     //student requesting to de-register proj --type3
     public Request(Student s, Project project){
-        requestStatus = false;
+        requestStatus = requestStatus_ENUM.PENDING;
     }
     //transferring student to replacement supervisor --type4
     public Request(int projectID, int supervisorID){
-        requestStatus = false;
+        requestStatus = requestStatus_ENUM.PENDING;
     }
 }
