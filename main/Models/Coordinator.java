@@ -22,7 +22,4 @@ public class Coordinator extends Supervisor{
         return super.userID;
     }
 
-    // public Project getProject(int projectID) {
-    //     return this.projects.get(projectID);
-    // }
 }
