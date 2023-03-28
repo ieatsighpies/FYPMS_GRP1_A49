@@ -1,30 +1,45 @@
 package main.Models;
 
-public class Request {
+import main.Models.requestStatus_ENUM;
+
+public abstract class Request {
     protected String requestID;
-    protected String requesterID;
-    protected String requesteeID;
+    protected Object requester;
+    protected String projectID;
     protected int requestType;
-    protected boolean requestStatus;
+    protected requestStatus_ENUM requestStatus;
     protected String comments;
-    
+
+    public Request(Object o, String projectID){
+        this.requestStatus = requestStatus_ENUM.PENDING;
+        this.requester = o;
+        this.projectID = projectID;
+    }
+    public requestStatus_ENUM getRequestStatus() {
+        return requestStatus;
+    }
 
     //student requesting to register for proj --type1
-    public Request(Student s, int projectID){
-        requestStatus = false;
-    }
-    //student requesting to change proj title --type2
-    public Request(Student s, String newProjectTitle){
-        requestStatus = false;
-    }
-    //student requesting to de-register proj --type3
-    public Request(Student s, Project project){
-        requestStatus = false;
-    }
-    //transferring student to replacement supervisor --type4
-    public Request(int projectID, int supervisorID){
-        requestStatus = false;
-    }
+    // public Request(Student s, int projectID){
+    //     requestStatus = requestStatus_ENUM.PENDING;
+    //     if(s.getProject()==null){
+
+    //     }
+    //     if(s.getDeregisteredStatus()==true)
+
+    // }
+    // //student requesting to change proj title --type2
+    // public Request(Student s, String newProjectTitle){
+    //     requestStatus = requestStatus_ENUM.PENDING;
+    // }
+    // //student requesting to de-register proj --type3
+    // public Request(Student s, Project project){
+    //     requestStatus = requestStatus_ENUM.PENDING;
+    // }
+    // //transferring student to replacement supervisor --type4
+    // public Request(int projectID, int supervisorID){
+    //     requestStatus = requestStatus_ENUM.PENDING;
+    // }
     
     public String getRequestID() {
         return requestID;

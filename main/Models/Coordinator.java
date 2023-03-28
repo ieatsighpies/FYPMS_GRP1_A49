@@ -6,8 +6,12 @@ import main.Models.Project;
 
 public class Coordinator extends Supervisor{
 
+    protected ArrayList<Request> requestList = new ArrayList<Request>();
+
     public Coordinator(String name, String email){
         super(name, email);
+        initialiseProject();
+        this.countSupervising = 0;
     }
 
     public String getName() {
@@ -21,8 +25,7 @@ public class Coordinator extends Supervisor{
     public String getUserID() {
         return super.userID;
     }
+    public void approve(Request req){
 
-    // public Project getProject(int projectID) {
-    //     return this.projects.get(projectID);
-    // }
+    }
 }
