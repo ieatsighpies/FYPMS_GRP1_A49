@@ -28,15 +28,23 @@ public class Supervisor extends User {
     public Project getProject(int projectID) {
         return this.projects.get(projectID-1);
     }
-    public void setTitle(String title, int projectID){
-        this.projects.get(projectID-1).title = title;
+    public void setTitle(String title, String projectID){
+        Project temp;
+        for(Project p: this.projects){
+            if(p.projectID.equals(projectID))
+                p.title = title;
+        }
         System.out.println("The project title is " + title);
     }
     public ArrayList<Project> getProjects(){
         return this.projects;
     }
     public void approve(EditTitleReq req){
+        if(req.requestStatus!=requestStatus_ENUM.PENDING) return;
 
+        Student student = (Student) req.requester;
+        this.setTitle(req.title, student.project.projectID);
+        req.requestStatus = requestStatus_ENUM.APPROVED;
     }
     public void initialiseProject(){
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";

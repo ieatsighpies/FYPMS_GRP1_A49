@@ -12,7 +12,10 @@ public abstract class Project {
     protected String studentID;
 
 
-    public Project(String projectID, String supervisorName, String supervisorEmail, String title, projectStatus status, String studentName, String studentEmail){
+    public Project(String projectID, String supervisorName,
+                    String supervisorEmail, String title,
+                    projectStatus status, String studentName,
+                    String studentEmail){
         this.projectID = projectID;
         this.supervisorEmail = supervisorEmail;
         this.supervisorID = supervisorEmail.split("@")[0];
