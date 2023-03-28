@@ -6,9 +6,12 @@ import main.Models.Project;
 
 public class Coordinator extends Supervisor{
 
-    protected ArrayList<Request> requestList;
+    protected ArrayList<Request> requestList = new ArrayList<Request>();
+
     public Coordinator(String name, String email){
         super(name, email);
+        initialiseProject();
+        this.countSupervising = 0;
     }
 
     public String getName() {

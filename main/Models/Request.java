@@ -5,7 +5,7 @@ import main.Models.requestStatus_ENUM;
 public abstract class Request {
     protected String requestID;
     protected Object requester;
-    protected int ID1;
+    protected int projectID;
     protected int requestType;
     protected requestStatus_ENUM requestStatus;
     protected String comments;
@@ -13,8 +13,9 @@ public abstract class Request {
     public Request(Object o, int projectID){
         this.requestStatus = requestStatus_ENUM.PENDING;
         this.requester = o;
-        this.ID1 = projectID;
+        this.projectID = projectID;
     }
+
     //student requesting to register for proj --type1
     // public Request(Student s, int projectID){
     //     requestStatus = requestStatus_ENUM.PENDING;

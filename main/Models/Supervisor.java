@@ -28,11 +28,16 @@ public class Supervisor extends User {
     public Project getProject(int projectID) {
         return this.projects.get(projectID-1);
     }
-
+    public void setTitle(String title, int projectID){
+        this.projects.get(projectID-1).title = title;
+        System.out.println("The project title is " + title);
+    }
     public ArrayList<Project> getProjects(){
         return this.projects;
     }
+    public void approve(EditTitleReq req){
 
+    }
     public void initialiseProject(){
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
@@ -65,7 +70,7 @@ public class Supervisor extends User {
         this.initialiseProject();
     }
 
-    public void printProjects(){                           
+    public void printProjects(){
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                                     ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                     ║");
         System.out.println("║                                     ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                     ║");
@@ -75,7 +80,7 @@ public class Supervisor extends User {
         System.out.println("║                                     ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                     ║");
         System.out.println("╠═════╦═════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
         System.out.println("║ID   ║Project Title                                                                    ║Student Name    ║Student Email            ║Status   ║");
-        
+
         for(Project p : this.projects){
             System.out.println("╠═════╬═════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
             System.out.printf("║%-5.5s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());

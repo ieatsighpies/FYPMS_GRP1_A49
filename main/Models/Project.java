@@ -1,6 +1,6 @@
 package main.Models;
 
-public class Project {
+public abstract class Project {
     protected String projectID;
     protected String supervisorName;
     protected String supervisorEmail;
@@ -10,7 +10,7 @@ public class Project {
     protected String studentName;
     protected String studentEmail;
     protected String studentID;
-    
+
 
     public Project(String projectID, String supervisorName, String supervisorEmail, String title, projectStatus status, String studentName, String studentEmail){
         this.projectID = projectID;
@@ -37,7 +37,6 @@ public class Project {
     public void setStudent(Student s){this.studentID= s.userID;}
     public void setSupervisor(Supervisor f){this.supervisorID= f.userID;}
     //only supervisor can setTitle
-    //public void setTitle(String s){this.title=s;}
+    public abstract void setTitle();
 
 }
-
