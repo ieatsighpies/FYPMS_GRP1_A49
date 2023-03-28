@@ -6,6 +6,7 @@ import main.Models.Project;
 
 public class Coordinator extends Supervisor{
 
+    protected ArrayList<Request> requestList;
     public Coordinator(String name, String email){
         super(name, email);
     }
@@ -21,5 +22,7 @@ public class Coordinator extends Supervisor{
     public String getUserID() {
         return super.userID;
     }
+    public void approve(Request req){
 
+    }
 }
