@@ -18,26 +18,39 @@ public abstract class Request {
     public requestStatus_ENUM getRequestStatus() {
         return requestStatus;
     }
+    public String getRequestID() {
+        return requestID;
+    }
+    public void setRequestID(String requestID) {
+        this.requestID = requestID;
+    }
+    public Object getRequester() {
+        return requester;
+    }
+    public void setRequester(Object requester) {
+        this.requester = requester;
+    }
+    public String getProjectID() {
+        return projectID;
+    }
+    public void setProjectID(String projectID) {
+        this.projectID = projectID;
+    }
+    public int getRequestType() {
+        return requestType;
+    }
+    public void setRequestType(int requestType) {
+        this.requestType = requestType;
+    }
+    public void setRequestStatus(requestStatus_ENUM requestStatus) {
+        this.requestStatus = requestStatus;
+    }
+    public String getComments() {
+        return comments;
+    }
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
 
-    //student requesting to register for proj --type1
-    // public Request(Student s, int projectID){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    //     if(s.getProject()==null){
-
-    //     }
-    //     if(s.getDeregisteredStatus()==true)
-
-    // }
-    // //student requesting to change proj title --type2
-    // public Request(Student s, String newProjectTitle){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    // }
-    // //student requesting to de-register proj --type3
-    // public Request(Student s, Project project){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    // }
-    // //transferring student to replacement supervisor --type4
-    // public Request(int projectID, int supervisorID){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    // }
+   
 }

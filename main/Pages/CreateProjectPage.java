@@ -8,6 +8,7 @@ import java.util.Scanner;
 import main.Models.Project;
 import main.Models.Supervisor;
 import main.Models.projectStatus;
+import main.Utils.ConsoleUtils;
 import main.Utils.UIDGenerator;
 
 public class CreateProjectPage extends Page{
@@ -23,6 +24,7 @@ public class CreateProjectPage extends Page{
 
     @Override
     public Page executable() {
+        ConsoleUtils.clearScreen();
         // print menu
         System.out.println("╔══════════════════════════════════════════════════════════╗");
         System.out.println("║                      -Project Creation-                  ║");
@@ -34,8 +36,18 @@ public class CreateProjectPage extends Page{
         String title;
         System.out.print("Enter project title: ");
         title = sc.nextLine();
-        if(title.isBlank()){
-            return this.getPreviousPage();
+        while(true){
+            if(title.isBlank()){
+                return this.getPreviousPage();
+            }
+            if(title.contains(",")){
+                System.out.println("Title cannot contain commas (,)");
+                System.out.print("Enter project title: ");
+                title = sc.nextLine();
+            }
+            else{
+                break;
+            }
         }
 
         // confirmation
@@ -57,6 +69,7 @@ public class CreateProjectPage extends Page{
         }
 
         // print added project
+        ConsoleUtils.clearScreen();
         System.out.println("╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                                            -Project Added-                                            ║");
         System.out.println("╠══════════════════╦════════════════════════════════════════════════════════════════════════════════════╣");
@@ -67,6 +80,7 @@ public class CreateProjectPage extends Page{
         System.out.println();
         System.out.print("Enter any input to return to Main Menu:");
         String temp = sc.nextLine();
+        staff.updateProject();
         return this.getPreviousPage();
     }
 
