@@ -14,6 +14,11 @@ public class Request {
     //student requesting to register for proj --type1
     public Request(Student s, int projectID){
         requestStatus = requestStatus_ENUM.PENDING;
+        if(s.getProject()==null){
+
+        }
+        if(s.getDeregisteredStatus()==true)
+            
     }
     //student requesting to change proj title --type2
     public Request(Student s, String newProjectTitle){
