@@ -18,46 +18,23 @@ public abstract class Request {
     public requestStatus_ENUM getRequestStatus() {
         return requestStatus;
     }
-
-    //student requesting to register for proj --type1
-    // public Request(Student s, int projectID){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    //     if(s.getProject()==null){
-
-    //     }
-    //     if(s.getDeregisteredStatus()==true)
-
-    // }
-    // //student requesting to change proj title --type2
-    // public Request(Student s, String newProjectTitle){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    // }
-    // //student requesting to de-register proj --type3
-    // public Request(Student s, Project project){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    // }
-    // //transferring student to replacement supervisor --type4
-    // public Request(int projectID, int supervisorID){
-    //     requestStatus = requestStatus_ENUM.PENDING;
-    // }
-    
     public String getRequestID() {
         return requestID;
     }
     public void setRequestID(String requestID) {
         this.requestID = requestID;
     }
-    public String getRequesterID() {
-        return requesterID;
+    public Object getRequester() {
+        return requester;
     }
-    public void setRequesterID(String requesterID) {
-        this.requesterID = requesterID;
+    public void setRequester(Object requester) {
+        this.requester = requester;
     }
-    public String getRequesteeID() {
-        return requesteeID;
+    public String getProjectID() {
+        return projectID;
     }
-    public void setRequesteeID(String requesteeID) {
-        this.requesteeID = requesteeID;
+    public void setProjectID(String projectID) {
+        this.projectID = projectID;
     }
     public int getRequestType() {
         return requestType;
@@ -65,10 +42,7 @@ public abstract class Request {
     public void setRequestType(int requestType) {
         this.requestType = requestType;
     }
-    public boolean isRequestStatus() {
-        return requestStatus;
-    }
-    public void setRequestStatus(boolean requestStatus) {
+    public void setRequestStatus(requestStatus_ENUM requestStatus) {
         this.requestStatus = requestStatus;
     }
     public String getComments() {
@@ -77,4 +51,6 @@ public abstract class Request {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+   
 }
