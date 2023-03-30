@@ -31,7 +31,7 @@ public class Supervisor extends User {
 
     public Project getProjectbyID(String projectID) {
         for(Project p : this.projects){
-            if(p.getID.equals(projectID)){
+            if(p.getID().equals(projectID)){
                 return p;
             }
         }
