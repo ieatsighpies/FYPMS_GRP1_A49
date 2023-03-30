@@ -63,12 +63,15 @@ public class StaffLogin extends Page{
             else{
                 // initialise faculty object
                 String[] data = FileHandler.readFile(filepath_faculty, this.userID, 2);
-                this.staff = this.userType.equals("2")
-                                    ? new Supervisor(data[0], data[1])
-                                    : new Coordinator(data[0], data[1]);
+                if(this.userType.equals("2")){
+                    this.staff = new Supervisor(data[0], data[1]);
+                }
+                else{
+                    this.coordinator = new Coordinator(data[0], data[1]);
+                }
                 return this.userType.equals("2") 
                             ? new StaffMain(this, this.staff)
-                            : new CoordinatorMain(this, (Coordinator) this.staff);
+                            : new CoordinatorMain(this, this.coordinator);
             }
             if(!(this.userPass.isBlank() || this.userID.isBlank())){
                 System.out.println("Re-attempting login.");
