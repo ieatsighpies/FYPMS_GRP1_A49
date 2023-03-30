@@ -11,7 +11,6 @@ public class Coordinator extends Supervisor{
         initialiseProject();
         this.countSupervising = 0;
     }
-
     public String getName() {
         return super.name;
     }
@@ -22,8 +21,5 @@ public class Coordinator extends Supervisor{
 
     public String getUserID() {
         return super.userID;
-    }
-    public void approve(Request req){
-
     }
 }

@@ -30,10 +30,6 @@ public class Student extends User {
             System.out.println("You have not registered for a project");
             return this.project;
         }
-        if(this.deregistered==true){
-            System.out.println("You are not allowed to make selection again as you deregistered your FYP");
-            return this.project;
-        }
         return null;
     }
 
