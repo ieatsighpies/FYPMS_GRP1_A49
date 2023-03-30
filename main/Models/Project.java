@@ -1,15 +1,15 @@
 package main.Models;
 
 public class Project {
-    protected String projectID;
-    protected String supervisorName;
-    protected String supervisorEmail;
-    protected String supervisorID;
-    protected String title;
-    protected projectStatus status;
-    protected String studentName;
-    protected String studentEmail;
-    protected String studentID;
+    private String projectID;
+    private String supervisorName;
+    private String supervisorEmail;
+    private String supervisorID;
+    private String title;
+    private projectStatus status;
+    private String studentName;
+    private String studentEmail;
+    private String studentID;
 
 
     public Project(String projectID, String supervisorName,
