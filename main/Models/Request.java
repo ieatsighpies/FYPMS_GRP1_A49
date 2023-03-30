@@ -4,15 +4,15 @@ import main.Models.requestStatus_ENUM;
 
 public abstract class Request {
     private String requestID;
-    private Object requester;
+    private User requester;
     private String projectID;
     private int requestType;
     private requestStatus_ENUM requestStatus;
     private String comments;
 
-    public Request(Object o, String projectID){
+    public Request(User u, String projectID){
         this.requestStatus = requestStatus_ENUM.PENDING;
-        this.requester = o;
+        this.requester = u;
         this.projectID = projectID;
     }
     public requestStatus_ENUM getRequestStatus() {
@@ -24,10 +24,10 @@ public abstract class Request {
     public void setRequestID(String requestID) {
         this.requestID = requestID;
     }
-    public Object getRequester() {
+    public User getRequester() {
         return requester;
     }
-    public void setRequester(Object requester) {
+    public void setRequester(User requester) {
         this.requester = requester;
     }
     public String getProjectID() {
