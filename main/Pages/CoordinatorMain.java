@@ -34,12 +34,13 @@ public class CoordinatorMain extends Page{
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║[1] Reset password                                        ║");
         System.out.println("║[2] View projects                                         ║");
-        System.out.println("║[3] View created projects                                 ║");
+        System.out.println("║[3] View my projects                                      ║");
         System.out.println("║[4] View student requests                                 ║");
-        System.out.println("║[5] Edit project title                                    ║");
-        System.out.println("║[6] Request to transfer student                           ║");
-        System.out.println("║[7] View request history                                  ║");
-        System.out.println("║[8] Log-out                                               ║");
+        System.out.println("║[5] Create Project                                        ║");
+        System.out.println("║[6] Edit project title                                    ║");
+        System.out.println("║[7] Request to transfer student                           ║");
+        System.out.println("║[8] View request history                                  ║");
+        System.out.println("║[9] Log-out                                               ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         // get option

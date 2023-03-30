@@ -13,11 +13,11 @@ import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 import main.Utils.UIDGenerator;
 
-public class TransferStudent extends Page{
+public class SupervisorTransferStudent extends Page{
     Scanner sc = new Scanner(System.in);
     Supervisor staff;
 
-    public TransferStudent(Page previousPage, Supervisor staff){
+    public SupervisorTransferStudent(Page previousPage, Supervisor staff){
         super(previousPage);
         this.staff = staff;
     }
