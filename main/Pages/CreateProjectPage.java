@@ -63,7 +63,7 @@ public class CreateProjectPage extends Page{
         Long UID = UIDGenerator.generateLongId();
         try (FileWriter fw = new FileWriter(filepath, true)) {
             PrintWriter writer = new PrintWriter(fw);
-            writer.println(UID + "," + staff.getName() + "," + staff.getEmail() + "," + title + "," + projectStatus.AVAILABLE.toString() + ",NaN,NaN");
+            writer.println(UID + "," + staff.getName() + "," + staff.getEmail() + "," + title + "," + projectStatus_ENUM.AVAILABLE.toString() + ",NaN,NaN");
         } catch (IOException e) {
             e.printStackTrace();
         }

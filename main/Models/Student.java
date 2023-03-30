@@ -24,7 +24,7 @@ public class Student extends User {
         return deregistered;
     }
     public Project getProject(){
-        if(this.project.status==projectStatus.ALLOCATED)
+        if(this.project.getStatus()==projectStatus_ENUM.ALLOCATED)
             return this.project;
         else if(this.project==null && this.deregistered==false){
             System.out.println("You have not registered for a project");

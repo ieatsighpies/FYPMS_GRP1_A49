@@ -12,9 +12,8 @@ public class SetPassword extends Page{
     Console console = System.console();
     Scanner sc = new Scanner(System.in);
 
-    String userType;
-    String filepath;
-    String userID;
+    private String userType;
+    private String userID;
     
     public SetPassword(Page previousPage, String userID, String userType){
         super(previousPage);
@@ -25,7 +24,7 @@ public class SetPassword extends Page{
     @Override
     public Page executable(){
         ConsoleUtils.clearScreen();
-        this.filepath = userType.equals("1")
+        String filepath = userType.equals("1")
                             ? System.getProperty("user.dir") + "\\main\\Data\\student_list.csv"
                             : System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv";
 
@@ -76,7 +75,7 @@ public class SetPassword extends Page{
                 }
                 // set passsword
                 else{
-                    setPassword(new_pass1, this.filepath);
+                    setPassword(new_pass1, filepath);
                     return this.getPreviousPage();
                 }
             }
