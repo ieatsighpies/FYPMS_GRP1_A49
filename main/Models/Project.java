@@ -6,7 +6,7 @@ public class Project {
     private String supervisorEmail;
     private String supervisorID;
     private String title;
-    private projectStatus status;
+    private projectStatus_ENUM status;
     private String studentName;
     private String studentEmail;
     private String studentID;
@@ -14,7 +14,7 @@ public class Project {
 
     public Project(String projectID, String supervisorName,
                     String supervisorEmail, String title,
-                    projectStatus status, String studentName,
+                    projectStatus_ENUM status, String studentName,
                     String studentEmail){
         this.projectID = projectID;
         this.supervisorEmail = supervisorEmail;
@@ -35,7 +35,7 @@ public class Project {
     public String getSupervisorID(){return this.supervisorID;}
     public String getSupervisorName(){return this.supervisorName;}
     public String getSupervisorEmail(){return this.supervisorEmail;}
-    public projectStatus getStatus(){return this.status;}
+    public projectStatus_ENUM getStatus(){return this.status;}
 
     public void setStudent(Student s){this.studentID= s.userID;}
     public void setSupervisor(Supervisor f){this.supervisorID= f.userID;}

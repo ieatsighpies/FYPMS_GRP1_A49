@@ -1,5 +1,5 @@
 package main.Models;
 
-public enum projectStatus{
+public enum projectStatus_ENUM {
     AVAILABLE,UNAVAILABLE,RESERVED,ALLOCATED;
 }
