@@ -12,7 +12,7 @@ public class StudentMain extends Page{
     Scanner sc = new Scanner(System.in);
     Console console = System.console();
 
-    Student student;
+    private Student student;
     
     public StudentMain(Page previousPage, Student student){
         super(previousPage);

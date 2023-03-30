@@ -1,14 +1,12 @@
 package main.Pages;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import main.Utils.ConsoleUtils;
 
 public class Welcome extends Page{
     Scanner sc = new Scanner(System.in);
-    String userPass;
-    String userType;
+    private String userType;
 
     public Welcome(Page previousPage){
         super(previousPage);
