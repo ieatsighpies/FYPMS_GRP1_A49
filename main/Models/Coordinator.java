@@ -6,8 +6,6 @@ import main.Models.Project;
 
 public class Coordinator extends Supervisor{
 
-    private ArrayList<Request> requestList = new ArrayList<Request>();
-
     public Coordinator(String name, String email){
         super(name, email);
         initialiseProject();
