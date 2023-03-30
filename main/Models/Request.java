@@ -3,12 +3,12 @@ package main.Models;
 import main.Models.requestStatus_ENUM;
 
 public abstract class Request {
-    protected String requestID;
-    protected Object requester;
-    protected String projectID;
-    protected int requestType;
-    protected requestStatus_ENUM requestStatus;
-    protected String comments;
+    private String requestID;
+    private Object requester;
+    private String projectID;
+    private int requestType;
+    private requestStatus_ENUM requestStatus;
+    private String comments;
 
     public Request(Object o, String projectID){
         this.requestStatus = requestStatus_ENUM.PENDING;
@@ -52,5 +52,5 @@ public abstract class Request {
         this.comments = comments;
     }
 
-   
+
 }

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Supervisor extends User {
 	private ArrayList<Project> projects = new ArrayList<Project>();
+    private ArrayList<Request> requestList = new ArrayList<Request>();
+
     protected int countSupervising=0;
 
 	public Supervisor(String name, String email) {
@@ -41,7 +43,7 @@ public class Supervisor extends User {
     public ArrayList<Project> getProjects(){
         return this.projects;
     }
-    
+
     public void initialiseProject(){
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
