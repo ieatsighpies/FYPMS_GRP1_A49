@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import main.Models.Project;
 import main.Models.Supervisor;
-import main.Models.projectStatus;
+import main.Models.projectStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.UIDGenerator;
 

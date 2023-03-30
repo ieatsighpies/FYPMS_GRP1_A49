@@ -4,23 +4,23 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 
-import main.Models.projectStatus;
+import main.Models.projectStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 
 
 public class StudentProjectView extends Page{
     Scanner sc = new Scanner(System.in);
-    
+
     public StudentProjectView(Page previousPage){
         super(previousPage);
     }
 
     @Override
     public Page executable(){
-        
+
         // print avaliable project
-        ConsoleUtils.clearScreen();                              
+        ConsoleUtils.clearScreen();
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                                     ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                     ║");
         System.out.println("║                                     ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                     ║");
@@ -44,7 +44,7 @@ public class StudentProjectView extends Page{
                 data = currentLine.split("\\s*,\\s*");
 
                 //print if AVAILABLE
-                if(data[col].equals(projectStatus.AVAILABLE.toString())){
+                if(data[col].equals(projectStatus_ENUM.AVAILABLE.toString())){
                     System.out.println("╠═════╬═════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
                     System.out.printf("║%-5.5s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", data[0],data[3],data[1],data[2].toUpperCase(),data[4]);
                 }
@@ -84,7 +84,7 @@ public class StudentProjectView extends Page{
                 System.out.println("Invalid ProjectID");
             }
             // exist and not avalaible
-            else if(projectData!=null && !projectData[4].equals(projectStatus.AVAILABLE.toString())){
+            else if(projectData!=null && !projectData[4].equals(projectStatus_ENUM.AVAILABLE.toString())){
                 System.out.println("Project not available!");
             }
             else{

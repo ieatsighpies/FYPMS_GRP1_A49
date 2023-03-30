@@ -9,7 +9,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
 import main.Models.Project;
 import main.Models.Supervisor;
-import main.Models.projectStatus;
+import main.Models.projectStatus_ENUM;
 import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
@@ -61,11 +61,11 @@ public class TransferStudent extends Page{
             }
 
             // check if allocated
-            if(p.getStatus() == projectStatus.ALLOCATED){
+            if(p.getStatus() == projectStatus_ENUM.ALLOCATED){
                 break;
             }
             System.out.println("Selected project is not ALLOCATED");
-            
+
         }
 
         // get supervisorID
@@ -86,7 +86,7 @@ public class TransferStudent extends Page{
                 System.out.println("Invalid UserID!");
                 continue;
             }
-            
+
             // check if replacement supervisor is already supervisor 2 project
             // String data[] = FileHandler.readFile(filepath_faculty, replacementID, 2);
             // Supervisor replacement = new Supervisor(data[0], data[1]);
@@ -132,7 +132,7 @@ public class TransferStudent extends Page{
         System.out.println();
         System.out.print("Enter any input to return to Main Menu:");
         String hold = sc.nextLine();
-            
+
         return this.getPreviousPage();
     }
 }
