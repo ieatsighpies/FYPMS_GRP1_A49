@@ -9,7 +9,7 @@ import main.Utils.ConsoleUtils;
 
 public class supervisorProjectView extends Page{
     Scanner sc = new Scanner(System.in);
-    protected Supervisor staff;
+    private Supervisor staff;
 
     public supervisorProjectView(Page previouPage, Supervisor staff){
         super(previouPage);
