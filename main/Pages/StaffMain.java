@@ -81,6 +81,10 @@ public class StaffMain extends Page{
             // Request to transfer student
             case 6:
                 return new SupervisorTransferStudent(this, this.staff);
+
+            // View request history
+            case 7:
+                return new SupervisorRequestHistory(this, this.staff);
             // Logout
             case 8:
                 System.out.println("Logging out.");
