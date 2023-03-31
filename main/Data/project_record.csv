@@ -1,20 +1,20 @@
 ProjectID,Supervisor_Name,Supervisor_Email,Project_Title,Status,Student_Name,Student_Email
-1,A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,Machine Learning-based Interference Mitigation in a Multi-tier Networks,AVAILABLE,NaN,NaN
-2,A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,Deep Learning-Driven Edge Caching for 5G-and-Beyond Industrial IoT Networks,AVAILABLE,NaN,NaN
-3,Alexei Sourin,ASSOURIN@ntu.edu.sg,Sonification of geometry 1,AVAILABLE,NaN,NaN
-4,Arvind Easwaran,ARVINDE@NTU.EDU.SG,Edge/Cloud Resource Management for Time-Sensitive Applications (2),AVAILABLE,NaN,NaN
-5,Bo An,BOAN@NTU.EDU.SG,Deep Reinforcement Learning for Complex Environment,AVAILABLE,NaN,NaN
-6,Bo An,BOAN@NTU.EDU.SG,Build Software Agents for Power Trading Agent Competition,AVAILABLE,NaN,NaN
-7,Bo An,BOAN@NTU.EDU.SG,Designing Negotiation Agents to Parcitipate in International Competition,AVAILABLE,NaN,NaN
-8,Cai Wentong,ASWTCAI@ntu.edu.sg,Creation of Meta-model for Agent-based Simulation Using Machine Learning Approach,AVAILABLE,NaN,NaN
-9,Chen Change Loy,CCLOY@NTU.EDU.SG,Encoding Images to Text Prompts with CLIP,AVAILABLE,NaN,NaN
-10,Chia Liang Tien,ASLTCHIA@ntu.edu.sg,Smart Monitor for Studio Photographer,AVAILABLE,NaN,NaN
-11,Cong Gao,GAOCONG@NTU.EDU.SG,Developing a demonstration system for spatial data exploration and visualization,AVAILABLE,NaN,NaN
-12,Cong Gao,GAOCONG@NTU.EDU.SG,Deep Learning Supported Location-aware Keyword Query,AVAILABLE,NaN,NaN
-13,Douglas Leslie Maskell,ASDOUGLAS@NTU.EDU.SG,An AI based Li-ion fast battery charger for power tools,AVAILABLE,NaN,NaN
-14,Douglas Leslie Maskell,ASDOUGLAS@NTU.EDU.SG,A Li-ion fast battery charger,AVAILABLE,NaN,NaN
-15,Dusit Niyato,DNIYATO@NTU.EDU.SG,Metaverse for virtual education 1,AVAILABLE,NaN,NaN
-16,Ke Yiping Kelly,YPKE@NTU.EDU.SG,Graph-based Deep Models for Image Semantic Segmentation,AVAILABLE,NaN,NaN
+45678912345678912,A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,Machine Learning-based Interference Mitigation in a Multi-tier Networks,AVAILABLE,NaN,NaN
+45678912345678913,A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,Deep Learning-Driven Edge Caching for 5G-and-Beyond Industrial IoT Networks,AVAILABLE,NaN,NaN
+45678912345678914,Alexei Sourin,ASSOURIN@ntu.edu.sg,Sonification of geometry 1,AVAILABLE,NaN,NaN
+45678912345678915,Arvind Easwaran,ARVINDE@NTU.EDU.SG,Edge/Cloud Resource Management for Time-Sensitive Applications (2),AVAILABLE,NaN,NaN
+45678912345678916,Bo An,BOAN@NTU.EDU.SG,Deep Reinforcement Learning for Complex Environment,AVAILABLE,NaN,NaN
+45678912345678917,Bo An,BOAN@NTU.EDU.SG,Build Software Agents for Power Trading Agent Competition,AVAILABLE,NaN,NaN
+45678912345678918,Bo An,BOAN@NTU.EDU.SG,Designing Negotiation Agents to Parcitipate in International Competition,AVAILABLE,NaN,NaN
+45678912345678919,Cai Wentong,ASWTCAI@ntu.edu.sg,Creation of Meta-model for Agent-based Simulation Using Machine Learning Approach,AVAILABLE,NaN,NaN
+45678912345678920,Chen Change Loy,CCLOY@NTU.EDU.SG,Encoding Images to Text Prompts with CLIP,AVAILABLE,NaN,NaN
+45678912345678921,Chia Liang Tien,ASLTCHIA@ntu.edu.sg,Smart Monitor for Studio Photographer,AVAILABLE,NaN,NaN
+45678912345678922,Cong Gao,GAOCONG@NTU.EDU.SG,Developing a demonstration system for spatial data exploration and visualization,AVAILABLE,NaN,NaN
+45678912345678923,Cong Gao,GAOCONG@NTU.EDU.SG,Deep Learning Supported Location-aware Keyword Query,AVAILABLE,NaN,NaN
+45678912345678924,Douglas Leslie Maskell,ASDOUGLAS@NTU.EDU.SG,An AI based Li-ion fast battery charger for power tools,AVAILABLE,NaN,NaN
+45678912345678925,Douglas Leslie Maskell,ASDOUGLAS@NTU.EDU.SG,A Li-ion fast battery charger,AVAILABLE,NaN,NaN
+45678912345678926,Dusit Niyato,DNIYATO@NTU.EDU.SG,Metaverse for virtual education 1,AVAILABLE,NaN,NaN
+45678912345678927,Ke Yiping Kelly,YPKE@NTU.EDU.SG,Graph-based Deep Models for Image Semantic Segmentation,AVAILABLE,NaN,NaN
 51228706419900416,Alexei Sourin,ASSOURIN@ntu.edu.sg,Tesla Motors v2.0,AVAILABLE,NaN,NaN
 51229066557652992,Bo An,BOAN@NTU.EDU.SG,Deep AI Learning ,ALLOCATED,NaN,NaN
 51229097799188480,Bo An,BOAN@NTU.EDU.SG,Deep AI Learning II,ALLOCATED,NaN,NaN

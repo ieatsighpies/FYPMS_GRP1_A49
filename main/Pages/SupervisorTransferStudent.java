@@ -114,7 +114,7 @@ public class SupervisorTransferStudent extends Page{
         Long UID = UIDGenerator.generateLongId();
         try (FileWriter fw = new FileWriter(filepath, true)) {
             PrintWriter writer = new PrintWriter(fw);
-            writer.println(UID + "," + staff.getUserID() + "," + replacementID + ",4," + requestStatus_ENUM.PENDING.toString() + "," +projectID+ ","+ comment);
+            writer.println(UID + "," + staff.getUserID() + ",NaN,4," + requestStatus_ENUM.PENDING.toString() + "," +projectID+ ","+ comment + "," + replacementID + ",NaN");
         } catch (IOException e) {
             e.printStackTrace();
         }
