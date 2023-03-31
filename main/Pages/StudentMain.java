@@ -67,6 +67,10 @@ public class StudentMain extends Page{
             // View available project
             case 2:
                 return new StudentProjectView(this, this.student);
+
+            // View my project
+            case 3:
+                return new StudentMyProject(this, this.student);
             
             // Request project title change
             case 5:
