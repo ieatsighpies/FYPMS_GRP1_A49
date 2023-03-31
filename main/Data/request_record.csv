@@ -1,3 +1,3 @@
-RequestID,RequesterID,RequesteeID,RequestType,RequestStatus,ProjectID,Comments
-51233807446048768,BOAN,assourin,4,PENDING,51229066557652992,lmao
-51233932161318912,BOAN,assourin,4,PENDING,51229097799188480,good
+RequestID,RequesterID,RequesteeID,RequestType,RequestStatus,ProjectID,Comments,ReplacementID,Title
+51233807446048768,BOAN,NaN,4,PENDING,51229066557652992,lmao,assourin,NaN
+51233932161318912,BOAN,NaN,4,PENDING,51229097799188480,good,assourin,NaN

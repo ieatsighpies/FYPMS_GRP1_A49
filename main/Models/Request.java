@@ -1,19 +1,23 @@
 package main.Models;
 
-import main.Models.requestStatus_ENUM;
-
 public abstract class Request {
     private String requestID;
-    private User requester;
+    private String requesterID;
+    private String requesteeID;
     private String projectID;
-    private int requestType;
+    private String requestType;
     private requestStatus_ENUM requestStatus;
     private String comments;
 
-    public Request(User u, String projectID){
-        this.requestStatus = requestStatus_ENUM.PENDING;
-        this.requester = u;
+    public Request(String requestID, String requesterID, String requesteeID,
+                    String requestType, requestStatus_ENUM status, String projectID, String comment){
+        this.requestID = requestID;
+        this.requesterID = requesterID;
+        this.requesteeID = requesteeID;
+        this.requestType = requestType;
+        this.requestStatus = status;
         this.projectID = projectID;
+        this.comments = comment;
     }
     public requestStatus_ENUM getRequestStatus() {
         return requestStatus;
@@ -24,11 +28,11 @@ public abstract class Request {
     public void setRequestID(String requestID) {
         this.requestID = requestID;
     }
-    public User getRequester() {
-        return requester;
+    public String getRequesterID() {
+        return requesterID;
     }
-    public void setRequester(User requester) {
-        this.requester = requester;
+    public void setRequesterID(String requesterID) {
+        this.requesterID = requesterID;
     }
     public String getProjectID() {
         return projectID;
@@ -36,11 +40,11 @@ public abstract class Request {
     public void setProjectID(String projectID) {
         this.projectID = projectID;
     }
-    public int getRequestType() {
+    public String getRequestType() {
         return requestType;
     }
-    public void setRequestType(int requestType) {
-        this.requestType = requestType;
+    public void setRequestType(String requestType2) {
+        this.requestType = requestType2;
     }
     public void setRequestStatus(requestStatus_ENUM requestStatus) {
         this.requestStatus = requestStatus;

@@ -13,6 +13,7 @@ public class Supervisor extends User {
 	public Supervisor(String name, String email) {
         super(name, email);
         initialiseProject();
+        initialiseRequest();
     }
 
     public String getName() {
@@ -75,6 +76,40 @@ public class Supervisor extends User {
         this.projects = new ArrayList<Project>();
         this.countSupervising = 0;
         this.initialiseProject();
+    }
+
+    public void initialiseRequest(){
+        String filePath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
+        String currentLine;
+        String data[];
+        int col = 2;
+
+        // read file line by line, initialise request if match email
+        try{
+            FileReader fr = new FileReader(filePath);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((currentLine = br.readLine()) != null){
+                data = currentLine.split("\\s*,\\s*");
+                if(data[1].equals(this.getUserID()) || data[2].equals(this.getUserID())){
+                    if(data[3].equals("3")){
+                        Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
+                        requestList.add(request);
+                    }
+                    if(data[4].equals("3")){
+                        Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
+                        requestList.add(request);
+                    }
+                }
+            }
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void updateRequest(){
+        this.requestList = new ArrayList<Request>();
+        this.initialiseRequest();
     }
 
     public void printProjects(){
