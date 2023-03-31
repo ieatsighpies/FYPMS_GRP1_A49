@@ -76,6 +76,12 @@ public class Supervisor extends User {
         this.countSupervising = 0;
         this.initialiseProject();
     }
+	
+    public void approve(String EditTitleReq){
+	project.getRequestStatus() = APPROVED;
+	project.title = EditTitleReq;
+	this.initialiseProject;
+    }
 
     public void printProjects(){
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
