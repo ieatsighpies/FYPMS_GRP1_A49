@@ -66,8 +66,16 @@ public class StudentMain extends Page{
 
             // View available project
             case 2:
-                return new StudentProjectView(this);
+                return new StudentProjectView(this, this.student);
+            
+            // Request project title change
+            case 5:
+                return new StudentRequestTitleChange(this, this.student);
 
+            // View request history
+            case 6:
+                return new StudentRequestHistory(this, this.student);
+            // logout
             case 7:
                 System.out.println("Logging out.");
                 return this.getPreviousPage().getPreviousPage();

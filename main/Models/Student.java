@@ -15,6 +15,8 @@ public class Student extends User {
         super(name, email);
         this.project = null;
         this.deregistered = false;
+        initialiseProject();
+        initialiseRequest();
     }
 
     public String getName(){
@@ -34,13 +36,14 @@ public class Student extends User {
     }
 
     public Project getProject(){
-        if(this.project.getStatus()==projectStatus_ENUM.ALLOCATED)
-            return this.project;
-        else if(this.project==null && this.deregistered==false){
-            System.out.println("You have not registered for a project");
-            return this.project;
+        if(this.project == null){
+            return null;
         }
-        return null;
+        return this.project;
+    }
+
+    public ArrayList<Request> getRequests(){
+        return this.requestList;
     }
 
     public void initialiseProject(){
@@ -74,6 +77,64 @@ public class Student extends User {
 
     public void updateProject(){
         this.initialiseProject();
+    }
+
+    public void initialiseRequest(){
+        String filePath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
+        String currentLine;
+        String data[];
+
+        // read file line by line, initialise request if match email
+        try{
+            FileReader fr = new FileReader(filePath);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((currentLine = br.readLine()) != null){
+                data = currentLine.split("\\s*,\\s*");
+                if(data[1].equalsIgnoreCase(this.getUserID())){
+                    if(data[3].equals("1")){
+                        Request request = new RegisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                        requestList.add(request);
+                    }
+                    if(data[3].equals("2")){
+                        // to be added
+                        // put request here
+                        if(data[4].equals(requestStatus_ENUM.APPROVED.toString())){
+                            this.deregistered = true;
+                        }
+                    }
+                    if(data[3].equals("3")){
+                        Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
+                        requestList.add(request);
+                    }
+                }
+            }
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void updateRequest(){
+        this.requestList = new ArrayList<Request>();
+        this.initialiseRequest();
+    }
+             
+    public void printProject(){
+        System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║                            ███╗   ███╗██╗   ██╗         ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                 ║");
+        System.out.println("║                            ████╗ ████║╚██╗ ██╔╝         ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                 ║");
+        System.out.println("║                            ██╔████╔██║ ╚████╔╝          ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   ███████╗                                 ║");
+        System.out.println("║                            ██║╚██╔╝██║  ╚██╔╝           ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   ╚════██║                                 ║");
+        System.out.println("║                            ██║ ╚═╝ ██║   ██║            ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   ███████║                                 ║");
+        System.out.println("║                            ╚═╝     ╚═╝   ╚═╝            ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                 ║");
+        System.out.println("╠══════════════════╦════════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
+        System.out.println("║ID                ║Project Title                                                                       ║Student Name    ║Student Email            ║Status   ║");
+
+       
+        System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
+        System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", this.project.getID(), this.project.getTitle(), this.project.getStudentName(), this.project.getStudentEmail(), this.project.getStatus());
+        
+        System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
 
 

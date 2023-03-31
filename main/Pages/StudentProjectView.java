@@ -4,16 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 
+import main.Models.Student;
 import main.Models.projectStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 
 
 public class StudentProjectView extends Page{
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
+    private Student student;
 
-    public StudentProjectView(Page previousPage){
+    public StudentProjectView(Page previousPage, Student student){
         super(previousPage);
+        this.student = student;
     }
 
     @Override
@@ -94,6 +97,6 @@ public class StudentProjectView extends Page{
             System.out.print("Enter Project ID(empty input to back): ");
             projectID = sc.nextLine().trim();
         }
-        return new Exit(this); // change this to direct to new page for request project
+        return new StudentProjectRegister(this, student, projectData);
     }
 }
