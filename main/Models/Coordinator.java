@@ -8,8 +8,13 @@ public class Coordinator extends Supervisor{
 
     public Coordinator(String name, String email){
         super(name, email);
-        initialiseProject();
-        initialiseRequest();
+        this.initialiseProject();
+        this.initialiseRequest();
+    }
+
+    @Override
+    public void printProjects() {
+        super.printProjects();
     }
 
     @Override
@@ -41,11 +46,12 @@ public class Coordinator extends Supervisor{
 
             while((currentLine = br.readLine()) != null){
                 data = currentLine.split("\\s*,\\s*");
-                
-                Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
-                this.getProjects().add(project);
-                if(data[col].equalsIgnoreCase(this.getEmail())&& data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
-                    this.countSupervising++;
+                if(!data[0].equals("ProjectID")){
+                    Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
+                    this.getProjects().add(project);
+                    if(data[col].equalsIgnoreCase(this.getEmail())&& data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
+                        this.countSupervising++;
+                    }
                 }
                 
             }
