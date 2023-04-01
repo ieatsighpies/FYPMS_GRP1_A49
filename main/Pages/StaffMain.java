@@ -71,14 +71,20 @@ public class StaffMain extends Page{
                 return new CreateProjectPage(this, this.staff);
                 
             // Edit project title
-            case 5: 
-                System.out.println("Enter new project title:");
-                String newTitle = sc.nextLine();
-                return new Supervisor.approve(newTitle);
+            case 5:
+                return new SupervisorEditTitle(this, this.staff);
+            // case 5: 
+            //     System.out.println("Enter new project title:");
+            //     String newTitle = sc.nextLine();
+            //     return new Supervisor.approve(newTitle);
 
             // Request to transfer student
             case 6:
                 return new SupervisorTransferStudent(this, this.staff);
+
+            // View request history
+            case 7:
+                return new SupervisorRequestHistory(this, this.staff);
             // Logout
             case 8:
                 System.out.println("Logging out.");

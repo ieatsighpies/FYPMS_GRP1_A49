@@ -55,6 +55,12 @@ public abstract class Request {
     public void setComments(String comments) {
         this.comments = comments;
     }
+    public String getRequesteeID() {
+        return requesteeID;
+    }
+    public void setRequesteeID(String requesteeID) {
+        this.requesteeID = requesteeID;
+    }
 
 
 }

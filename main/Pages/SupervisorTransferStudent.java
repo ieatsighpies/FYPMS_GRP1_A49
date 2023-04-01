@@ -119,6 +119,9 @@ public class SupervisorTransferStudent extends Page{
             e.printStackTrace();
         }
 
+        // reload request
+        staff.updateRequest();
+
         ConsoleUtils.clearScreen();
         System.out.println("╔══════════════════════════════════════════════════════════╗");
         System.out.println("║                      -Request Sent-                      ║");

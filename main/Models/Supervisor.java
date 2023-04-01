@@ -77,12 +77,12 @@ public class Supervisor extends User {
         this.countSupervising = 0;
         this.initialiseProject();
     }
-	
-    public void approve(String EditTitleReq){
-	project.getRequestStatus() = APPROVED;
-	project.title = EditTitleReq;
-	this.initialiseProject;
-    }
+
+    // public void approve(String EditTitleReq){
+    //     project.getRequestStatus() = APPROVED;
+    //     project.title = EditTitleReq;
+    //     this.initialiseProject;
+    // }
 
     public void initialiseRequest(){
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
@@ -97,17 +97,18 @@ public class Supervisor extends User {
 
             while((currentLine = br.readLine()) != null){
                 data = currentLine.split("\\s*,\\s*");
-                if(data[1].equals(this.getUserID()) || data[2].equals(this.getUserID())){
+                if(data[1].equalsIgnoreCase(this.getUserID()) || data[2].equalsIgnoreCase(this.getUserID())){
                     if(data[3].equals("3")){
                         Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
                         requestList.add(request);
                     }
-                    if(data[4].equals("3")){
+                    if(data[3].equals("4")){
                         Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
                         requestList.add(request);
                     }
                 }
             }
+            br.close();
         } catch(Exception e){
             System.out.println(e);
         }
@@ -116,6 +117,10 @@ public class Supervisor extends User {
     public void updateRequest(){
         this.requestList = new ArrayList<Request>();
         this.initialiseRequest();
+    }
+
+    public ArrayList<Request> getRequests(){
+        return this.requestList;
     }
 
     public void printProjects(){
