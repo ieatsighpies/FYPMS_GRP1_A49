@@ -62,7 +62,20 @@ public class CoordinatorMain extends Page{
             // SetPassword Page
             case 1:
                 return new SetPassword(this, this.coordinator.getUserID(), "3");
+            
+            // view all projects
+            case 2:
+                return new CoordAllProject(this, this.coordinator);
+            
+            // view my created projects
+            case 3:
+                return new CoordMyProject(this, this.coordinator);
 
+            // create project
+            case 5:
+                return new CreateProjectPage(this, coordinator);
+                
+            // log out
             case 8:
                 System.out.println("Logging out.");
                 return this.getPreviousPage().getPreviousPage();

@@ -8,8 +8,8 @@ public class Coordinator extends Supervisor{
 
     public Coordinator(String name, String email){
         super(name, email);
-        initialiseProject();
-        initialiseRequest();
+        this.initialiseProject();
+        this.initialiseRequest();
     }
 
     @Override
@@ -41,11 +41,12 @@ public class Coordinator extends Supervisor{
 
             while((currentLine = br.readLine()) != null){
                 data = currentLine.split("\\s*,\\s*");
-                
-                Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
-                this.getProjects().add(project);
-                if(data[col].equalsIgnoreCase(this.getEmail())&& data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
-                    this.countSupervising++;
+                if(!data[0].equals("ProjectID")){
+                    Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
+                    this.getProjects().add(project);
+                    if(data[col].equalsIgnoreCase(this.getEmail())&& data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
+                        this.countSupervising++;
+                    }
                 }
                 
             }
@@ -91,6 +92,41 @@ public class Coordinator extends Supervisor{
         } catch(Exception e){
             System.out.println(e);
         }
+    }
+
+    @Override
+    public void printProjects() {
+        super.printProjects();
+    }
+
+    public void printProjects(int type){
+        System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║                                             ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                             ║");
+        System.out.println("║                                             ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                             ║");
+        System.out.println("║                                             ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   ███████╗                                             ║");
+        System.out.println("║                                             ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   ╚════██║                                             ║");
+        System.out.println("║                                             ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   ███████║                                             ║");
+        System.out.println("║                                             ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                             ║");
+        System.out.println("╠══════════════════╦════════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
+        System.out.println("║ID                ║Project Title                                                                       ║Student Name    ║Student Email            ║Status   ║");
+
+        if(type == 1){
+            for(Project p : this.getProjects()){
+                System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
+                System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
+            }
+        }
+        else if(type == 2){
+            for(Project p : this.getProjects()){
+                if(p.getSupervisorID().equalsIgnoreCase(this.getUserID())){
+                    System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
+                    System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
+                }
+                
+            }
+        }
+        
+        System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
 
     @Override
