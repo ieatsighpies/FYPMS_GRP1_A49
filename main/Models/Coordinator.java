@@ -13,11 +13,6 @@ public class Coordinator extends Supervisor{
     }
 
     @Override
-    public void printProjects() {
-        super.printProjects();
-    }
-
-    @Override
     public Project getProjectbyID(String projectID) {
         return super.getProjectbyID(projectID);
     }
@@ -97,6 +92,41 @@ public class Coordinator extends Supervisor{
         } catch(Exception e){
             System.out.println(e);
         }
+    }
+
+    @Override
+    public void printProjects() {
+        super.printProjects();
+    }
+
+    public void printProjects(int type){
+        System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║                                             ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                             ║");
+        System.out.println("║                                             ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                             ║");
+        System.out.println("║                                             ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   ███████╗                                             ║");
+        System.out.println("║                                             ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   ╚════██║                                             ║");
+        System.out.println("║                                             ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   ███████║                                             ║");
+        System.out.println("║                                             ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                             ║");
+        System.out.println("╠══════════════════╦════════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
+        System.out.println("║ID                ║Project Title                                                                       ║Student Name    ║Student Email            ║Status   ║");
+
+        if(type == 1){
+            for(Project p : this.getProjects()){
+                System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
+                System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
+            }
+        }
+        else if(type == 2){
+            for(Project p : this.getProjects()){
+                if(p.getSupervisorID().equalsIgnoreCase(this.getUserID())){
+                    System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
+                    System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
+                }
+                
+            }
+        }
+        
+        System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
 
     @Override

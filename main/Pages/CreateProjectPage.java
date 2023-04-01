@@ -50,12 +50,20 @@ public class CreateProjectPage extends Page{
             }
         }
 
-        // confirmation
-        String confirm;
-        System.out.print("Enter any input to confirm(empty to return): ");
-        confirm = sc.nextLine();
-        if(confirm.isBlank()){
-            return this.getPreviousPage();
+        // Get confirmation
+        String confirmation;
+        while(true){
+            System.out.print("Type \"\u001B[31mCONFIRM\u001B[0m\" to confirm(Empty to back): ");
+            confirmation = sc.nextLine();
+            if(confirmation.isBlank()){
+                return this.getPreviousPage();
+            }
+            if(confirmation.equals("CONFIRM")){
+                break;
+            }
+            else{
+                System.out.println("Invalid input!");
+            }
         }
 
         // write to file
