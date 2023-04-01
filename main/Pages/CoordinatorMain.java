@@ -79,8 +79,11 @@ public class CoordinatorMain extends Page{
             case 6:
                 return new CoordEditTitle(this, coordinator);
 
-            // log out
+            // view request history
             case 8:
+                return new CoordRequestHistory(this, coordinator);
+            // log out
+            case 9:
                 System.out.println("Logging out.");
                 return this.getPreviousPage().getPreviousPage();
         }
