@@ -74,7 +74,11 @@ public class CoordinatorMain extends Page{
             // create project
             case 5:
                 return new CreateProjectPage(this, coordinator);
-                
+
+            // edit project title
+            case 6:
+                return new CoordEditTitle(this, coordinator);
+
             // log out
             case 8:
                 System.out.println("Logging out.");

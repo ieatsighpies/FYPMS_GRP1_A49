@@ -6,6 +6,8 @@ public class User {
     protected String userID;
     protected int type;
 
+    
+
     public User(String name, String email){
         this.name = name;
         this.email = email;
@@ -22,5 +24,9 @@ public class User {
 
     public String getUserID(){
         return this.userID;
+    }
+
+    public int getType() {
+        return this.type;
     }
 }

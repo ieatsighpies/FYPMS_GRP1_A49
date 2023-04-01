@@ -3,25 +3,22 @@ package main.Pages;
 import java.util.Scanner;
 
 import main.Models.Coordinator;
-import main.Models.Supervisor;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 
-public class SupervisorEditTitle extends Page{
+public class CoordEditTitle extends Page{
     private Scanner sc = new Scanner(System.in);
-    private Supervisor staff;
+    private Coordinator coordinator;
 
-    public SupervisorEditTitle(Page previousPage, Supervisor staff) {
+    public CoordEditTitle(Page previousPage, Coordinator coordinator) {
         super(previousPage);
-        this.staff = staff;
+        this.coordinator = coordinator;
     }
 
     @Override
     public Page executable() {
-        ConsoleUtils.clearScreen();
-
-        // check if supervisor have created any project
-        if(this.staff.getProjects().isEmpty()){
+        // check if coordinator have created any project
+        if(this.coordinator.getProjects(2).isEmpty()){
             System.out.println("╔══════════════════════════════════════════════════════════════╗");
             System.out.println("║       -\u001B[31mAccess Denied: You did not create any projects\u001B[0m-       ║");
             System.out.println("╚══════════════════════════════════════════════════════════════╝");
@@ -31,7 +28,7 @@ public class SupervisorEditTitle extends Page{
         }
 
         // if have project ask for project ID
-        this.staff.printProjects();
+        this.coordinator.printProjects(2);
         String projectID;
         while(true){
             System.out.print("Enter projectID to change title(empty input to return): ");
@@ -39,7 +36,7 @@ public class SupervisorEditTitle extends Page{
             if(projectID.isBlank()){
                 return this.getPreviousPage();
             }
-            if(this.staff.getProjectbyID(projectID) == null){
+            if(this.coordinator.getProjectbyID(projectID) == null){
                 System.out.println("Invalid projectID!");
                 continue;
             }
@@ -97,6 +94,7 @@ public class SupervisorEditTitle extends Page{
         String hold = sc.nextLine();
         return this.getPreviousPage();
     }
+
 
 
 }
