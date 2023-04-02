@@ -49,7 +49,7 @@ public class CoordinatorMain extends Page{
         System.out.println();
 
         // loop to ask for valid input
-        while(!(optionstr.matches("^[1-8]{1}$"))){
+        while(!(optionstr.matches("^[1-9]{1}$"))){
 
             System.out.println("Enter a valid option:");
             optionstr = sc.nextLine().trim();

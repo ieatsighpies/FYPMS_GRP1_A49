@@ -27,7 +27,6 @@ public class SetPassword extends Page{
         String filepath = userType.equals("1")
                             ? System.getProperty("user.dir") + "\\main\\Data\\student_list.csv"
                             : System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv";
-
         String current_pass;
         boolean check = false;
         int counter = 3;
