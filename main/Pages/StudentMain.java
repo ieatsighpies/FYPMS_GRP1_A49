@@ -71,6 +71,10 @@ public class StudentMain extends Page{
             // View my project
             case 3:
                 return new StudentMyProject(this, this.student);
+
+            // De-reg project
+            case 4:
+                return new StudentRequestDeregister(this, this.student);
             
             // Request project title change
             case 5:
