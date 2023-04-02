@@ -12,6 +12,7 @@ public class Supervisor extends User {
 
 	public Supervisor(String name, String email) {
         super(name, email);
+        this.type = 2;
         initialiseProject();
         initialiseRequest();
     }
@@ -40,6 +41,7 @@ public class Supervisor extends User {
         }
         return null;
     }
+
 
     public ArrayList<Project> getProjects(){
         return this.projects;

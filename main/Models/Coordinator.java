@@ -8,8 +8,9 @@ public class Coordinator extends Supervisor{
 
     public Coordinator(String name, String email){
         super(name, email);
-        this.initialiseProject();
-        this.initialiseRequest();
+        this.type = 3;
+        this.updateProject();
+        this.updateRequest();
     }
 
     @Override
@@ -22,6 +23,23 @@ public class Coordinator extends Supervisor{
         return super.getProjects();
     }
 
+    public ArrayList<Project> getProjects(int type){
+        if(type == 1){
+            return super.getProjects();
+        }
+        else if(type == 2){
+            ArrayList<Project> myProjects = new ArrayList<Project>();
+            System.out.println(myProjects);
+            for(Project p : super.getProjects()){
+                if(p.getSupervisorID().equalsIgnoreCase(this.getUserID())){
+                    myProjects.add(p);
+                }
+            }
+            return myProjects;
+        }
+        return null;
+    }
+
     @Override
     public ArrayList<Request> getRequests() {
         return super.getRequests();
@@ -29,6 +47,7 @@ public class Coordinator extends Supervisor{
 
     @Override
     public void initialiseProject() {
+        
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
         String data[];

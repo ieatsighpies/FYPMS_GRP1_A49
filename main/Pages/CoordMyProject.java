@@ -18,7 +18,6 @@ public class CoordMyProject extends Page{
     public Page executable() {
         ConsoleUtils.clearScreen();
         this.coordinator.printProjects(2);
-        
         System.out.print("Enter any input to return: ");
         String hold = sc.nextLine();
         return this.getPreviousPage();
