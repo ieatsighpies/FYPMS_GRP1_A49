@@ -94,7 +94,7 @@ public class Coordinator extends Supervisor{
                     this.getRequests().add(request);
                 }
                 // if(data[3].equals("2")){
-                //     Request request = new DeregisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                //     Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
                 //     this.getRequests().add(request);
                 // }                
                 if(data[3].equals("3")){
