@@ -39,7 +39,5 @@ public class Project {
 
     public void setStudent(Student s){this.studentID= s.userID;}
     public void setSupervisor(Supervisor f){this.supervisorID= f.userID;}
-    //only supervisor can setTitle
-    public void setTitle() {}
 
 }
