@@ -15,6 +15,7 @@ public class Student extends User {
         super(name, email);
         this.project = null;
         this.deregistered = false;
+        this.type = 1;
         initialiseProject();
         initialiseRequest();
     }

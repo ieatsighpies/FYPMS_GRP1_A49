@@ -49,7 +49,7 @@ public class CoordinatorMain extends Page{
         System.out.println();
 
         // loop to ask for valid input
-        while(!(optionstr.matches("^[1-8]{1}$"))){
+        while(!(optionstr.matches("^[1-9]{1}$"))){
 
             System.out.println("Enter a valid option:");
             optionstr = sc.nextLine().trim();
@@ -66,17 +66,32 @@ public class CoordinatorMain extends Page{
             // view all projects
             case 2:
                 return new CoordAllProject(this, this.coordinator);
-            
+
             // view my created projects
             case 3:
                 return new CoordMyProject(this, this.coordinator);
 
+            // view student requests
+            case 4:
+                return new CoordViewRequest(this, this.coordinator);
+
             // create project
             case 5:
                 return new CreateProjectPage(this, coordinator);
-                
-            // log out
+
+            // edit project title
+            case 6:
+                return new CoordEditTitle(this, coordinator);
+
+            // edit project title
+            //case 7:
+                //return new CoordEditTitle(this, coordinator);
+
+            // view request history
             case 8:
+                return new CoordRequestHistory(this, coordinator);
+            // log out
+            case 9:
                 System.out.println("Logging out.");
                 return this.getPreviousPage().getPreviousPage();
         }

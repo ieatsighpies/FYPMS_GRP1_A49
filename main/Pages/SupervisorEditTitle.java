@@ -2,6 +2,7 @@ package main.Pages;
 
 import java.util.Scanner;
 
+import main.Models.Coordinator;
 import main.Models.Supervisor;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
