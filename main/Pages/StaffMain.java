@@ -36,11 +36,10 @@ public class StaffMain extends Page{
         System.out.println("║[2] View projects                                         ║");
         System.out.println("║[3] View student requests                                 ║");
         System.out.println("║[4] Create Project                                        ║");
-        System.out.println("║[5] Deregister Project                                    ║");
-        System.out.println("║[6] Edit project title                                    ║");
-        System.out.println("║[7] Request to transfer student                           ║");
-        System.out.println("║[8] View request history                                  ║");
-        System.out.println("║[9] Log-out                                               ║");
+        System.out.println("║[5] Edit project title                                    ║");
+        System.out.println("║[6] Request to transfer student                           ║");
+        System.out.println("║[7] View request history                                  ║");
+        System.out.println("║[8] Log-out                                               ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         // get option
@@ -66,16 +65,18 @@ public class StaffMain extends Page{
             // View Projects
             case 2:
                 return new supervisorProjectView(this, this.staff);
-            
+
+            //view student request
+            //case 3:
+                //return new supervisorRequestView(this, this.staff);
+
             // Create Project
             case 4:
                 return new CreateProjectPage(this, this.staff);
-            // De-reg project
-            case 5:
-                return new SupervisorDeregister(this, this.staff);
+
                 
             // Edit project title
-            case 6:
+            case 5:
                 return new SupervisorEditTitle(this, this.staff);
             // case 5: 
             //     System.out.println("Enter new project title:");
@@ -83,14 +84,14 @@ public class StaffMain extends Page{
             //     return new Supervisor.approve(newTitle);
 
             // Request to transfer student
-            case 7:
+            case 6:
                 return new SupervisorTransferStudent(this, this.staff);
 
             // View request history
-            case 8:
+            case 7:
                 return new SupervisorRequestHistory(this, this.staff);
             // Logout
-            case 9:
+            case 8:
                 System.out.println("Logging out.");
                 return this.getPreviousPage().getPreviousPage();
         }

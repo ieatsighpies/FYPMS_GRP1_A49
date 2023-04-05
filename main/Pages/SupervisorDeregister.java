@@ -10,7 +10,7 @@ public class SupervisorDeregister extends Page{
     private Scanner sc = new Scanner(System.in);
     private Supervisor staff;
 
-    public SupervisorEditTitle(Page previousPage, Supervisor staff) {
+    public SupervisorDeregister(Page previousPage, Supervisor staff) {
         super(previousPage);
         this.staff = staff;
     }
@@ -63,7 +63,7 @@ public class SupervisorDeregister extends Page{
         // write to file
         String filepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String[] data = FileHandler.readFile(filepath, projectID, 0);
-        String newString = data[0]+","+data[1]+","+data[2]+","+data[3]+","+data[4]+","NaN","+NaN;
+        String newString = data[0]+","+data[1]+","+data[2]+","+data[3]+","+data[4]+",NaN,Nan";
         FileHandler.writeFile(filepath, projectID, 0, newString);
 
         ConsoleUtils.clearScreen();

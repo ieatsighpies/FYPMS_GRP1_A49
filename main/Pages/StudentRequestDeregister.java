@@ -10,11 +10,11 @@ import main.Utils.ConsoleUtils;
 import main.Utils.UIDGenerator;
 
 
-public class StudentProjectDeregister extends Page{
+public class StudentRequestDeregister extends Page{
     private Scanner sc = new Scanner(System.in);
     private Student student;
 
-    public StudentProjectDeregister(Page previousPage, Student student){
+    public StudentRequestDeregister(Page previousPage, Student student){
         super(previousPage);
         this.student = student;
     }
@@ -36,14 +36,14 @@ public class StudentProjectDeregister extends Page{
         }
         // if have project ask if want to de-reg
         this.student.printProject();
-
+        String newAnswer;
         while(true){
             System.out.print("Do you want to deregister this project(Y/N)? ");
             newAnswer = sc.nextLine().trim();
-            if(newAnswer="N") {
+            if(newAnswer=="N") {
                 return this.getPreviousPage();
             }
-            else if (newAnswer="Y"){
+            else if (newAnswer=="Y"){
                 break;
             }
             else{System.out.println("Invalid input!");}
@@ -70,7 +70,7 @@ public class StudentProjectDeregister extends Page{
         Long UID = UIDGenerator.generateLongId();
         try(FileWriter fw = new FileWriter(filepath, true)){
             PrintWriter writer = new PrintWriter(fw);
-            writer.println(UID+","+student.getUserID()+","+this.student.getProject().getSupervisorID()+",2,"+requestStatus_ENUM.PENDING.toString()+","+this.student.getProject().getID()+",NaN,NaN,"+newTitle);
+            writer.println(UID+","+student.getUserID()+","+this.student.getProject().getSupervisorID()+",2,"+requestStatus_ENUM.PENDING.toString()+","+this.student.getProject().getID()+",NaN,NaN,NaN");
 
         }catch(Exception e){
             System.out.println(e);
