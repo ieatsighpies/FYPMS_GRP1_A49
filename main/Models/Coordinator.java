@@ -13,16 +13,6 @@ public class Coordinator extends Supervisor{
         this.updateRequest();
     }
 
-    @Override
-    public Project getProjectbyID(String projectID) {
-        return super.getProjectbyID(projectID);
-    }
-
-    @Override
-    public ArrayList<Project> getProjects() {
-        return super.getProjects();
-    }
-
     public ArrayList<Project> getProjects(int type){
         if(type == 1){
             return super.getProjects();
@@ -38,11 +28,6 @@ public class Coordinator extends Supervisor{
             return myProjects;
         }
         return null;
-    }
-
-    @Override
-    public ArrayList<Request> getRequests() {
-        return super.getRequests();
     }
 
     @Override
@@ -93,10 +78,10 @@ public class Coordinator extends Supervisor{
                     Request request = new RegisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
                     this.getRequests().add(request);
                 }
-                // if(data[3].equals("2")){
-                //     Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
-                //     this.getRequests().add(request);
-                // }
+                if(data[3].equals("2")){
+                    Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                    this.getRequests().add(request);
+                }
                 if(data[3].equals("3")){
                     Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
                     this.getRequests().add(request);
@@ -111,11 +96,6 @@ public class Coordinator extends Supervisor{
         } catch(Exception e){
             System.out.println(e);
         }
-    }
-
-    @Override
-    public void printProjects() {
-        super.printProjects();
     }
 
     public void printProjects(int type){
@@ -147,15 +127,4 @@ public class Coordinator extends Supervisor{
 
         System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
-
-    @Override
-    public void updateProject() {
-        super.updateProject();
-    }
-
-    @Override
-    public void updateRequest() {
-        super.updateRequest();
-    }
-
 }

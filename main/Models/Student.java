@@ -86,8 +86,8 @@ public class Student extends User {
                         requestList.add(request);
                     }
                     if(data[3].equals("2")){
-                        // to be added
-                        // put request here
+                        Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                        requestList.add(request);
                         if(data[4].equals(requestStatus_ENUM.APPROVED.toString())){
                             this.deregistered = true;
                         }
