@@ -17,4 +17,10 @@ public class TransferStudentReq extends Request{
     public void setNewSupervisorID(String newSupervisorID) {
         this.newSupervisorID = newSupervisorID;
     }
+
+    @Override
+    public void printInfo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'printInfo'");
+    }
 }

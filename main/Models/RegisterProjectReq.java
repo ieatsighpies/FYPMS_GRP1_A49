@@ -7,4 +7,10 @@ public class RegisterProjectReq extends Request{
         super(requestID, requesterID, requesteeID, requestType, status, projectID, comment);
     }
 
+    @Override
+    public void printInfo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'printInfo'");
+    }
+
 }

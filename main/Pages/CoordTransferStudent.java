@@ -5,29 +5,28 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import main.Models.Coordinator;
 import main.Models.Project;
-import main.Models.Supervisor;
 import main.Models.projectStatus_ENUM;
 import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 import main.Utils.UIDGenerator;
 
-public class SupervisorTransferStudent extends Page{
-    Scanner sc = new Scanner(System.in);
-    Supervisor staff;
+public class CoordTransferStudent extends Page{
+    private Coordinator coordinator;
+    private Scanner sc = new Scanner(System.in);
 
-    public SupervisorTransferStudent(Page previousPage, Supervisor staff){
+    public CoordTransferStudent(Page previousPage, Coordinator coordinator) {
         super(previousPage);
-        this.staff = staff;
+        this.coordinator = coordinator;
     }
 
     @Override
-    public Page executable(){
-
-        // print menu
-        this.staff.printProjects();
-
+    public Page executable() {
+        
+        // print menu 
+        this.coordinator.printProjects(2);
         System.out.println("╔═══════════════════════════════════════╗");
         System.out.println("║           -Transfer Student-          ║");
         System.out.println("╚═══════════════════════════════════════╝");
@@ -38,23 +37,19 @@ public class SupervisorTransferStudent extends Page{
             System.out.print("Enter projectID(empty to return): ");
             projectID = sc.nextLine();
 
-            // reutrn if blank
+            // return if blank
             if(projectID.isBlank()){
                 return this.getPreviousPage();
             }
 
             // check if project exist
-            Project p = staff.getProjectbyID(projectID);
+            Project p = coordinator.getProjectbyID(projectID);
             if(p == null){
-                System.out.println("Invalid projectID or project not created by you!");
+                System.out.println("Invalid projectID!");
                 continue;
             }
-
-            // check if duplicate request
-            String filepath_record = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
-            String dupcheck[] = FileHandler.readFile(filepath_record, projectID, 5);
-            if(dupcheck != null && dupcheck[3].equals("4") && dupcheck[4].equals(requestStatus_ENUM.PENDING.toString())){
-                System.out.println("Duplicate request!");
+            else if(!p.getSupervisorID().equalsIgnoreCase(this.coordinator.getUserID())){
+                System.out.println("Not your project!");
                 continue;
             }
 
@@ -63,16 +58,15 @@ public class SupervisorTransferStudent extends Page{
                 break;
             }
             System.out.println("Selected project is not ALLOCATED");
-
         }
 
-        // get supervisorID
+        // get new supervisorID
         String replacementID;
         while(true){
             System.out.print("Enter replacement supervisorID(empty to return): ");
             replacementID = sc.nextLine().trim();
 
-            //return if blank
+            // return if blank
             if(replacementID.isBlank()){
                 return this.getPreviousPage();
             }
@@ -84,13 +78,6 @@ public class SupervisorTransferStudent extends Page{
                 System.out.println("Invalid UserID!");
                 continue;
             }
-
-            // check if replacement supervisor is already supervisor 2 project
-            // String data[] = FileHandler.readFile(filepath_faculty, replacementID, 2);
-            // Supervisor replacement = new Supervisor(data[0], data[1]);
-            // if(replacement.getSupCount() >= 2){
-            //     System.out.println("This supervisor is already supervising 2 projects");
-            // }
 
             break;
         }
@@ -112,15 +99,15 @@ public class SupervisorTransferStudent extends Page{
         // generate request
         String filepath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
         Long UID = UIDGenerator.generateLongId();
-        try (FileWriter fw = new FileWriter(filepath, true)) {
+        try(FileWriter fw = new FileWriter(filepath, true)){
             PrintWriter writer = new PrintWriter(fw);
-            writer.println(UID + "," + staff.getUserID() + ",NaN,4," + requestStatus_ENUM.PENDING.toString() + "," +projectID+ ","+ comment + "," + replacementID + ",NaN");
-        } catch (IOException e) {
+            writer.println(UID+","+coordinator.getUserID()+",NaN,4,"+requestStatus_ENUM.PENDING.toString()+","+projectID+","+comment+","+replacementID+",NaN");
+        } catch(IOException e){
             e.printStackTrace();
         }
 
         // reload request
-        staff.updateRequest();
+        coordinator.updateRequest();
 
         ConsoleUtils.clearScreen();
         System.out.println("╔══════════════════════════════════════════════════════════╗");
@@ -136,4 +123,5 @@ public class SupervisorTransferStudent extends Page{
 
         return this.getPreviousPage();
     }
+
 }

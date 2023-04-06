@@ -102,12 +102,6 @@ public class StudentProjectView extends Page{
         System.out.print("Enter Project ID(empty input to back): ");
         projectID = sc.nextLine().trim();
         System.out.println();
-        // CHeck if dereg
-        if (!student.getDeregisteredStatus()){
-            System.out.println("Already registered! (any input to back): ");
-            String hold= sc.nextLine().trim();
-            return this.getPreviousPage();
-        }
 
         //check if projectID exist and available
         while(true){

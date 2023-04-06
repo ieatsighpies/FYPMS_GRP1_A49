@@ -6,4 +6,10 @@ public class DeregisterReq extends Request {
                          requestStatus_ENUM status, String projectID, String comment) {
         super(requestID, requesterID, requesteeID, requestType, status, projectID, comment);
     }
+
+    @Override
+    public void printInfo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'printInfo'");
+    }
 }

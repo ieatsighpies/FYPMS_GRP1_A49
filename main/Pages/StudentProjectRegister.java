@@ -61,10 +61,6 @@ public class StudentProjectRegister extends Page{
         }catch(Exception e){
             System.out.println(e);
         }
-        String filepath2 = System.getProperty("user.dir") + "\\main\\Data\\student_list.csv";
-        String[] data = FileHandler.readFile(filepath2, student.getUserID(), 2);
-        String newString = data[0]+","+data[1]+","+data[2]+","+data[3]+","+data[4]+","+data[5]+","+"false";
-        FileHandler.writeFile(filepath2, student.getUserID(), 2, newString);
 
         // reload request
         student.updateRequest();
