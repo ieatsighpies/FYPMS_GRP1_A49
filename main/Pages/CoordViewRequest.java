@@ -30,7 +30,7 @@ public class CoordViewRequest extends Page{
         System.out.println("║ID                ║Request Type                                                          ║Status      ║");
 
         List<String> PendingID = new ArrayList<>();
-
+        this.coordinator.updateRequest();
         for(Request r : this.coordinator.getRequests()){
             if(r.getRequestType().equals("4") && r.getRequestStatus().toString().equals("PENDING")){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");

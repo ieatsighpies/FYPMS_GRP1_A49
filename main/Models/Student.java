@@ -11,10 +11,10 @@ public class Student extends User {
     private boolean deregistered;
     private ArrayList<Request> requestList = new ArrayList<Request>();
 
-    public Student(String name, String email){
+    public Student(String name, String email, Boolean dereg){
         super(name, email);
         this.project = null;
-        this.deregistered = false;
+        this.deregistered = dereg;
         this.type = 1;
         initialiseProject();
         initialiseRequest();

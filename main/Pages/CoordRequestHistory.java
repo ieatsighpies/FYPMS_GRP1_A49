@@ -27,7 +27,8 @@ public class CoordRequestHistory extends Page{
         System.out.println("║                  ╚═╝  ╚═╝╚══════╝ ╚══▀▀═╝  ╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝                 ║");
         System.out.println("╠══════════════════╦══════════════════════════════════════════════════════════════════════╦════════════╣");
         System.out.println("║ID                ║Request Type                                                          ║Status      ║");
-        
+
+        this.coordinator.updateRequest();
         for(Request r : this.coordinator.getRequests()){
             if(r.getRequestType().equals("4") && !r.getRequestStatus().toString().equals("PENDING")){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");
