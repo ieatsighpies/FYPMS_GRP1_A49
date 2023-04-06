@@ -109,6 +109,7 @@ public class Supervisor extends User {
                         requestList.add(request);
                     }
                 }
+
             }
             br.close();
         } catch(Exception e){
