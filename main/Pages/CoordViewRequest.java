@@ -7,6 +7,9 @@ import main.Models.Coordinator;
 import main.Models.Request;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
+
+import main.Utils.ReqType1;
+import main.Utils.ReqType2;
 public class CoordViewRequest extends Page{
     private Scanner sc = new Scanner(System.in);
     private Coordinator coordinator;
@@ -70,6 +73,9 @@ public class CoordViewRequest extends Page{
                 if(valid){break;}
 
         }
+        //
+
+        ////
         String action;
         while(true) {
             System.out.print("Choose APPROVE or REJECT for the request(blank for return): ");
@@ -82,20 +88,19 @@ public class CoordViewRequest extends Page{
             else if(action.equals("APPROVE") || action.equals("REJECT")){break;}
 
         }
-        if (action.equals("APPROVE")){
-            String filepath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
-            String[] data = FileHandler.readFile(filepath, id, 0);
-            String newString = data[0]+","+data[1]+","+data[2]+","+data[3]+","+"APPROVED"+","+data[5]+","+data[6]+","+data[7]+","+data[8];
-            FileHandler.writeFile(filepath, id, 0, newString);
-            System.out.println("Request approved successfully!");
+        //get request type
+        String filepath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
+        String[] data = FileHandler.readFile(filepath, id, 0);
+        switch(data[3]){
+            case 1: ReqType1.executeRequest(id,action);
+
+            case 2: ReqType2.executeRequest(id,action);
+
+            case 3:
+
+
         }
-        else{
-            String filepath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
-            String[] data = FileHandler.readFile(filepath, id, 0);
-            String newString = data[0]+","+data[1]+","+data[2]+","+data[3]+","+"REJECTED"+","+data[5]+","+data[6]+","+data[7]+","+data[8];
-            FileHandler.writeFile(filepath, id, 0, newString);
-            System.out.println("Request rejected successfully!");
-        }
+
         System.out.println("Enter any input to return");
         String temp = sc.nextLine();
         return this.getPreviousPage();
