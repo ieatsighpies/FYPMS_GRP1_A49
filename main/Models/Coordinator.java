@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class Coordinator extends Supervisor{
+public class Coordinator extends Supervisor implements IinitialiseRequest, IinitialiseProject{
 
     public Coordinator(String name, String email){
         super(name, email);

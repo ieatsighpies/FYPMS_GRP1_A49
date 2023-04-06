@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class Student extends User {
+public class Student extends User implements IinitialiseRequest, IinitialiseProject{
     //student HAS-A project
     private Project project;
     //to differentiate from students without a project
