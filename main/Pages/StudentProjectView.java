@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 
+import main.Models.Project;
+import main.Models.Request;
 import main.Models.Student;
 import main.Models.projectStatus_ENUM;
+import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 
@@ -21,9 +24,29 @@ public class StudentProjectView extends Page{
 
     @Override
     public Page executable(){
+        ConsoleUtils.clearScreen();
+
+        //check if student have a project
+        if(student.getProject() != null){
+            System.out.println("╔══════════════════════════════════════════════════════════════╗");
+            System.out.println("║    -\u001B[31mAccess Denied: You are already allocated a project!\u001B[0m-     ║");
+            System.out.println("╚══════════════════════════════════════════════════════════════╝");
+            System.out.print("Enter any input to return:");
+            String hold = sc.nextLine();
+            return this.getPreviousPage();
+        }
+
+        // check if student have deregistered before
+        if(student.getDeregisteredStatus() == true){
+            System.out.println("╔══════════════════════════════════════════════════════════════╗");
+            System.out.println("║    -\u001B[31mAccess Denied: You have deregistered a project before!\u001B[0m-   ║");
+            System.out.println("╚══════════════════════════════════════════════════════════════╝");
+            System.out.print("Enter any input to return:");
+            String hold = sc.nextLine();
+            return this.getPreviousPage();
+        }
 
         // print avaliable project
-        ConsoleUtils.clearScreen();
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                                             ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                             ║");
         System.out.println("║                                             ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝                                             ║");
@@ -56,6 +79,15 @@ public class StudentProjectView extends Page{
             br.close();
         } catch(Exception e){
             System.out.println(e);
+        }
+
+        // check if student already requested for any projects
+        for(Request r : student.getRequests()){
+            if(r.getRequestType().equals("1") && r.getRequestStatus().equals(requestStatus_ENUM.PENDING)){
+                System.out.print("Enter any input to return:");
+                String hold = sc.nextLine();
+                return this.getPreviousPage();
+            }
         }
 
         // print menu
