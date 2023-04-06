@@ -61,8 +61,8 @@ public abstract class Request {
     public void setRequesteeID(String requesteeID) {
         this.requesteeID = requesteeID;
     }
-    public abstract void printInfo(String inputInfo);
-    public abstract void proccessRequest(String decision);
+    public abstract void printInfo(String info1, String info2, String info3);
+    public abstract void processRequest(String decision);
 
 
 }

@@ -43,7 +43,7 @@ public class supervisorViewRequest extends Page{
         String requestID;
         Request r;
         while(true){
-            System.out.print("Enter requestID to view(empty to return): ");
+            System.out.print("Enter requestID to process(empty to return): ");
             requestID = sc.nextLine().trim();
 
             // return if blank
@@ -75,9 +75,9 @@ public class supervisorViewRequest extends Page{
         // print request info
         ConsoleUtils.clearScreen();
         String currentTitle = staff.getProjectbyID(r.getProjectID()).getTitle();
-        r.printInfo(currentTitle);
+        r.printInfo(currentTitle, null, null);
 
-        // proccess request
+        // process request
         String action;
         while(true) {
             System.out.print("Choose \u001B[32mAPPROVE\u001B[0m or \u001B[31mREJECT\u001B[0m for the request(blank for return): ");
@@ -89,7 +89,7 @@ public class supervisorViewRequest extends Page{
             else if(action.equals("APPROVE") || action.equals("REJECT")){break;}
         }
 
-        r.proccessRequest(action);
+        r.processRequest(action);
 
         System.out.print("Enter any input to return: ");
         String hold = sc.nextLine();
