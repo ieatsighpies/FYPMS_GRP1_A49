@@ -48,7 +48,7 @@ public class FileHandler {
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                if(currentLine.trim().length() > 0){
+                if(currentLine.trim().length()>0){
                     data = currentLine.split("\\s*,\\s*");
                     if(data[col].equalsIgnoreCase(check)){
                         return true;
@@ -78,9 +78,8 @@ public class FileHandler {
             StringBuffer inputBuffer = new StringBuffer();
 
             while((currentLine = br.readLine()) != null){
-                if(currentLine.trim().length() > 0){
+                if(currentLine.trim().length()>0){
                     data = currentLine.split(",");
-                    // System.out.println(data[0]+data[1]+data[2]+data[3]+data[4]);
                     if(data[col].equalsIgnoreCase(check)){
                         currentLine = newString;
                     }

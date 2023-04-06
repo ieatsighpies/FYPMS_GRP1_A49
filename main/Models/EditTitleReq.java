@@ -19,74 +19,14 @@ public class EditTitleReq extends Request{
     }
 
     @Override
-    public String getComments() {
-        
-        return super.getComments();
-    }
-
-    @Override
-    public String getProjectID() {
-        
-        return super.getProjectID();
-    }
-
-    @Override
-    public String getRequestID() {
-        
-        return super.getRequestID();
-    }
-
-    @Override
-    public requestStatus_ENUM getRequestStatus() {
-        
-        return super.getRequestStatus();
-    }
-
-    @Override
-    public String getRequestType() {
-        
-        return super.getRequestType();
-    }
-
-    @Override
-    public String getRequesterID() {
-        
-        return super.getRequesterID();
-    }
-
-    @Override
-    public void setComments(String comments) {
-        
-        super.setComments(comments);
-    }
-
-    @Override
-    public void setProjectID(String projectID) {
-        
-        super.setProjectID(projectID);
-    }
-
-    @Override
-    public void setRequestID(String requestID) {
-        
-        super.setRequestID(requestID);
-    }
-
-    @Override
-    public void setRequestStatus(requestStatus_ENUM requestStatus) {
-        
-        super.setRequestStatus(requestStatus);
-    }
-
-    @Override
-    public void setRequestType(String requestType) {
-        
-        super.setRequestType(requestType);
-    }
-
-    @Override
-    public void setRequesterID(String requesterID) {
-        
-        super.setRequesterID(requesterID);
+    public void printInfo() {
+        System.out.println("╔══════════════════════════════════════════════════════════╗");
+        System.out.printf("║ Request ID: \u001B[33m%-45s\u001B[0m║\n", this.getRequestID());
+        System.out.printf("║ Requester ID: \u001B[33m%-45s\u001B[0m║\n", this.getRequesterID());
+        System.out.printf("║ Requestee ID: \u001B[33m%-45s\u001B[0m║\n", this.getRequestID());
+        System.out.println("╠══════════════════════════════════════════════════════════╣"); 
+        System.out.printf("║ Current Title: \u001B[33m%-80s\u001B[0m║\n", this.getTitle());
+        System.out.printf("║ New Title: \u001B[33m%-45s\u001B[0m║\n", this.getRequestID());
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
     }
 }

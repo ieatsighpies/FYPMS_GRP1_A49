@@ -10,7 +10,6 @@ import main.Utils.FileHandler;
 public class StudentLogin extends Page{
     Scanner sc = new Scanner(System.in);
     Console console = System.console();
-    
     private String userType;
     private String userID;
     private Student student;
@@ -19,6 +18,12 @@ public class StudentLogin extends Page{
     public StudentLogin(Page previousPage, String userType){
         super(previousPage);
         this.userType = userType;
+        if (console==null)
+        {
+            System.out.println(
+                    "No console available");
+            return;
+        }
     }
 
     @Override
@@ -37,6 +42,7 @@ public class StudentLogin extends Page{
             // get userPass
             this.userPass = new String(console.readPassword("Enter Password:"));
 
+
             // verify userID and userPass
             String filepath = System.getProperty("user.dir") + "\\main\\Data\\student_list.csv";
             boolean userCheck = FileHandler.findFile(filepath, this.userID, 2);
@@ -53,7 +59,7 @@ public class StudentLogin extends Page{
             else{
                 // initialise student object
                 String[] data = FileHandler.readFile(filepath, this.userID, 2);
-                this.student = new Student(data[0], data[1]);
+                this.student = new Student(data[0], data[1],Boolean.valueOf(data[5]));
                 return new StudentMain(this, this.student);
             }
             if(!(this.userPass.isBlank() || this.userID.isBlank())){

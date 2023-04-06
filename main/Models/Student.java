@@ -4,32 +4,20 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class Student extends User {
+public class Student extends User implements IinitialiseRequest, IinitialiseProject{
     //student HAS-A project
     private Project project;
     //to differentiate from students without a project
     private boolean deregistered;
     private ArrayList<Request> requestList = new ArrayList<Request>();
 
-    public Student(String name, String email){
+    public Student(String name, String email, Boolean dereg){
         super(name, email);
         this.project = null;
-        this.deregistered = false;
+        this.deregistered = dereg;
         this.type = 1;
         initialiseProject();
         initialiseRequest();
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public String getEmail(){
-        return email;
-    }
-
-    public String getUserID(){
-        return userID;
     }
 
     public boolean getDeregisteredStatus(){
@@ -48,7 +36,7 @@ public class Student extends User {
     }
 
     public void initialiseProject(){
-        String filepath = System.getProperty("usser.dir") + "\\main\\Data\\project_record.csv";
+        String filepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
         String data[];
         int col = 6;
@@ -61,10 +49,10 @@ public class Student extends User {
 
             while((currentLine = br.readLine()) != null){
                 data = currentLine.split("\\s*,\\s*");
-                if(data[col].equals(this.getEmail()) && data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
+                if(data[col].equalsIgnoreCase(this.getEmail()) && data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
                     this.project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
                     found = true;
-                    break;
+                    return;
                 }
             }
         }catch(Exception e){
@@ -98,8 +86,8 @@ public class Student extends User {
                         requestList.add(request);
                     }
                     if(data[3].equals("2")){
-                        // to be added
-                        // put request here
+                        Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                        requestList.add(request);
                         if(data[4].equals(requestStatus_ENUM.APPROVED.toString())){
                             this.deregistered = true;
                         }
@@ -119,7 +107,7 @@ public class Student extends User {
         this.requestList = new ArrayList<Request>();
         this.initialiseRequest();
     }
-             
+
     public void printProject(){
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                            ███╗   ███╗██╗   ██╗         ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                 ║");
@@ -131,10 +119,10 @@ public class Student extends User {
         System.out.println("╠══════════════════╦════════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
         System.out.println("║ID                ║Project Title                                                                       ║Student Name    ║Student Email            ║Status   ║");
 
-       
+
         System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
         System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", this.project.getID(), this.project.getTitle(), this.project.getStudentName(), this.project.getStudentEmail(), this.project.getStatus());
-        
+
         System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
 

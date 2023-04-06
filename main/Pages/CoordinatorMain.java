@@ -15,6 +15,7 @@ public class CoordinatorMain extends Page{
     public CoordinatorMain(Page previousPage, Coordinator staff){
         super(previousPage);
         this.coordinator = staff;
+        System.out.println("CONSTRUCTED");
     }
 
     @Override
@@ -35,7 +36,7 @@ public class CoordinatorMain extends Page{
         System.out.println("║[1] Reset password                                        ║");
         System.out.println("║[2] View projects                                         ║");
         System.out.println("║[3] View my projects                                      ║");
-        System.out.println("║[4] View student requests                                 ║");
+        System.out.println("║[4] View requests                                         ║");
         System.out.println("║[5] Create Project                                        ║");
         System.out.println("║[6] Edit project title                                    ║");
         System.out.println("║[7] Request to transfer student                           ║");
@@ -66,10 +67,14 @@ public class CoordinatorMain extends Page{
             // view all projects
             case 2:
                 return new CoordAllProject(this, this.coordinator);
-            
+
             // view my created projects
             case 3:
                 return new CoordMyProject(this, this.coordinator);
+
+            // view student requests
+            case 4:
+                return new CoordViewRequest(this, this.coordinator);
 
             // create project
             case 5:
@@ -78,6 +83,10 @@ public class CoordinatorMain extends Page{
             // edit project title
             case 6:
                 return new CoordEditTitle(this, coordinator);
+
+            // request to transfer student
+            case 7:
+                return new CoordTransferStudent(this, coordinator);
 
             // view request history
             case 8:

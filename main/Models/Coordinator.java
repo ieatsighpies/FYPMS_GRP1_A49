@@ -4,23 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class Coordinator extends Supervisor{
+public class Coordinator extends Supervisor implements IinitialiseRequest, IinitialiseProject{
 
     public Coordinator(String name, String email){
         super(name, email);
         this.type = 3;
         this.updateProject();
         this.updateRequest();
-    }
-
-    @Override
-    public Project getProjectbyID(String projectID) {
-        return super.getProjectbyID(projectID);
-    }
-
-    @Override
-    public ArrayList<Project> getProjects() {
-        return super.getProjects();
     }
 
     public ArrayList<Project> getProjects(int type){
@@ -41,13 +31,8 @@ public class Coordinator extends Supervisor{
     }
 
     @Override
-    public ArrayList<Request> getRequests() {
-        return super.getRequests();
-    }
-
-    @Override
     public void initialiseProject() {
-        
+
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
         String data[];
@@ -67,14 +52,14 @@ public class Coordinator extends Supervisor{
                         this.countSupervising++;
                     }
                 }
-                
+
             }
             br.close();
         } catch(Exception e){
             System.out.println(e);
         }
     }
-    
+
     @Override
     public void initialiseRequest() {
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
@@ -93,10 +78,10 @@ public class Coordinator extends Supervisor{
                     Request request = new RegisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
                     this.getRequests().add(request);
                 }
-                // if(data[3].equals("2")){
-                //     Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
-                //     this.getRequests().add(request);
-                // }                
+                if(data[3].equals("2")){
+                    Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                    this.getRequests().add(request);
+                }
                 if(data[3].equals("3")){
                     Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
                     this.getRequests().add(request);
@@ -105,17 +90,12 @@ public class Coordinator extends Supervisor{
                     Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
                     this.getRequests().add(request);
                 }
-                
+
             }
             br.close();
         } catch(Exception e){
             System.out.println(e);
         }
-    }
-
-    @Override
-    public void printProjects() {
-        super.printProjects();
     }
 
     public void printProjects(int type){
@@ -141,32 +121,10 @@ public class Coordinator extends Supervisor{
                     System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
                     System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
                 }
-                
+
             }
         }
-        
+
         System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
-    }
-
-    @Override
-    public void updateProject() {
-        super.updateProject();
-    }
-
-    @Override
-    public void updateRequest() {
-        super.updateRequest();
-    }
-    
-    public String getName() {
-        return super.name;
-    }
-
-    public String getEmail() {
-        return super.email;
-    }
-
-    public String getUserID() {
-        return super.userID;
     }
 }

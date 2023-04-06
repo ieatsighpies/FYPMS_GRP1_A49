@@ -1,5 +1,5 @@
-Name,Email,UserID,Password,Salt
-A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,ASMADHUKUMAR,password,salt
+Name,Email,UserID,Password,Salt,SuperviseNo
+A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,ASMADHUKUMAR,password,salt,0
 Alexei Sourin,ASSOURIN@ntu.edu.sg,ASSOURIN,F4uwZGBb8gHUfIr4IZ3LY/f0RRhRdpKLMqsZZ/4UkMA=,cT8Nq1Rw9MA1mIL9R4WH9A==
 Anupam Chattopadhyay,ANUPAM@NTU.EDU.SG,ANUPAM,password,salt
 Anwitaman Datta,ANWITAMAN@NTU.EDU.SG,ANWITAMAN,password,salt

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class Supervisor extends User {
+public class Supervisor extends User implements IinitialiseRequest, IinitialiseProject{
 	private ArrayList<Project> projects = new ArrayList<Project>();
     private ArrayList<Request> requestList = new ArrayList<Request>();
 
@@ -15,18 +15,6 @@ public class Supervisor extends User {
         this.type = 2;
         initialiseProject();
         initialiseRequest();
-    }
-
-    public String getName() {
-        return super.getName();
-    }
-
-    public String getEmail() {
-        return super.getEmail();
-    }
-
-    public String getUserID() {
-        return super.getUserID();
     }
 
     public int getSupCount(){
@@ -41,7 +29,6 @@ public class Supervisor extends User {
         }
         return null;
     }
-
 
     public ArrayList<Project> getProjects(){
         return this.projects;
@@ -80,12 +67,6 @@ public class Supervisor extends User {
         this.initialiseProject();
     }
 
-    // public void approve(String EditTitleReq){
-    //     project.getRequestStatus() = APPROVED;
-    //     project.title = EditTitleReq;
-    //     this.initialiseProject;
-    // }
-
     public void initialiseRequest(){
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
         String currentLine;
@@ -109,6 +90,7 @@ public class Supervisor extends User {
                         requestList.add(request);
                     }
                 }
+
             }
             br.close();
         } catch(Exception e){
@@ -123,6 +105,15 @@ public class Supervisor extends User {
 
     public ArrayList<Request> getRequests(){
         return this.requestList;
+    }
+
+    public Request getRequestbyID(String requestID) {
+        for(Request r : this.requestList){
+            if(r.getRequestID().equals(requestID)){
+                return r;
+            }
+        }
+        return null;
     }
 
     public void printProjects(){
