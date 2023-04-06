@@ -92,7 +92,7 @@ public class StudentRequestTitleChange extends Page{
         System.out.println("Enter any input to return to Main Menu:");
         String temp = sc.nextLine();
         
-        return this.getPreviousPage().getPreviousPage();
+        return this.getPreviousPage();
 
     }
 

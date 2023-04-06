@@ -39,7 +39,7 @@ public class supervisorViewRequest extends Page{
         }
         System.out.println("╚══════════════════╩══════════════════════════════════════════════════════════════════════╩════════════╝");
         
-        // ask for request id to view
+        // ask for requestID to view
         String requestID;
         Request r;
         while(true){
@@ -71,18 +71,31 @@ public class supervisorViewRequest extends Page{
             }
             break;
         }
+        
+        // print request info
+        ConsoleUtils.clearScreen();
+        String currentTitle = staff.getProjectbyID(r.getProjectID()).getTitle();
+        r.printInfo(currentTitle);
 
-        System.out.println("╔══════════════════════════════════════════════════════════╗");
-        System.out.printf("║ Request ID: \u001B[33m%-45s\u001B[0m║\n", r.getRequestID());
-        System.out.printf("║ Requester ID: \u001B[33m%-45s\u001B[0m║\n", r.getRequesterID());
-        System.out.printf("║ Requestee ID: \u001B[33m%-45s\u001B[0m║\n", r.getRequestID());
-        System.out.println("╠══════════════════════════════════════════════════════════╣"); 
-        System.out.printf("║ Current Title: \u001B[33m%-80s\u001B[0m║\n", staff.getProjectbyID(r.getProjectID()).getTitle());
-        System.out.printf("║ New Title: \u001B[33m%-45s\u001B[0m║\n", r.getRequestID());
-        System.out.println("╚══════════════════════════════════════════════════════════╝");
+        // proccess request
+        String action;
+        while(true) {
+            System.out.print("Choose \u001B[32mAPPROVE\u001B[0m or \u001B[31mREJECT\u001B[0m for the request(blank for return): ");
+            action = sc.nextLine();
 
+            if (action.isBlank()) {
+                return this.getPreviousPage();
+            }
+            else if(action.equals("APPROVE") || action.equals("REJECT")){break;}
+        }
+
+        r.proccessRequest(action);
+
+        System.out.print("Enter any input to return: ");
         String hold = sc.nextLine();
         return this.getPreviousPage();
+
+
     }
     
 

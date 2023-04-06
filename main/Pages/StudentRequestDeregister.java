@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import main.Models.Request;
 import main.Models.Student;
 import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
@@ -34,16 +35,29 @@ public class StudentRequestDeregister extends Page{
             String hold = sc.nextLine();
             return this.getPreviousPage();
         }
+
+        // check if already have a pending deregister project request
+        for(Request r : this.student.getRequests()){
+            if(r.getRequestType().equals("2") && r.getRequestStatus().equals(requestStatus_ENUM.PENDING)){
+                System.out.println("╔══════════════════════════════════════════════════════════════╗");
+                System.out.println("║           -\u001B[31mAccess Denied: Your request in PENDING\u001B[0m-           ║");
+                System.out.println("╚══════════════════════════════════════════════════════════════╝");
+                System.out.print("Enter any input to return:");
+                String hold = sc.nextLine();
+                return this.getPreviousPage();
+            }
+        }
+
         // if have project ask if want to de-reg
         this.student.printProject();
         String newAnswer;
         while(true){
             System.out.print("Do you want to deregister this project(Y/N)? ");
             newAnswer = sc.nextLine().trim();
-            if(newAnswer=="N") {
+            if(newAnswer.equalsIgnoreCase("N")) {
                 return this.getPreviousPage();
             }
-            else if (newAnswer=="Y"){
+            else if (newAnswer.equalsIgnoreCase("Y")){
                 break;
             }
             else{System.out.println("Invalid input!");}
@@ -86,7 +100,7 @@ public class StudentRequestDeregister extends Page{
         System.out.println("Enter any input to return to Main Menu:");
         String temp = sc.nextLine();
 
-        return this.getPreviousPage().getPreviousPage();
+        return this.getPreviousPage();
 
     }
 

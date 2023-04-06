@@ -8,9 +8,15 @@ public class RegisterProjectReq extends Request{
     }
 
     @Override
-    public void printInfo() {
+    public void printInfo(String info) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'printInfo'");
+    }
+
+    @Override
+    public void proccessRequest(String decision) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'proccessRequest'");
     }
 
 }

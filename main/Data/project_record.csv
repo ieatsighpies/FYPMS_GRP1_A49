@@ -17,5 +17,5 @@ ProjectID,Supervisor_Name,Supervisor_Email,Project_Title,Status,Student_Name,Stu
 45678912345678927,Ke Yiping Kelly,YPKE@NTU.EDU.SG,Graph-based Deep Models for Image Semantic Segmentation,AVAILABLE,NaN,NaN
 51228706419900416,Alexei Sourin,ASSOURIN@ntu.edu.sg,Tesla Motors v2.0,RESERVED,NaN,NaN
 51229066557652992,Bo An,BOAN@NTU.EDU.SG,Deep AI Learning ,AVAILABLE,NaN,NaN
-51229097799188480,Bo An,BOAN@NTU.EDU.SG,Deep Ai Learning III,AVAILABLE,NaN,NaN
-51312477383819264,Li Fang,ASFLI@NTU.EDU.SG,Computer Studies II,ALLOCATED,KOH,KOH1@e.ntu.edu.sg
+51229097799188480,Bo An,BOAN@NTU.EDU.SG,Deep learning with AI,ALLOCATED,KOH,KOH1@e.ntu.edu.sg
+51312477383819264,Li Fang,ASFLI@NTU.EDU.SG,Computer Studies II,AVAILABLE,NaN,NaN
