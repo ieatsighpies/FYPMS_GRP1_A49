@@ -17,18 +17,6 @@ public class Supervisor extends User {
         initialiseRequest();
     }
 
-    public String getName() {
-        return super.getName();
-    }
-
-    public String getEmail() {
-        return super.getEmail();
-    }
-
-    public String getUserID() {
-        return super.getUserID();
-    }
-
     public int getSupCount(){
         return this.countSupervising;
     }

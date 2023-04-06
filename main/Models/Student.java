@@ -20,18 +20,6 @@ public class Student extends User {
         initialiseRequest();
     }
 
-    public String getName(){
-        return this.name;
-    }
-
-    public String getEmail(){
-        return email;
-    }
-
-    public String getUserID(){
-        return userID;
-    }
-
     public boolean getDeregisteredStatus(){
         return deregistered;
     }
@@ -119,7 +107,7 @@ public class Student extends User {
         this.requestList = new ArrayList<Request>();
         this.initialiseRequest();
     }
-             
+
     public void printProject(){
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                            ███╗   ███╗██╗   ██╗         ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                 ║");
@@ -131,10 +119,10 @@ public class Student extends User {
         System.out.println("╠══════════════════╦════════════════════════════════════════════════════════════════════════════════════╦════════════════╦═════════════════════════╦═════════╣");
         System.out.println("║ID                ║Project Title                                                                       ║Student Name    ║Student Email            ║Status   ║");
 
-       
+
         System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
         System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", this.project.getID(), this.project.getTitle(), this.project.getStudentName(), this.project.getStudentEmail(), this.project.getStatus());
-        
+
         System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
 

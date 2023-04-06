@@ -47,7 +47,7 @@ public class Coordinator extends Supervisor{
 
     @Override
     public void initialiseProject() {
-        
+
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
         String data[];
@@ -67,14 +67,14 @@ public class Coordinator extends Supervisor{
                         this.countSupervising++;
                     }
                 }
-                
+
             }
             br.close();
         } catch(Exception e){
             System.out.println(e);
         }
     }
-    
+
     @Override
     public void initialiseRequest() {
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
@@ -96,7 +96,7 @@ public class Coordinator extends Supervisor{
                 // if(data[3].equals("2")){
                 //     Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
                 //     this.getRequests().add(request);
-                // }                
+                // }
                 if(data[3].equals("3")){
                     Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
                     this.getRequests().add(request);
@@ -105,7 +105,7 @@ public class Coordinator extends Supervisor{
                     Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
                     this.getRequests().add(request);
                 }
-                
+
             }
             br.close();
         } catch(Exception e){
@@ -141,10 +141,10 @@ public class Coordinator extends Supervisor{
                     System.out.println("╠══════════════════╬════════════════════════════════════════════════════════════════════════════════════╬════════════════╬═════════════════════════╬═════════╣");
                     System.out.printf("║%-18.18s║%-80.80s\t║%-16.16s║%-25.25s║%-9.9s║\n", p.getID(), p.getTitle(), p.getStudentName(), p.getStudentEmail(), p.getStatus());
                 }
-                
+
             }
         }
-        
+
         System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
 
@@ -157,16 +157,5 @@ public class Coordinator extends Supervisor{
     public void updateRequest() {
         super.updateRequest();
     }
-    
-    public String getName() {
-        return super.name;
-    }
 
-    public String getEmail() {
-        return super.email;
-    }
-
-    public String getUserID() {
-        return super.userID;
-    }
 }
