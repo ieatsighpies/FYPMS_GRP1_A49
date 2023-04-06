@@ -30,7 +30,7 @@ public class CoordViewRequest extends Page{
         System.out.println("║ID                ║Request Type                                                          ║Status      ║");
 
         List<String> PendingID = new ArrayList<>();
-
+        this.coordinator.updateRequest();
         for(Request r : this.coordinator.getRequests()){
             if(r.getRequestType().equals("4") && r.getRequestStatus().toString().equals("PENDING")){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");
@@ -96,7 +96,7 @@ public class CoordViewRequest extends Page{
             FileHandler.writeFile(filepath, id, 0, newString);
             System.out.println("Request rejected successfully!");
         }
-        System.out.println("Enter any input to return");x
+        System.out.println("Enter any input to return");
         String temp = sc.nextLine();
         return this.getPreviousPage();
     }

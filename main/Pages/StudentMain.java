@@ -16,7 +16,7 @@ public class StudentMain extends Page{
     
     public StudentMain(Page previousPage, Student student){
         super(previousPage);
-        this.student = xt;
+        this.student = student;
     }
 
     @Override

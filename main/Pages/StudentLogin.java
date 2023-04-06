@@ -59,7 +59,7 @@ public class StudentLogin extends Page{
             else{
                 // initialise student object
                 String[] data = FileHandler.readFile(filepath, this.userID, 2);
-                this.student = new Student(data[0], data[1]);
+                this.student = new Student(data[0], data[1],Boolean.valueOf(data[5]));
                 return new StudentMain(this, this.student);
             }
             if(!(this.userPass.isBlank() || this.userID.isBlank())){
