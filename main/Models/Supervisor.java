@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class Supervisor extends User {
+public class Supervisor extends User implements IinitialiseRequest, IinitialiseProject{
 	private ArrayList<Project> projects = new ArrayList<Project>();
     private ArrayList<Request> requestList = new ArrayList<Request>();
 
