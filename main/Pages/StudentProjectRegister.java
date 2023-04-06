@@ -5,8 +5,10 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 import main.Models.Student;
+import main.Models.projectStatus_ENUM;
 import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
+import main.Utils.FileHandler;
 import main.Utils.UIDGenerator;
 
 public class StudentProjectRegister extends Page{
@@ -61,6 +63,14 @@ public class StudentProjectRegister extends Page{
 
         // reload request
         student.updateRequest();
+
+        // change update project_record.csv
+        String pfilepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
+        String update = projectData[0]+","+projectData[1]+","+projectData[2]+","+projectData[3]+","+projectStatus_ENUM.RESERVED.toString()+","+projectData[5]+","+projectData[6];
+        FileHandler.writeFile(pfilepath, projectData[0], 0, update);
+
+        // reload project
+        student.updateProject();
 
         System.out.println("╔═══════════════════════════════════════╗");
         System.out.println("║             -Request Sent-            ║");

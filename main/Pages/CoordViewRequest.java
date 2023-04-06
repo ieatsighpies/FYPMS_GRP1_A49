@@ -96,7 +96,7 @@ public class CoordViewRequest extends Page{
             FileHandler.writeFile(filepath, id, 0, newString);
             System.out.println("Request rejected successfully!");
         }
-        System.out.println("Enter any input to return");x
+        System.out.println("Enter any input to return");
         String temp = sc.nextLine();
         return this.getPreviousPage();
     }
