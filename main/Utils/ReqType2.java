@@ -1,8 +1,10 @@
+package main.Utils;
+
 import main.Utils.FileHandler;
 import java.util.ArrayList;
 import java.util.List;
 public class ReqType2 {
-    public void executeRequest(String id,String action){
+    public static void executeRequest(String id,String action){
         //Changing request records
         String newStatus;
         if (action=="APPROVE"){newStatus= "APPROVED";}

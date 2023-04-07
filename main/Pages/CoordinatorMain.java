@@ -84,9 +84,9 @@ public class CoordinatorMain extends Page{
             case 6:
                 return new CoordEditTitle(this, coordinator);
 
-            // edit project title
-            //case 7:
-                //return new CoordEditTitle(this, coordinator);
+            // request to transfer student
+            case 7:
+                return new CoordTransferStudent(this, coordinator);
 
             // view request history
             case 8:

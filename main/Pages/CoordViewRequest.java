@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import main.Models.Coordinator;
 import main.Models.Request;
+import main.Models.TransferStudentReq;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 
@@ -58,48 +59,65 @@ public class CoordViewRequest extends Page{
 
         }
         System.out.println("╚══════════════════╩══════════════════════════════════════════════════════════════════════╩════════════╝");
-        String id;
+        
+        // ask for requestID to view
+        String requestID;
         while(true) {
             boolean valid=false;
-            System.out.print("Choose a valid requestID to process (leave blank to return): ");
-            id = sc.nextLine().toString();
+            System.out.print("Enter requestID to process(leave blank to return): ");
+            requestID = sc.nextLine().trim();
+
+            // check if request exist
             for (int i = 0; i < PendingID.size(); i++){
-                if (PendingID.get(i).equals(id)){valid = true;}
+                if (PendingID.get(i).equals(requestID)){valid = true;}
             }
 
-                if (id.isBlank()) {
-                    return this.getPreviousPage();
-                }
-                if(valid){break;}
-
+            // return if blank
+            if (requestID.isBlank()) {
+                return this.getPreviousPage();
+            }
+            if(valid){break;}
         }
-        //
 
-        ////
+        // print request info
+        Request r = coordinator.getRequestbyID(requestID);
+        String info1 = null;
+        String info2 = null;
+        String info3 = null;
+        if(r.getRequestType().equals("1")){
+            info1 = coordinator.getProjectbyID(r.getProjectID()).getTitle();
+            info2 = coordinator.getProjectbyID(r.getProjectID()).getSupervisorID();
+            info3 = coordinator.getProjectbyID(r.getProjectID()).getSupervisorEmail();
+        }
+        else if(r.getRequestType().equals("2")){
+            info1 = coordinator.getProjectbyID(r.getProjectID()).getTitle();
+            info2 = coordinator.getProjectbyID(r.getProjectID()).getSupervisorID();
+            info3 = coordinator.getProjectbyID(r.getProjectID()).getSupervisorEmail();
+        }
+        else if(r.getRequestType().equals("3")){
+            info1 = coordinator.getProjectbyID(r.getProjectID()).getTitle();
+        }
+        else{
+            info1 = coordinator.getProjectbyID(r.getProjectID()).getTitle();
+            info2 = coordinator.getProjectbyID(r.getProjectID()).getSupervisorID();
+            info3 = ((TransferStudentReq) r).getNewSupervisorID();
+        }
+        r.printInfo(info1, info2, info3);
+
+        // process request
         String action;
         while(true) {
-            System.out.print("Choose APPROVE or REJECT for the request(blank for return): ");
+            System.out.print("Choose \u001B[32mAPPROVE\u001B[0m or \u001B[31mREJECT\u001B[0m for the request(blank for return): ");
             action = sc.nextLine();
 
-
-            if (id.isBlank()) {
+            if (action.isBlank()) {
                 return this.getPreviousPage();
             }
             else if(action.equals("APPROVE") || action.equals("REJECT")){break;}
 
         }
-        //get request type
-        String filepath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
-        String[] data = FileHandler.readFile(filepath, id, 0);
-        switch(data[3]){
-            case 1: ReqType1.executeRequest(id,action);
 
-            case 2: ReqType2.executeRequest(id,action);
-
-            case 3:
-
-
-        }
+        r.processRequest(action);
 
         System.out.println("Enter any input to return");
         String temp = sc.nextLine();

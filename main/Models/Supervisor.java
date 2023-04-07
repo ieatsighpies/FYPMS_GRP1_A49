@@ -107,6 +107,15 @@ public class Supervisor extends User implements IinitialiseRequest, IinitialiseP
         return this.requestList;
     }
 
+    public Request getRequestbyID(String requestID) {
+        for(Request r : this.requestList){
+            if(r.getRequestID().equals(requestID)){
+                return r;
+            }
+        }
+        return null;
+    }
+
     public void printProjects(){
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                                             ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                             ║");

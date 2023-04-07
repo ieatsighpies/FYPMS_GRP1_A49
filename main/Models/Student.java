@@ -36,7 +36,7 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
     }
 
     public void initialiseProject(){
-        String filepath = System.getProperty("usser.dir") + "\\main\\Data\\project_record.csv";
+        String filepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
         String data[];
         int col = 6;
@@ -49,10 +49,10 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
 
             while((currentLine = br.readLine()) != null){
                 data = currentLine.split("\\s*,\\s*");
-                if(data[col].equals(this.getEmail()) && data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
+                if(data[col].equalsIgnoreCase(this.getEmail()) && data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
                     this.project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
                     found = true;
-                    break;
+                    return;
                 }
             }
         }catch(Exception e){

@@ -22,7 +22,7 @@ public class FileHandler {
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                if(currentLine.trim().length()>0){
+                if(currentLine.trim().length() > 0){
                     data = currentLine.split("\\s*,\\s*");
                     if(data[col].equalsIgnoreCase(check)){
                         return data;
