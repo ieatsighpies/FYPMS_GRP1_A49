@@ -6,6 +6,7 @@ import java.util.Scanner;
 import main.Models.Request;
 import main.Models.Student;
 import main.Utils.ConsoleUtils;
+import main.Utils.FileHandler;
 import main.Utils.SortBy;
 
 public class StudentRequestHistory extends Page{
@@ -68,7 +69,7 @@ public class StudentRequestHistory extends Page{
             if(option.isBlank()){               // return if blank
                 return this.getPreviousPage();
             }
-
+            System.out.println("Invalid option!");
             System.out.print("Enter choice (empty to return): ");
             option = sc.nextLine().trim();
         }
@@ -125,26 +126,30 @@ public class StudentRequestHistory extends Page{
 
         // print request info
         Request r = this.student.getRequestbyID(requestID);
+        String pfilepath = System.getProperty("user.dir")+"\\main\\Data\\project_record.csv";
+        String[] projectData = FileHandler.readFile(pfilepath, r.getProjectID(), 0);
         String info1 = null;
         String info2 = null;
         String info3 = null;
         if(r.getRequestType().equals("1")){
-            info1 = this.student.getProjectbyID(r.getProjectID()).getTitle();
-            info2 = this.student.getProjectbyID(r.getProjectID()).getSupervisorID();
-            info3 = this.student.getProjectbyID(r.getProjectID()).getSupervisorEmail();
+            info1 = projectData[3];
+            info2 = projectData[1];
+            info3 = projectData[2];
         }
         else if(r.getRequestType().equals("2")){
-            info1 = this.student.getProjectbyID(r.getProjectID()).getTitle();
-            info2 = this.student.getProjectbyID(r.getProjectID()).getSupervisorID();
-            info3 = this.student.getProjectbyID(r.getProjectID()).getSupervisorEmail();
+            info1 = projectData[3];
+            info2 = projectData[1];
+            info3 = projectData[2];
         }
         else if(r.getRequestType().equals("3")){
-            info1 = this.student.getProjectbyID(r.getProjectID()).getTitle();
+            info1 = projectData[3];
         }
         r.printInfo(info1, info2, info3);
 
+        System.out.print("Enter any input to continue: ");
+        String hold = sc.nextLine();
 
-        return this.getPreviousPage();
+        return this;
 
     }
 }
