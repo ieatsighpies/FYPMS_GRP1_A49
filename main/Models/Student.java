@@ -5,11 +5,10 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Student extends User implements IinitialiseRequest, IinitialiseProject{
-    //student HAS-A project
-    private Project project;
-    //to differentiate from students without a project
-    private boolean deregistered;
-    private ArrayList<Request> requestList = new ArrayList<Request>();
+    
+    private Project project; //student HAS-A project
+    private boolean deregistered; //to differentiate from students without a project
+    private ArrayList<Request> requestList = new ArrayList<Request>(); // all request of current student
 
     public Student(String name, String email, Boolean dereg){
         super(name, email);
@@ -33,6 +32,15 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
 
     public ArrayList<Request> getRequests(){
         return this.requestList;
+    }
+
+    public Request getRequestbyID(String requestID) {
+        for(Request r : this.requestList){
+            if(r.getRequestID().equals(requestID)){
+                return r;
+            }
+        }
+        return null;
     }
 
     public void initialiseProject(){
@@ -86,7 +94,7 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
                         requestList.add(request);
                     }
                     if(data[3].equals("2")){
-                        Request request = new DeregisterReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                        Request request = new DeregisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
                         requestList.add(request);
                         if(data[4].equals(requestStatus_ENUM.APPROVED.toString())){
                             this.deregistered = true;

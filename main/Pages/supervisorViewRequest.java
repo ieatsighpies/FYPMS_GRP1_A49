@@ -5,6 +5,7 @@ import java.util.Scanner;
 import main.Models.Request;
 import main.Models.Supervisor;
 import main.Models.requestStatus_ENUM;
+import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
 
 public class supervisorViewRequest extends Page{
@@ -34,7 +35,7 @@ public class supervisorViewRequest extends Page{
         for(Request r : this.staff.getRequests()){
             if(r.getRequestType().equals("3") && r.getRequestStatus().equals(requestStatus_ENUM.PENDING)){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");
-                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║\n", r.getRequestID(), "Request for Project Title Change", r.getRequestStatus().toString());
+                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║ %-10s\n", r.getRequestID(), "Request for Project Title Change", r.getRequestStatus().toString(), r.getRequestStatus().equals(requestStatus_ENUM.PENDING)?ConsoleColors.BLUE_BOLD_BRIGHT+"NEW!"+ConsoleColors.RESET:"");
             }
         }
         System.out.println("╚══════════════════╩══════════════════════════════════════════════════════════════════════╩════════════╝");

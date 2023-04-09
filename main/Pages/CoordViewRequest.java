@@ -6,6 +6,8 @@ import java.util.Scanner;
 import main.Models.Coordinator;
 import main.Models.Request;
 import main.Models.TransferStudentReq;
+import main.Models.requestStatus_ENUM;
+import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 
@@ -38,22 +40,22 @@ public class CoordViewRequest extends Page{
         for(Request r : this.coordinator.getRequests()){
             if(r.getRequestType().equals("4") && r.getRequestStatus().toString().equals("PENDING")){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");
-                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║\n", r.getRequestID(), "Request to Transfer Student", r.getRequestStatus().toString());
+                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║ %-10s\n", r.getRequestID(), "Request to Transfer Student", r.getRequestStatus().toString(), r.getRequestStatus().equals(requestStatus_ENUM.PENDING)?ConsoleColors.BLUE_BOLD_BRIGHT+"NEW!"+ConsoleColors.RESET:"");
                 PendingID.add(r.getRequestID());
             }
             else if(r.getRequestType().equals("3")&& r.getRequestStatus().toString().equals("PENDING")){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");
-                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║\n", r.getRequestID(), "Request for Project Title Change", r.getRequestStatus().toString());
+                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║ %-10s\n", r.getRequestID(), "Request for Project Title Change", r.getRequestStatus().toString(), r.getRequestStatus().equals(requestStatus_ENUM.PENDING)?ConsoleColors.BLUE_BOLD_BRIGHT+"NEW!"+ConsoleColors.RESET:"");
                 PendingID.add(r.getRequestID());
             }
             else if(r.getRequestType().equals("2")&& r.getRequestStatus().toString().equals("PENDING")){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");
-                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║\n", r.getRequestID(), "Request for Project De-registation", r.getRequestStatus().toString());
+                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║ %-10s\n", r.getRequestID(), "Request for Project De-registation", r.getRequestStatus().toString(), r.getRequestStatus().equals(requestStatus_ENUM.PENDING)?ConsoleColors.BLUE_BOLD_BRIGHT+"NEW!"+ConsoleColors.RESET:"");
                 PendingID.add(r.getRequestID());
             }
             else if(r.getRequestType().equals("1")&& r.getRequestStatus().toString().equals("PENDING")){
                 System.out.println("╠══════════════════╬══════════════════════════════════════════════════════════════════════╬════════════╣");
-                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║\n", r.getRequestID(), "Request for Project Registration", r.getRequestStatus().toString());
+                System.out.printf("║%-18.18s║%-70.70s║%-12.12s║ %-10s\n", r.getRequestID(), "Request for Project Registration", r.getRequestStatus().toString(), r.getRequestStatus().equals(requestStatus_ENUM.PENDING)?ConsoleColors.BLUE_BOLD_BRIGHT+"NEW!"+ConsoleColors.RESET:"");
                 PendingID.add(r.getRequestID());
             }
 
