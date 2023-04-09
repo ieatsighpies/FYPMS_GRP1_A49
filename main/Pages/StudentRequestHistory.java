@@ -7,7 +7,7 @@ import main.Models.Request;
 import main.Models.Student;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
-import main.Utils.SortBy;
+import main.Utils.ReqSortBy;
 
 public class StudentRequestHistory extends Page{
     private Scanner sc = new Scanner(System.in);
@@ -80,19 +80,19 @@ public class StudentRequestHistory extends Page{
 
             // sort by id
             case 1:
-                Collections.sort(this.student.getRequests(), SortBy.ID);
+                Collections.sort(this.student.getRequests(), ReqSortBy.ID);
                 student_req_sortedby = 1;
                 return this;
 
             // sort by type
             case 2:
-                Collections.sort(this.student.getRequests(), SortBy.Type);
+                Collections.sort(this.student.getRequests(), ReqSortBy.Type);
                 student_req_sortedby = 2;
                 return this;
 
             // sort by status
             case 3:
-                Collections.sort(this.student.getRequests(), SortBy.Status);
+                Collections.sort(this.student.getRequests(), ReqSortBy.Status);
                 student_req_sortedby = 3;
                 return this;
 
