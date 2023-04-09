@@ -24,7 +24,6 @@ public class StudentMain extends Page{
 
         ConsoleUtils.clearScreen();
         
-        System.out.println(this.student.getProject().getTitle());
         System.out.println("╔══════════════════════════════════════════════════════════╗");
         System.out.println("║ ███╗   ██╗████████╗██╗   ██╗███████╗██╗   ██╗██████╗ ██╗ ║");
         System.out.println("║ ████╗  ██║╚══██╔══╝██║   ██║██╔════╝╚██╗ ██╔╝██╔══██╗██║ ║");

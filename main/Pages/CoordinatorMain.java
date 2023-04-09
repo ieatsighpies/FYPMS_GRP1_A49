@@ -4,6 +4,9 @@ import java.io.Console;
 import java.util.Scanner;
 
 import main.Models.Coordinator;
+import main.Models.Request;
+import main.Models.requestStatus_ENUM;
+import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
 
 public class CoordinatorMain extends Page{
@@ -15,7 +18,6 @@ public class CoordinatorMain extends Page{
     public CoordinatorMain(Page previousPage, Coordinator staff){
         super(previousPage);
         this.coordinator = staff;
-        System.out.println("CONSTRUCTED");
     }
 
     @Override
@@ -36,7 +38,7 @@ public class CoordinatorMain extends Page{
         System.out.println("║[1] Reset password                                        ║");
         System.out.println("║[2] View projects                                         ║");
         System.out.println("║[3] View my projects                                      ║");
-        System.out.println("║[4] View requests                                         ║");
+        System.out.println("║[4] View requests                                         ║ " + (this.havePending()?ConsoleColors.BLUE_BOLD_BRIGHT+"NEW!"+ConsoleColors.RESET:""));
         System.out.println("║[5] Create Project                                        ║");
         System.out.println("║[6] Edit project title                                    ║");
         System.out.println("║[7] Request to transfer student                           ║");
@@ -98,5 +100,14 @@ public class CoordinatorMain extends Page{
         }
 
         return this;
+    }
+
+    private boolean havePending(){
+        for(Request r : this.coordinator.getRequests()){
+            if(r.getRequestStatus().equals(requestStatus_ENUM.PENDING)){
+                return true;
+            }
+        }
+        return false;
     }
 }

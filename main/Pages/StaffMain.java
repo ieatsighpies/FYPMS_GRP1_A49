@@ -3,7 +3,10 @@ package main.Pages;
 import java.io.Console;
 import java.util.Scanner;
 
+import main.Models.Request;
 import main.Models.Supervisor;
+import main.Models.requestStatus_ENUM;
+import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
 
 public class StaffMain extends Page{
@@ -34,7 +37,7 @@ public class StaffMain extends Page{
         System.out.println("╠══════════════════════════════════════════════════════════╣");
         System.out.println("║[1] Reset password                                        ║");
         System.out.println("║[2] View projects                                         ║");
-        System.out.println("║[3] View student requests                                 ║");
+        System.out.println("║[3] View student requests                                 ║ " + (this.havePending()?ConsoleColors.BLUE_BOLD_BRIGHT+"NEW!"+ConsoleColors.RESET:""));
         System.out.println("║[4] Create Project                                        ║");
         System.out.println("║[5] Edit project title                                    ║");
         System.out.println("║[6] Request to transfer student                           ║");
@@ -92,6 +95,15 @@ public class StaffMain extends Page{
         }
 
         return this;
+    }
+
+    private boolean havePending(){
+        for(Request r : this.staff.getRequests()){
+            if(r.getRequestStatus().equals(requestStatus_ENUM.PENDING)){
+                return true;
+            }
+        }
+        return false;
     }
     
     

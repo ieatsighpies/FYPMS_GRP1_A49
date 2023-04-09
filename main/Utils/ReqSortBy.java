@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import main.Models.Request;
 
-public class SortBy {
+public class ReqSortBy {
     public static Comparator<Request> ID = new Comparator<Request>() {
 
         @Override
