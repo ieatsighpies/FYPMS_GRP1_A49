@@ -11,7 +11,6 @@ import java.util.ArrayList;
 * @version 1.0
 * @since 2023-4-13
 */
-
 public class Supervisor extends User implements IinitialiseRequest, IinitialiseProject{
     /**
      * List of projects made by supervisor.
@@ -147,10 +146,19 @@ public class Supervisor extends User implements IinitialiseRequest, IinitialiseP
         this.initialiseRequest();
     }
 
+    /**
+     * Getter to get supervisor's request arraylist
+     * @return supervisor's request arraylist
+     */
     public ArrayList<Request> getRequests(){
         return this.requestList;
     }
 
+    /**
+     * Method to get a request in the request list by reuqest ID
+     * @param requestID target request ID
+     * @return target request
+     */
     public Request getRequestbyID(String requestID) {
         for(Request r : this.requestList){
             if(r.getRequestID().equals(requestID)){

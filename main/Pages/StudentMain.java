@@ -19,9 +19,11 @@ public class StudentMain extends Page{
     Console console = System.console();
 
     private Student student;
+    
     /**
-     * StudentMain constructor
-     *
+     * Constructor for this class
+     * @param previousPage the previous page
+     * @param student the current user
      */
     public StudentMain(Page previousPage, Student student){
         super(previousPage);
@@ -29,8 +31,7 @@ public class StudentMain extends Page{
     }
     /**
      * Main executable for this page
-     * @return next page {@link main.Pages.Welcome},{@link main.Pages.StudentRequestTitleChange},{@link main.Pages.
-     * StudentRequestHistory},{@link main.Pages.StudentRequestDeregister},{@link main.Pages.StudentMyProject}
+     * @return next page {@link main.Pages.Welcome},{@link main.Pages.StudentRequestTitleChange},{@link main.Pages.StudentRequestHistory},{@link main.Pages.StudentRequestDeregister},{@link main.Pages.StudentMyProject}
      */
     @Override
     public Page executable(){

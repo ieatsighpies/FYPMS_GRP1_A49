@@ -18,7 +18,8 @@ public class SupervisorDeregister extends Page{
     private Supervisor staff;
     /**
      * SupervisorDeregister constructor
-     *
+     * @param previousPage the previous page
+     * @param staff the current user
      */
     public SupervisorDeregister(Page previousPage, Supervisor staff) {
         super(previousPage);
@@ -26,7 +27,7 @@ public class SupervisorDeregister extends Page{
     }
     /**
      * Main executable for SupervisorDeregister page
-     * @return next page {@link main.Pages.StaffMain)
+     * @return next page {@link main.Pages.StaffMain}
      */
     @Override
     public Page executable() {

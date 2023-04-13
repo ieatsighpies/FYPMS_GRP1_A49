@@ -2,6 +2,7 @@ package main.Utils;
 
 /**
 * Provide methods to authenticate different user types
+* The class does not have any public constructors and should be used as a static utility class.
 *  
 * @author Dr. Heinz Doofenshmirtz
 * @version 1.0

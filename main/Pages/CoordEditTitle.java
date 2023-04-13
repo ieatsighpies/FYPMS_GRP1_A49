@@ -17,6 +17,11 @@ public class CoordEditTitle extends Page{
     private Scanner sc = new Scanner(System.in);
     private Coordinator coordinator;
 
+    /**
+     * Constructor for this class
+     * @param previousPage the previous page
+     * @param coordinator the current user
+     */
     public CoordEditTitle(Page previousPage, Coordinator coordinator) {
         super(previousPage);
         this.coordinator = coordinator;

@@ -25,7 +25,8 @@ public class SupervisorTransferStudent extends Page{
 
     /**
      * SupervisorTransferStudent constructor
-     *
+     * @param previousPage the previous page
+     * @param staff the current user
      */
     public SupervisorTransferStudent(Page previousPage, Supervisor staff){
         super(previousPage);
@@ -34,7 +35,7 @@ public class SupervisorTransferStudent extends Page{
 
     /**
      * Main executable for SupervisorTransferStudent page
-     * @return next page {@link main.Pages.StaffMain)
+     * @return next page {@link main.Pages.StaffMain}
      */
     @Override
     public Page executable(){

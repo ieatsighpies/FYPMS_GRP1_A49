@@ -17,7 +17,8 @@ public class SupervisorRequestHistory extends Page{
     private Supervisor staff;
     /**
      * SupervisorRequestHistory constructor
-     *
+     * @param previousPage the previous page
+     * @param staff the current user
      */
     public SupervisorRequestHistory(Page previousPage, Supervisor staff) {
         super(previousPage);
@@ -26,7 +27,7 @@ public class SupervisorRequestHistory extends Page{
 
     /**
      * Main executable for SupervisorRequestHistory page
-     * @return next page {@link main.Pages.StaffMain)
+     * @return next page {@link main.Pages.StaffMain}
      */
     @Override
     public Page executable() {

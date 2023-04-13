@@ -7,5 +7,24 @@ package main.Models;
  * @since 13-4-2023
  */
 public enum projectStatus_ENUM {
-    AVAILABLE,UNAVAILABLE,RESERVED,ALLOCATED;
+
+    /**
+     * project is available
+     */
+    AVAILABLE,
+
+    /**
+     * project is unavailable when supervisor is supervising 2 projects
+     */
+    UNAVAILABLE,
+    
+    /**
+     * project is reserved after a student request for it
+     */
+    RESERVED,
+    
+    /**
+     * project is allocated after coordinator approves the request
+     */
+    ALLOCATED;
 }

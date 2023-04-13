@@ -18,11 +18,21 @@ import main.Utils.UIDGenerator;
  * @since 13-4-2023
  */
 public class StudentRequestDeregister extends Page{
-    private Scanner sc = new Scanner(System.in);
-    private Student student;
+
     /**
-     * StudentRequestDeregister constructor
-     *
+     * scanner for user input
+     */
+    private Scanner sc = new Scanner(System.in);
+
+    /**
+     * the current student
+     */
+    private Student student;
+    
+    /**
+     * Constructor for this class
+     * @param previousPage the previous page
+     * @param student the current user
      */
     public StudentRequestDeregister(Page previousPage, Student student){
         super(previousPage);
@@ -30,7 +40,7 @@ public class StudentRequestDeregister extends Page{
     }
     /**
      * Main executable for this page
-     * @return next page {@link main.Pages.StudentMain)
+     * @return next page {@link main.Pages.StudentMain}
      */
     @Override
     public Page executable() {

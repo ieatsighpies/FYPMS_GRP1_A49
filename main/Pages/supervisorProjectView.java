@@ -16,9 +16,11 @@ import main.Utils.ConsoleUtils;
 public class supervisorProjectView extends Page{
     Scanner sc = new Scanner(System.in);
     private Supervisor staff;
+    
     /**
-     * supervisorProjectView constructor
-     *
+     * Constructor for this page
+     * @param previouPage the previous page
+     * @param staff the current supervisor object
      */
     public supervisorProjectView(Page previouPage, Supervisor staff){
         super(previouPage);
@@ -26,7 +28,7 @@ public class supervisorProjectView extends Page{
     }
     /**
      * Main executable for supervisorProjectView page
-     * @return next page {@link main.Pages.StudentMain)
+     * @return next page {@link main.Pages.StudentMain}
      */
     @Override
     public Page executable(){

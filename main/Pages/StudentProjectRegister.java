@@ -22,9 +22,12 @@ public class StudentProjectRegister extends Page{
     private Student student;
     private String[] projectData;
     private Scanner sc = new Scanner(System.in);
+    
     /**
-     * StudentProjectRegister constructor
-     *
+     * Constructor for this class
+     * @param previousPage the previous page
+     * @param student the current user
+     * @param projectData data of project as string array
      */
     public StudentProjectRegister(Page previousPage, Student student, String[] projectData) {
         super(previousPage);
@@ -33,7 +36,7 @@ public class StudentProjectRegister extends Page{
     }
     /**
      * Main executable for this page
-     * @return next page {@link main.Pages.StudentMain)
+     * @return next page {@link main.Pages.StudentMain}
      */
     @Override
     public Page executable() {

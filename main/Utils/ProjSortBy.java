@@ -6,6 +6,7 @@ import main.Models.Project;
 
 /**
 * Provide methods to sort project arraylist
+* The class does not have any public constructors and should be used as a static utility class.
 *  
 * @author Dr. Heinz Doofenshmirtz
 * @version 1.0

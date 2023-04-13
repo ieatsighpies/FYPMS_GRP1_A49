@@ -18,9 +18,11 @@ import main.Utils.UIDGenerator;
 public class StudentRequestTitleChange extends Page{
     private Scanner sc = new Scanner(System.in);
     private Student student;
+    
     /**
-     * StudentRequestTitleChange constructor
-     *
+     * Constructor for this class
+     * @param previousPage the previous page
+     * @param student the current user
      */
     public StudentRequestTitleChange(Page previousPage, Student student) {
         super(previousPage);
@@ -31,7 +33,7 @@ public class StudentRequestTitleChange extends Page{
      * Main executable for this page
      *
      * Please see the {@link main.Pages.Page} class for abstract method
-     * @return next page {@link main.Pages.StudentMain)
+     * @return next page {@link main.Pages.StudentMain}
      */
     @Override
     public Page executable() {
