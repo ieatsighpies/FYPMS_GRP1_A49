@@ -11,17 +11,46 @@ import main.Models.projectStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.UIDGenerator;
 
+/**
+* Page for Supervisor to create projects
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class CreateProjectPage extends Page{
+
+    /**
+     * scanner for user input
+     */
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * the current supervisor
+     */
     Supervisor staff;
+    /**
+     * project to be created
+     */
     Project project;
 
+    /**
+     * Base constructor for this page
+     * 
+     * @param previousPage the previous page
+     * @param staff the current user
+     */
     public CreateProjectPage(Page previousPage, Supervisor staff) {
         super(previousPage);
         this.staff = staff;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.StaffMain}, {@link main.Pages.CoordinatorMain}
+    */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();

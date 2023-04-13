@@ -25,9 +25,8 @@ public class CoordEditTitle extends Page{
     /**
     * Main executable for this page
     * 
-    * Please see the {@link main.Pages} class for abstract method
-    * @return next page
-    * @see CoordinatorMain
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.CoordinatorMain}
     */
     @Override
     public Page executable() {

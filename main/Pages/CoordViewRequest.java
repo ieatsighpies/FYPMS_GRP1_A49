@@ -9,19 +9,43 @@ import main.Models.TransferStudentReq;
 import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
-import main.Utils.FileHandler;
 
-import main.Utils.ReqType1;
-import main.Utils.ReqType2;
+/**
+* Page for Coordinator to view all requests
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class CoordViewRequest extends Page{
+
+    /**
+     * scanner for user input
+     */
     private Scanner sc = new Scanner(System.in);
+
+    /**
+     * current user object
+     */
     private Coordinator coordinator;
 
+    /**
+     * Base constructor for this page
+     * 
+     * @param previousPage the previous page that redirected to this page
+     * @param coordinator the current user 
+     */
     public CoordViewRequest(Page previousPage, Coordinator coordinator) {
         super(previousPage);
         this.coordinator = coordinator;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.CoordinatorMain}
+    */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();

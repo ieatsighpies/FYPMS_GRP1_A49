@@ -35,8 +35,8 @@ public class CoordMyProject extends Page{
     /**
     * Main executable for this page
     * 
-    * Please see the {@link main.Pages} class for abstract method
-    * @return another page
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return another page {@link main.Pages.CoordinatorMain}
     */
     @Override
     public Page executable() {

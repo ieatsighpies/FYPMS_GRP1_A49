@@ -13,15 +13,39 @@ import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 import main.Utils.UIDGenerator;
 
+/**
+* Page for Coordinator to request to transfer student
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class CoordTransferStudent extends Page{
+    /**
+     * current coordinator object
+     */
     private Coordinator coordinator;
+    /**
+     * scanner for user input
+     */
     private Scanner sc = new Scanner(System.in);
 
+    /**
+     * Base constructor for this page
+     * @param previousPage the previous page
+     * @param coordinator the curretn user
+     */
     public CoordTransferStudent(Page previousPage, Coordinator coordinator) {
         super(previousPage);
         this.coordinator = coordinator;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.CoordinatorMain}
+    */
     @Override
     public Page executable() {
         
