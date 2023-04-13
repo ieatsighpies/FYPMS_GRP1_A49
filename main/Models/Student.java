@@ -4,12 +4,34 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+/**
+* The Student class
+*
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
+
 public class Student extends User implements IinitialiseRequest, IinitialiseProject{
-    
+    /**
+     * The project the student is registered to.
+     */
     private Project project; //student HAS-A project
+    /**
+     * To show if student has deregistered from a project before.
+     */
     private boolean deregistered; //to differentiate from students without a project
+    /**
+     * The list of Requests made by the student.
+     */
     private ArrayList<Request> requestList = new ArrayList<Request>(); // all request of current student
 
+    /**
+     * Constructor of Student
+     * @param name student's name
+     * @param email student's email
+     * @param dereg whether student has deregistered a project before
+     */
     public Student(String name, String email, Boolean dereg){
         super(name, email);
         this.project = null;
@@ -18,18 +40,28 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
         initialiseProject();
         initialiseRequest();
     }
-
+    //GETTERS
+    /**
+     * Gets deregistered status
+     * @return deregistered status
+     */
     public boolean getDeregisteredStatus(){
         return deregistered;
     }
-
+    /**
+     * Gets student's project
+     * @return student's project
+     */
     public Project getProject(){
         if(this.project == null){
             return null;
         }
         return this.project;
     }
-
+    /**
+     * Gets requests made by student
+     * @return requests made by student
+     */
     public ArrayList<Request> getRequests(){
         return this.requestList;
     }
@@ -42,7 +74,9 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
         }
         return null;
     }
-
+    /**
+     * intialises student's project
+     */
     public void initialiseProject(){
         String filepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String currentLine;
@@ -64,7 +98,7 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
                         return;
                     }
                 }
-                
+
             }
         }catch(Exception e){
             System.out.println(e);
@@ -74,11 +108,15 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
             this.project = null;
         }
     }
-
+    /**
+     * updates the student's project
+     */
     public void updateProject(){
         this.initialiseProject();
     }
-
+    /**
+     * intialises student made request
+     */
     public void initialiseRequest(){
         String filePath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
         String currentLine;
@@ -110,18 +148,22 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
                         }
                     }
                 }
-                
+
             }
         } catch(Exception e){
             System.out.println(e);
         }
     }
-
+    /**
+     * updates student made request list
+     */
     public void updateRequest(){
         this.requestList = new ArrayList<Request>();
         this.initialiseRequest();
     }
-
+    /**
+     * prints the student's project's details
+     */
     public void printProject(){
         System.out.println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("║                            ███╗   ███╗██╗   ██╗         ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗                                 ║");
@@ -139,7 +181,4 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
 
         System.out.println("╚══════════════════╩════════════════════════════════════════════════════════════════════════════════════╩════════════════╩═════════════════════════╩═════════╝");
     }
-
-
-
 }

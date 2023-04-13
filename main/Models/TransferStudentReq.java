@@ -5,24 +5,55 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 
 import main.Utils.FileHandler;
+/**
+* The class for requesting to transfer student to another supervisor
+*
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
+
 public class TransferStudentReq extends Request{
-
+    /**
+     * ID of the replacement supervisor
+     */
     private String newSupervisorID;
-
+    /**
+     * Constructor of the request to transfer student
+     * @param requestID ID of the request
+     * @param requesterID ID of the requester
+     * @param requesteeID ID of the requestee
+     * @param requestType type of request
+     * @param status status of request
+     * @param projectID ID of project
+     * @param comment comments made
+     * @param newSupervisorID ID of replacement supervisor
+     */
     public TransferStudentReq(String requestID, String requesterID, String requesteeID, String requestType,
             requestStatus_ENUM status, String projectID, String comment, String newSupervisorID) {
         super(requestID, requesterID, requesteeID, requestType, status, projectID, comment);
         this.newSupervisorID = newSupervisorID;
     }
-
+    /**
+     * Gets the replacement supervisor's ID
+     * @return supervisor's ID
+     */
     public String getNewSupervisorID() {
         return newSupervisorID;
     }
-
+    /**
+     * Sets the replacement supervisor's ID
+     * @param newSupervisorID replacement supervisor's ID
+     */
     public void setNewSupervisorID(String newSupervisorID) {
         this.newSupervisorID = newSupervisorID;
     }
-
+    /**
+     * prints the request's information
+     * @param projectTitle title of project
+     * @param currentSup current project supervisor
+     * @param replacementSup replacement project supervisor
+     */
     @Override
     public void printInfo(String projectTitle, String currentSup, String replacementSup) {
         System.out.println("╔══════════════════════════════════════╦═════════════════════╗");
@@ -33,12 +64,14 @@ public class TransferStudentReq extends Request{
         System.out.println("╠════════════════════════════════════════════════════════════╣");
         System.out.printf("║ Current SupervisorID: \u001B[33m%-37s\u001B[0m║\n", currentSup);
         System.out.printf("║ Replacement SupervisorID: \u001B[33m%-33s\u001B[0m║\n", replacementSup);
-        System.out.println("╠════════════════════════════════════════════════════════════╩═══════════════════════════════════╗"); 
+        System.out.println("╠════════════════════════════════════════════════════════════╩═══════════════════════════════════╗");
         System.out.printf("║ Project Title: \u001B[33m%-80s\u001B[0m║\n", projectTitle);
         System.out.printf("║ Project ID: \u001B[33m%-83s\u001B[0m║\n", this.getProjectID());
         System.out.println("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
     }
-
+    /**
+     * approve/reject the request
+     */
     @Override
     public void processRequest(String decision) {
         String newStatus = decision.equals("APPROVE")
