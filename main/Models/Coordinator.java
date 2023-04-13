@@ -14,7 +14,8 @@ public class Coordinator extends Supervisor{
     /**
      * Constructing the Coordinator class
      *
-     * @param type type of user
+     * @param name type of user
+     * @param email email of user
      */
     public Coordinator(String name, String email){
 

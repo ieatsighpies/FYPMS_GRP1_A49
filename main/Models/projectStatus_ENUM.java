@@ -1,6 +1,6 @@
 package main.Models;
 /**
- * Provide methods to authenticate different user types
+ * Provide status of project
  *
  * @author Dr. Heinz Doofenshmirtz
  * @version 1.0
