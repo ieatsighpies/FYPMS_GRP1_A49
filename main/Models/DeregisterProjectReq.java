@@ -75,7 +75,7 @@ public class DeregisterProjectReq extends Request {
             FileHandler.writeFile(pfilepath, this.getProjectID(), 0, newString2);
 
             // update student de-reg
-            String newString3 = studentdata[0]+","+studentdata[1]+","+studentdata[2]+","+studentdata[3]+","+studentdata[4]+"true";
+            String newString3 = studentdata[0]+","+studentdata[1]+","+studentdata[2]+","+studentdata[3]+","+studentdata[4]+",true";
             FileHandler.writeFile(sfilepath, student_name, 0, newString3);
 
             //update supervisor's project from unavailable to available

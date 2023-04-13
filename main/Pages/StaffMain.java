@@ -99,7 +99,7 @@ public class StaffMain extends Page{
 
     private boolean havePending(){
         for(Request r : this.staff.getRequests()){
-            if(r.getRequestStatus().equals(requestStatus_ENUM.PENDING)){
+            if(r.getRequestStatus().equals(requestStatus_ENUM.PENDING) && r.getRequestType().equals("3")){
                 return true;
             }
         }

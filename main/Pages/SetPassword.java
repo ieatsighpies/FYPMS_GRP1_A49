@@ -95,7 +95,7 @@ public class SetPassword extends Page{
 
         /* Read and write file */
         String line[] = FileHandler.readFile(filepath, this.userID, 2); // set target line
-        String newline = String.join(",", line[0], line[1], line[2], encryptedPass, salt); // make new string to replace target string
+        String newline = String.join(",", line[0], line[1], line[2], encryptedPass, salt, line[5]); // make new string to replace target string
         FileHandler.writeFile(filepath, this.userID, 2, newline); // write new string to target string
     
     }

@@ -44,14 +44,17 @@ public class Coordinator extends Supervisor{
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                data = currentLine.split("\\s*,\\s*");
-                if(!data[0].equals("ProjectID")){
-                    Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
-                    this.getProjects().add(project);
-                    if(data[col].equalsIgnoreCase(this.getEmail())&& data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
-                        this.countSupervising++;
+                if(currentLine.trim().length()>0){
+                    data = currentLine.split("\\s*,\\s*");
+                    if(!data[0].equals("ProjectID")){
+                        Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
+                        this.getProjects().add(project);
+                        if(data[col].equalsIgnoreCase(this.getEmail())&& data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
+                            this.countSupervising++;
+                        }
                     }
                 }
+                
 
             }
             br.close();
@@ -72,24 +75,27 @@ public class Coordinator extends Supervisor{
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                data = currentLine.split("\\s*,\\s*");
+                if(currentLine.trim().length()>0){
+                    data = currentLine.split("\\s*,\\s*");
 
-                if(data[3].equals("1")){
-                    Request request = new RegisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
-                    this.getRequests().add(request);
+                    if(data[3].equals("1")){
+                        Request request = new RegisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                        this.getRequests().add(request);
+                    }
+                    if(data[3].equals("2")){
+                        Request request = new DeregisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                        this.getRequests().add(request);
+                    }
+                    if(data[3].equals("3")){
+                        Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
+                        this.getRequests().add(request);
+                    }
+                    if(data[3].equals("4")){
+                        Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
+                        this.getRequests().add(request);
+                    }
                 }
-                if(data[3].equals("2")){
-                    Request request = new DeregisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
-                    this.getRequests().add(request);
-                }
-                if(data[3].equals("3")){
-                    Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
-                    this.getRequests().add(request);
-                }
-                if(data[3].equals("4")){
-                    Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
-                    this.getRequests().add(request);
-                }
+                
 
             }
             br.close();

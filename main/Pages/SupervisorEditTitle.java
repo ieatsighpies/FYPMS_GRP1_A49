@@ -93,6 +93,7 @@ public class SupervisorEditTitle extends Page{
         System.out.println("║        -Project Title Changed-        ║");
         System.out.println("╚═══════════════════════════════════════╝");
 
+        this.staff.updateProject();
         System.out.print("Enter any input to return: ");
         String hold = sc.nextLine();
         return this.getPreviousPage();

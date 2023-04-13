@@ -1,10 +1,10 @@
 Name,Email,UserID,Password,Salt,SuperviseNo
 A S Madhukumar,ASMADHUKUMAR@NTU.EDU.SG,ASMADHUKUMAR,password,salt,0
-Alexei Sourin,ASSOURIN@ntu.edu.sg,ASSOURIN,F4uwZGBb8gHUfIr4IZ3LY/f0RRhRdpKLMqsZZ/4UkMA=,cT8Nq1Rw9MA1mIL9R4WH9A==,0
+Alexei Sourin,ASSOURIN@ntu.edu.sg,ASSOURIN,password,salt,0
 Anupam Chattopadhyay,ANUPAM@NTU.EDU.SG,ANUPAM,password,salt,0
 Anwitaman Datta,ANWITAMAN@NTU.EDU.SG,ANWITAMAN,password,salt,0
 Arvind Easwaran,ARVINDE@NTU.EDU.SG,ARVINDE,password,salt,0
-Bo An,BOAN@NTU.EDU.SG,BOAN,Y7OZ1gHeUw6vakkYzLuYcDX/PqyNFvFMLdYRHXBGyH8=,cr3QGF+jW7OGJ2KnXXBQnA==,0
+Bo An,BOAN@NTU.EDU.SG,BOAN,password,salt,2
 Cai Wentong,ASWTCAI@ntu.edu.sg,ASWTCAI,password,salt,0
 Cham Tat Jen,ASTJCHAM@NTU.EDU.SG,ASTJCHAM,password,salt,0
 Chan Syin,ASSCHAN@NTU.EDU.SG,ASSCHAN,password,salt,0
@@ -30,7 +30,7 @@ Lam Siew Kei,ASSKLAM@NTU.EDU.SG,ASSKLAM,password,salt,0
 Lau Chiew Tong,ASCTLAU@NTU.EDU.SG,ASCTLAU,password,salt,0
 Lee Bu Sung,EBSLEE@ntu.edu.sg,EBSLEE,password,salt,0
 Li Boyang,boyang.li@ntu.edu.sg,boyang.li,password,salt,0
-Li Fang,ASFLI@NTU.EDU.SG,ASFLI,CTB6eTRBb+ySApMxBTk3k8fKFQIKpIiz3x9QulsHoXY=,Lf+tnCKn+8THyNLn/b+rjw==,0
+Li Fang,ASFLI@NTU.EDU.SG,ASFLI,password,salt,2
 Li Mo,LIMO@NTU.EDU.SG,LIMO,password,salt,0
 Li Yi,YI_LI@NTU.EDU.SG,YI_LI,password,salt,0
 Lin Guosheng,gslin@ntu.edu.sg,gslin,password,salt,0
