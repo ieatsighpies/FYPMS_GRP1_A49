@@ -6,13 +6,31 @@ import java.io.FileReader;
 
 import main.Utils.FileHandler;
 
+/**
+* The class that handles the student's registration of a project
+*
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-04-13
+*/
 public class RegisterProjectReq extends Request{
-
+    /**
+     * constructor of RegisterProjectReq
+     * @param requestID Id of the request itself
+     * @param requesterID Id of the student who requested the registration
+     * @param requesteeID Id of the coordinator to process the request
+     * @param requestType the type of the request
+     * @param status the status of the request
+     * @param projectID the Id of the selected project the student wants to register for
+     * @param comment any comments added by requester/requestee
+     */
     public RegisterProjectReq(String requestID, String requesterID, String requesteeID, String requestType,
                                 requestStatus_ENUM status, String projectID, String comment) {
         super(requestID, requesterID, requesteeID, requestType, status, projectID, comment);
     }
-
+    /**
+     * prints the information of the request
+     */
     @Override
     public void printInfo(String projectTitle, String supID, String supEmail) {
         System.out.println("╔══════════════════════════════════════╦═════════════════════╗");
@@ -23,12 +41,14 @@ public class RegisterProjectReq extends Request{
         System.out.println("╠════════════════════════════════════════════════════════════╣");
         System.out.printf("║ Supervisor ID: \u001B[33m%-44s\u001B[0m║\n", supID);
         System.out.printf("║ Supervisor Email: \u001B[33m%-41s\u001B[0m║\n", supEmail);
-        System.out.println("╠════════════════════════════════════════════════════════════╩═══════════════════════════════════╗"); 
+        System.out.println("╠════════════════════════════════════════════════════════════╩═══════════════════════════════════╗");
         System.out.printf("║ Project Title: \u001B[33m%-80s\u001B[0m║\n", projectTitle);
         System.out.printf("║ Project ID: \u001B[33m%-83s\u001B[0m║\n", this.getProjectID());
         System.out.println("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
     }
-
+    /**
+     * approve/reject the request and update the student, supervisor and project
+     */
     @Override
     public void processRequest(String decision) {
         String newStatus = decision.equals("APPROVE")

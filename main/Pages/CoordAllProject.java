@@ -7,6 +7,14 @@ import main.Models.Coordinator;
 import main.Utils.ConsoleUtils;
 import main.Utils.ProjSortBy;
 
+/**
+* 
+*
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-04-13
+*/
+
 public class CoordAllProject extends Page{
     private Scanner sc = new Scanner(System.in);
     private Coordinator coordinator;
@@ -31,14 +39,14 @@ public class CoordAllProject extends Page{
         System.out.printf("║ %-37.37s ║\n", "[2] Sort by Student Name "+(coord_proj_sortedby==2?"(current)":""));
         System.out.printf("║ %-37.37s ║\n", "[3] Sort by Status "+(coord_proj_sortedby==3?"(current)":""));
         System.out.println("╚═══════════════════════════════════════╝");
-        
+
         // get user input
         String option;
         System.out.print("Enter choice (empty to return): ");
             option = sc.nextLine().trim();
-        
+
         while(!(option.matches("^[1-3]{1}$"))){
-            
+
             if(option.isBlank()){               // return if blank
                 return this.getPreviousPage();
             }
@@ -70,7 +78,7 @@ public class CoordAllProject extends Page{
                 return this;
 
         }
-        
+
         return this.getPreviousPage();
     }
 
