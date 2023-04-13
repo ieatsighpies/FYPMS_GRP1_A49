@@ -2,24 +2,52 @@ package main.Models;
 
 import main.Utils.FileHandler;
 
+/**
+ * EditTitleReq is a subclass of Request that deals with edit title request
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class EditTitleReq extends Request{
 
     private String newTitle;
 
+    /**
+     * Constructor of EditTitleReq
+     *
+     * @param newTitle new title of the project
+     */
     public EditTitleReq(String requestID, String requesterID, String requesteeID,
                             String requestType, requestStatus_ENUM status, String projectID, String comment, String newTitle){
         super(requestID, requesterID, requesteeID, requestType, status, projectID, comment);
         this.newTitle = newTitle;
     }
-
+    /**
+     * Method to get the new title of request
+     *
+     * @return the new title
+     */
     public String getTitle() {
         return newTitle;
     }
 
+    /**
+     * Method to set title of a project
+     *
+     * @param newTitle new title to change to
+     */
     public void setTitle(String newTitle) {
         this.newTitle = newTitle;
     }
 
+    /**
+     * Method to print the information of the request
+     *
+     * @param currentTitle userID of student
+     * @param null1 dummy variable
+     * @param null2 dummy variable
+     */
     @Override
     public void printInfo(String currentTitle, String null1, String null2) {
         System.out.println("╔══════════════════════════════════════╦═════════════════════╗");
@@ -33,6 +61,11 @@ public class EditTitleReq extends Request{
         System.out.println("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
     }
 
+    /**
+     * Method to process request
+     *
+     * @param decision whether the request is approved/rejected
+     */
     @Override
     public void processRequest(String decision) {
         // changing request records

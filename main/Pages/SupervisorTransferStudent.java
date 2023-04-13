@@ -12,16 +12,30 @@ import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
 import main.Utils.UIDGenerator;
-
+/**
+ * SupervisorTransferStudent is a subclass of Page that allows supervisor to transfer student
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class SupervisorTransferStudent extends Page{
     Scanner sc = new Scanner(System.in);
     Supervisor staff;
 
+    /**
+     * SupervisorTransferStudent constructor
+     *
+     */
     public SupervisorTransferStudent(Page previousPage, Supervisor staff){
         super(previousPage);
         this.staff = staff;
     }
 
+    /**
+     * Main executable for SupervisorTransferStudent page
+     * @return next page {@link main.Pages.StaffMain)
+     */
     @Override
     public Page executable(){
 

@@ -8,16 +8,31 @@ import main.Models.Student;
 import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.UIDGenerator;
-
+/**
+ * StudentRequestTitleChange is a subclass of Page that allows supervisor to transfer student
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class StudentRequestTitleChange extends Page{
     private Scanner sc = new Scanner(System.in);
     private Student student;
-
+    /**
+     * StudentRequestTitleChange constructor
+     *
+     */
     public StudentRequestTitleChange(Page previousPage, Student student) {
         super(previousPage);
         this.student = student;
     }
 
+    /**
+     * Main executable for this page
+     *
+     * Please see the {@link main.Pages.Page} class for abstract method
+     * @return next page {@link main.Pages.StudentMain)
+     */
     @Override
     public Page executable() {
         

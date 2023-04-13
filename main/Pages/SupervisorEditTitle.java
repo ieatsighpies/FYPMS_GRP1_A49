@@ -6,16 +6,29 @@ import main.Models.Coordinator;
 import main.Models.Supervisor;
 import main.Utils.ConsoleUtils;
 import main.Utils.FileHandler;
-
+/**
+ * SupervisorEditTitle is a subclass of Page that allows supervisor to edit title of projects
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class SupervisorEditTitle extends Page{
     private Scanner sc = new Scanner(System.in);
     private Supervisor staff;
 
+    /**
+     * SupervisorEditTitle constructor
+     *
+     */
     public SupervisorEditTitle(Page previousPage, Supervisor staff) {
         super(previousPage);
         this.staff = staff;
     }
-
+    /**
+     * Main executable for SupervisorEditTitle page
+     * @return next page {@link main.Pages.StaffMain)
+     */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();

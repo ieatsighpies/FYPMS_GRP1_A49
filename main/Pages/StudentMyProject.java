@@ -4,16 +4,28 @@ import java.util.Scanner;
 
 import main.Models.Student;
 import main.Utils.ConsoleUtils;
-
+/**
+ * StudentMyProject is a subclass of Page that allows student to view their project
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class StudentMyProject extends Page{
     private Scanner sc = new Scanner(System.in);
     private Student student;
-
+    /**
+     * StudentMyProject constructor
+     *
+     */
     public StudentMyProject(Page previousPage, Student student) {
         super(previousPage);
         this.student = student;
     }
-
+    /**
+     * Main executable for this page
+     * @return next page {@link main.Pages.StudentMain)
+     */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();
