@@ -7,22 +7,52 @@ import main.Models.Coordinator;
 import main.Utils.ConsoleUtils;
 import main.Utils.ProjSortBy;
 
+/**
+* Page for Coordinator to view all projects
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class CoordAllProject extends Page{
+    /**
+     * scanner for user input
+     */
     private Scanner sc = new Scanner(System.in);
+    /**
+     * current user object
+     */
     private Coordinator coordinator;
+    /**
+     * 1: sorted by projectID
+     * 2: sorted by student name
+     * 3: sort by project status
+     */
     private static int coord_proj_sortedby = 1;
 
+    /**
+     * Base constructor for this page
+     * 
+     * @param previousPage the previous page that redirected to this page
+     * @param coordinator the current user 
+     */
     public CoordAllProject(Page previousPage, Coordinator coordinator) {
         super(previousPage);
         this.coordinator = coordinator;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages} class for abstract method
+    * @return next page 
+    * @see CoordinatorMain
+    */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();
         this.coordinator.printProjects();
 
-        // print menu
         // print menu
         System.out.println("╔═══════════════════════════════════════╗");
         System.out.println("║               -Options-               ║");

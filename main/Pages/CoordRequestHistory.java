@@ -11,6 +11,13 @@ import main.Utils.ReqSortBy;
 import main.Models.TransferStudentReq;
 import main.Models.requestStatus_ENUM;
 
+/**
+* Page for Coordinator to all request's history 
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class CoordRequestHistory extends Page{
     private Scanner sc = new Scanner(System.in);
     private Coordinator coordinator;
