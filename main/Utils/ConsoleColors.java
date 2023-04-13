@@ -1,5 +1,12 @@
 package main.Utils;
 
+/**
+ * Provide code to change console color
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class ConsoleColors {
     // Reset
     public static final String RESET = "\033[0m";  // Text Reset
