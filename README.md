@@ -6,7 +6,7 @@
 ### Team Member:
 - [Oscar Qian](https://github.com/oscarqjh)
 - [Asher Lim](https://github.com/ieatsighpies)
-- [Zhaoding Chew]()
+- [Zhaoding Chew](https://github.com/ZDchew)
 - [Prateek Potdar](https://github.com/PRATEEKA001)
 - [Khanh Nguyen](https://github.com/ngk2305)
 
