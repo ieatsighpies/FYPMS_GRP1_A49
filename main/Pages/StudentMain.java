@@ -6,19 +6,32 @@ import java.util.Scanner;
 import main.Models.Student;
 import main.Utils.ConsoleUtils;
 
-
+/**
+ * StudentMain is a subclass of Page that allows student to interact with the FYP system
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class StudentMain extends Page{
     
     Scanner sc = new Scanner(System.in);
     Console console = System.console();
 
     private Student student;
-    
+    /**
+     * StudentMain constructor
+     *
+     */
     public StudentMain(Page previousPage, Student student){
         super(previousPage);
         this.student = student;
     }
-
+    /**
+     * Main executable for this page
+     * @return next page {@link main.Pages.Welcome},{@link main.Pages.StudentRequestTitleChange},{@link main.Pages.
+     * StudentRequestHistory},{@link main.Pages.StudentRequestDeregister},{@link main.Pages.StudentMyProject}
+     */
     @Override
     public Page executable(){
 

@@ -5,14 +5,29 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 
 import main.Utils.FileHandler;
-
+/**
+ * DeregisterProjectRequest is a Request's subclass to deal with deregister request
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class DeregisterProjectReq extends Request {
-
+    /**
+     * Constructing the DeregisterProjectReq class
+     *
+     */
     public DeregisterProjectReq(String requestID, String requesterID, String requesteeID, String requestType,
                                 requestStatus_ENUM status, String projectID, String comment) {
         super(requestID, requesterID, requesteeID, requestType, status, projectID, comment);
     }
-
+    /**
+     * Method to print the information of request
+     *
+     * @param projectTitle title of the project
+     * @param supID supervisorID of request
+     * @param supEmail supervisor's email
+     */
     @Override
     public void printInfo(String projectTitle, String supID, String supEmail) {
         System.out.println("╔══════════════════════════════════════╦═════════════════════╗");
@@ -28,7 +43,12 @@ public class DeregisterProjectReq extends Request {
         System.out.printf("║ Project ID: \u001B[33m%-83s\u001B[0m║\n", this.getProjectID());
         System.out.println("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
     }
-
+    /**
+     * Method to process the request
+     *
+     * @param decision whether the request is approved/rejected
+     *
+     */
     @Override
     public void processRequest(String decision) {
         String newStatus = decision.equals("APPROVE")

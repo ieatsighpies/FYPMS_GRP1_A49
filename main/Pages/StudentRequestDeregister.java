@@ -10,16 +10,28 @@ import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleUtils;
 import main.Utils.UIDGenerator;
 
-
+/**
+ * StudentRequestDeregister is a subclass of Page that allows student to deregister their project
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class StudentRequestDeregister extends Page{
     private Scanner sc = new Scanner(System.in);
     private Student student;
-
+    /**
+     * StudentRequestDeregister constructor
+     *
+     */
     public StudentRequestDeregister(Page previousPage, Student student){
         super(previousPage);
         this.student = student;
     }
-
+    /**
+     * Main executable for this page
+     * @return next page {@link main.Pages.StudentMain)
+     */
     @Override
     public Page executable() {
 

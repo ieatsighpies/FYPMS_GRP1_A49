@@ -5,16 +5,29 @@ import java.util.Scanner;
 import main.Models.Request;
 import main.Models.Supervisor;
 import main.Utils.ConsoleUtils;
-
+/**
+ * SupervisorRequestHistory is a subclass of Page that allows supervisor to view request history
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class SupervisorRequestHistory extends Page{
     private Scanner sc = new Scanner(System.in);
     private Supervisor staff;
-
+    /**
+     * SupervisorRequestHistory constructor
+     *
+     */
     public SupervisorRequestHistory(Page previousPage, Supervisor staff) {
         super(previousPage);
         this.staff = staff;
     }
 
+    /**
+     * Main executable for SupervisorRequestHistory page
+     * @return next page {@link main.Pages.StaffMain)
+     */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();

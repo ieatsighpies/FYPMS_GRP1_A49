@@ -3,15 +3,27 @@ package main.Pages;
 import java.util.Scanner;
 
 import main.Utils.ConsoleUtils;
-
+/**
+ * Welcome page
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class Welcome extends Page{
     Scanner sc = new Scanner(System.in);
     private String userType;
-
+    /**
+     * Constructor for the Welcome class
+     *
+     */
     public Welcome(Page previousPage){
         super(previousPage);
     }
-                                            
+    /**
+     * Main executable for the page
+     * @return next page {@link main.Pages.StudentLogin}, {@link main.Pages.StaffLogin}
+     */
     @Override
     public Page executable(){
         

@@ -7,16 +7,30 @@ import main.Models.Supervisor;
 import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
-
+/**
+ * supervisorViewRequest is a subclass of Page that allows supervisor to view request
+ *
+ * @author Dr. Heinz Doofenshmirtz
+ * @version 1.0
+ * @since 13-4-2023
+ */
 public class supervisorViewRequest extends Page{
     private Supervisor staff;
     private Scanner sc = new Scanner(System.in);
 
+    /**
+     * supervisorViewRequest constructor
+     *
+     */
     public supervisorViewRequest(Page previousPage, Supervisor staff) {
         super(previousPage);
         this.staff = staff;
     }
 
+    /**
+     * Main executable for supervisorViewRequest page
+     * @return next page {@link main.Pages.StaffMain)
+     */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();
