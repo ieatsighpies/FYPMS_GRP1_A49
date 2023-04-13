@@ -30,7 +30,7 @@ Next, compile all files in terminal:
 ```
 javac -cp . main\Pages\*.java
 javac -cp . main\Models\*.java
-javac - cp . main\Utils\*.java
+javac -cp . main\Utils\*.java
 javac -cp . main\*.java
 ```  
 Finally, run `MainApp`:
