@@ -12,7 +12,22 @@
 
 ### Environment Set up
 
-For this project, we are using [Java(TM) SE Runtime Environment (build 20+36-2344)](https://www.oracle.com/java/technologies/downloads/)
+For this project, we are using [Java(TM) SE Runtime Environment (build 20+36-2344)](https://www.oracle.com/java/technologies/downloads/)   
+
+To run the application:   
+First, clone the repository into local device from github.   
+Next, compile all files in terminal:
+```
+javac -cp . main\Pages\*.java
+javac -cp . main\Models\*.java
+javac - cp . main\Utils\*.java
+javac -cp . main\*.java
+```  
+Finally, run `MainApp`:
+```
+java main/MainApp
+```
+
 
 ---
 

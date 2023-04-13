@@ -120,6 +120,8 @@ public class CoordViewRequest extends Page{
         }
 
         r.processRequest(action);
+        this.coordinator.updateProject();
+        this.coordinator.updateRequest();
 
         System.out.println("Enter any input to return");
         String temp = sc.nextLine();

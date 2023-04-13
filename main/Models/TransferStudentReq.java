@@ -56,12 +56,6 @@ public class TransferStudentReq extends Request{
             return;
         }
 
-        // get student data
-        String sfilepath = System.getProperty("user.dir") + "\\main\\Data\\student_list.csv";
-        String[] studentdata = FileHandler.readFile(sfilepath, this.getRequesterID(), 2);
-        String student_name = studentdata[0];
-        String student_email = studentdata[1];
-
         // get project data
         String pfilepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
         String[] projectdata = FileHandler.readFile(pfilepath, this.getProjectID(), 0);
@@ -99,17 +93,17 @@ public class TransferStudentReq extends Request{
             FileHandler.writeFile(rfilepath, this.getRequestID(), 0, newString);
 
             // update project record
-            String newString2 = projectdata[0]+","+new_supervisor_name+","+new_supervisor_email+","+projectdata[3]+","+projectStatus_ENUM.ALLOCATED.toString()+","+student_name+","+student_email;
+            String newString2 = projectdata[0]+","+new_supervisor_name+","+new_supervisor_email+","+projectdata[3]+","+projectStatus_ENUM.ALLOCATED.toString()+","+projectdata[5]+","+projectdata[6];
             FileHandler.writeFile(pfilepath, this.getProjectID(), 0, newString2);
 
             // update faculty list
             supervising_count--;
-            String newString3 = facultydata[0]+","+facultydata[1]+","+facultydata[2]+","+facultydata[3]+","+Integer.toString(supervising_count);
+            String newString3 = facultydata[0]+","+facultydata[1]+","+facultydata[2]+","+facultydata[3]+","+facultydata[4]+","+Integer.toString(supervising_count);
             FileHandler.writeFile(ffilepath, supervisor_email, 1, newString3);
 
             // update new faculty
             new_supervising_count++;
-            String newString4 = new_facultydata[0]+","+new_facultydata[1]+","+new_facultydata[2]+","+new_facultydata[3]+","+Integer.toString(new_supervising_count);
+            String newString4 = new_facultydata[0]+","+new_facultydata[1]+","+new_facultydata[2]+","+new_facultydata[3]+","+new_facultydata[4]+","+Integer.toString(new_supervising_count);
             FileHandler.writeFile(ffilepath, new_supervisor_email, 1, newString4);
 
             // change all to unavailable if supervisor 2
