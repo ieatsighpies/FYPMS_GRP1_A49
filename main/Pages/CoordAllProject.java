@@ -15,14 +15,17 @@ import main.Utils.ProjSortBy;
 * @since 2023-4-13
 */
 public class CoordAllProject extends Page{
+
     /**
      * scanner for user input
      */
     private Scanner sc = new Scanner(System.in);
+
     /**
      * current user object
      */
     private Coordinator coordinator;
+    
     /**
      * 1: sorted by projectID
      * 2: sorted by student name
@@ -44,9 +47,8 @@ public class CoordAllProject extends Page{
     /**
     * Main executable for this page
     * 
-    * Please see the {@link main.Pages} class for abstract method
-    * @return next page 
-    * @see CoordinatorMain
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.CoordAllProject}, {@link main.Pages.CoordinatorMain}
     */
     @Override
     public Page executable() {
