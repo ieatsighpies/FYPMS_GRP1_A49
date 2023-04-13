@@ -17,8 +17,10 @@ public class CoordEditTitle extends Page{
 
     @Override
     public Page executable() {
+        ConsoleUtils.clearScreen();
         // check if coordinator have created any project
         if(this.coordinator.getProjects(2).isEmpty()){
+            
             System.out.println("╔══════════════════════════════════════════════════════════════╗");
             System.out.println("║       -\u001B[31mAccess Denied: You did not create any projects\u001B[0m-       ║");
             System.out.println("╚══════════════════════════════════════════════════════════════╝");
@@ -90,6 +92,7 @@ public class CoordEditTitle extends Page{
         System.out.println("║        -Project Title Changed-        ║");
         System.out.println("╚═══════════════════════════════════════╝");
 
+        this.coordinator.updateProject();
         System.out.print("Enter any input to return: ");
         String hold = sc.nextLine();
         return this.getPreviousPage();

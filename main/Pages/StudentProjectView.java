@@ -39,7 +39,7 @@ public class StudentProjectView extends Page{
         // check if student have deregistered before
         if(student.getDeregisteredStatus() == true){
             System.out.println("╔══════════════════════════════════════════════════════════════╗");
-            System.out.println("║    -\u001B[31mAccess Denied: You have deregistered a project before!\u001B[0m-   ║");
+            System.out.println("║    -\u001B[31mAccess Denied: You have deregistered a project before!\u001B[0m-  ║");
             System.out.println("╚══════════════════════════════════════════════════════════════╝");
             System.out.print("Enter any input to return:");
             String hold = sc.nextLine();

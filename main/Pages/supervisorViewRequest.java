@@ -91,7 +91,8 @@ public class supervisorViewRequest extends Page{
         }
 
         r.processRequest(action);
-
+        this.staff.updateProject();
+        this.staff.updateRequest();
         System.out.print("Enter any input to return: ");
         String hold = sc.nextLine();
         return this.getPreviousPage();

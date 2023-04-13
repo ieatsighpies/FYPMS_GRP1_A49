@@ -56,12 +56,15 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                data = currentLine.split("\\s*,\\s*");
-                if(data[col].equalsIgnoreCase(this.getEmail()) && data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
-                    this.project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
-                    found = true;
-                    return;
+                if(currentLine.trim().length()>0){
+                    data = currentLine.split("\\s*,\\s*");
+                    if(data[col].equalsIgnoreCase(this.getEmail()) && data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
+                        this.project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
+                        found = true;
+                        return;
+                    }
                 }
+                
             }
         }catch(Exception e){
             System.out.println(e);
@@ -87,24 +90,27 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                data = currentLine.split("\\s*,\\s*");
-                if(data[1].equalsIgnoreCase(this.getUserID())){
-                    if(data[3].equals("1")){
-                        Request request = new RegisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
-                        requestList.add(request);
-                    }
-                    if(data[3].equals("2")){
-                        Request request = new DeregisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
-                        requestList.add(request);
-                        if(data[4].equals(requestStatus_ENUM.APPROVED.toString())){
-                            this.deregistered = true;
+                if(currentLine.trim().length()>0){
+                    data = currentLine.split("\\s*,\\s*");
+                    if(data[1].equalsIgnoreCase(this.getUserID())){
+                        if(data[3].equals("1")){
+                            Request request = new RegisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                            requestList.add(request);
+                        }
+                        if(data[3].equals("2")){
+                            Request request = new DeregisterProjectReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6]);
+                            requestList.add(request);
+                            if(data[4].equals(requestStatus_ENUM.APPROVED.toString())){
+                                this.deregistered = true;
+                            }
+                        }
+                        if(data[3].equals("3")){
+                            Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
+                            requestList.add(request);
                         }
                     }
-                    if(data[3].equals("3")){
-                        Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
-                        requestList.add(request);
-                    }
                 }
+                
             }
         } catch(Exception e){
             System.out.println(e);

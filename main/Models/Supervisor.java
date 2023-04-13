@@ -46,14 +46,17 @@ public class Supervisor extends User implements IinitialiseRequest, IinitialiseP
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                data = currentLine.split("\\s*,\\s*");
-                if(data[col].equalsIgnoreCase(this.getEmail())){
-                    Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
-                    projects.add(project);
-                    if(data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
-                        this.countSupervising++;
+                if(currentLine.trim().length()>0){
+                    data = currentLine.split("\\s*,\\s*");
+                    if(data[col].equalsIgnoreCase(this.getEmail())){
+                        Project project = new Project(data[0], data[1], data[2], data[3], projectStatus_ENUM.valueOf(data[4]), data[5], data[6]);
+                        projects.add(project);
+                        if(data[4].equals(projectStatus_ENUM.ALLOCATED.toString())){
+                            this.countSupervising++;
+                        }
                     }
                 }
+                
             }
             br.close();
         } catch(Exception e){
@@ -79,17 +82,20 @@ public class Supervisor extends User implements IinitialiseRequest, IinitialiseP
             BufferedReader br = new BufferedReader(fr);
 
             while((currentLine = br.readLine()) != null){
-                data = currentLine.split("\\s*,\\s*");
-                if(data[1].equalsIgnoreCase(this.getUserID()) || data[2].equalsIgnoreCase(this.getUserID())){
-                    if(data[3].equals("3")){
-                        Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
-                        requestList.add(request);
-                    }
-                    if(data[3].equals("4")){
-                        Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
-                        requestList.add(request);
+                if(currentLine.trim().length()>0){
+                    data = currentLine.split("\\s*,\\s*");
+                    if(data[1].equalsIgnoreCase(this.getUserID()) || data[2].equalsIgnoreCase(this.getUserID())){
+                        if(data[3].equals("3")){
+                            Request request = new EditTitleReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[8]);
+                            requestList.add(request);
+                        }
+                        if(data[3].equals("4")){
+                            Request request = new TransferStudentReq(data[0],data[1],data[2],data[3],requestStatus_ENUM.valueOf(data[4]),data[5],data[6],data[7]);
+                            requestList.add(request);
+                        }
                     }
                 }
+                
 
             }
             br.close();

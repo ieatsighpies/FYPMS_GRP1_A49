@@ -1,6 +1,6 @@
 Name,Email,UserID,Password,Salt,Dereg
-CHERN ,YCHERN@e.ntu.edu.sg,YCHERN,password,salt,false
-KOH,KOH1@e.ntu.edu.sg,KOH1,3PbsuVkooAAjnR/m+FzWooyyuhu+mHk7qI4MxWJoU4I=,TC5URXnT9Wxt3ZOCGROaFg==,false
+CHERN,YCHERN@e.ntu.edu.sg,YCHERN,yzb9LhaH7+g0iHv4ItcuNXcxaN8nducix7L87ETSfuM=,zvejPPQyo1gdn8R6OBcvoQ==,true
+KOH,KOH1@e.ntu.edu.sg,KOH1,password,salt,false
 BRANDON ,BR015@e.ntu.edu.sg,BR015,password,salt,false
 CALVIN ,CT113@e.ntu.edu.sg,CT113,password,salt,false
 CHAN,YCN019@e.ntu.edu.sg,YCN019,password,salt,false
@@ -10,6 +10,3 @@ ERNEST,ELI34@e.ntu.edu.sg,ELI34,password,salt,false
 LEE ,LE51@e.ntu.edu.sg,LE51,password,salt,false
 LIU ,SL22@e.ntu.edu.sg,SL22,password,salt,false
 RAWAL,AKY013@e.ntu.edu.sg,AKY013,password,salt,false
-
-
-                                                                  

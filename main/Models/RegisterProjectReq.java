@@ -103,7 +103,7 @@ public class RegisterProjectReq extends Request{
 
             // update faculty list
             supervising_count++;
-            String newString3 = facultydata[0]+","+facultydata[1]+","+facultydata[2]+","+facultydata[3]+","+Integer.toString(supervising_count);
+            String newString3 = facultydata[0]+","+facultydata[1]+","+facultydata[2]+","+facultydata[3]+","+facultydata[4]+","+Integer.toString(supervising_count);
             FileHandler.writeFile(ffilepath, supervisor_email, 1, newString3);
 
             // change all to unavailable if supervisor 2
