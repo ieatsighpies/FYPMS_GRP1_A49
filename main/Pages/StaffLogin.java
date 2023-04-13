@@ -8,21 +8,66 @@ import main.Models.Supervisor;
 import main.Utils.Authenticator;
 import main.Utils.FileHandler;
 
+/**
+* Page for Supervisor to login
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class StaffLogin extends Page{
+
+    /**
+     * scanner for user input
+     */
     Scanner sc = new Scanner(System.in);
+
+    /**
+     * console for user input
+     */
     Console console = System.console();
     
+    /**
+     * current user type
+     */
     private String userType;
+
+    /**
+     * current user ID
+     */
     private String userID;
+
+    /**
+     * current supervisor object
+     */
     private Supervisor staff;
+
+    /**
+     * current coordinator object
+     */
     private Coordinator coordinator;
+
+    /**
+     * current user's password'
+     */
     private String userPass;
 
+    /**
+     * Base constructor for this page
+     * @param previousoPage the previous page
+     * @param userType the current user's user type
+     */
     public StaffLogin(Page previousoPage, String userType){
         super(previousoPage);
         this.userType = userType;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.Welcome}, {@link main.Pages.StaffMain}, {@link main.Pages.CoordinatorMain}
+    */
     @Override
     public Page executable(){
         System.out.println("╔══════════════════════════════════════════════════════════╗");

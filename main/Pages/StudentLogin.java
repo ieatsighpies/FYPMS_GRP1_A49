@@ -7,14 +7,50 @@ import main.Models.Student;
 import main.Utils.Authenticator;
 import main.Utils.FileHandler;
 
+/**
+* Page for student's login 
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class StudentLogin extends Page{
+
+    /**
+     * scanner for user input
+     */
     Scanner sc = new Scanner(System.in);
+
+    /**
+     * console for user input
+     */
     Console console = System.console();
+
+    /**
+     * current user type
+     */
     private String userType;
+
+    /**
+     * current user ID
+     */
     private String userID;
+
+    /**
+     * current student object
+     */
     private Student student;
+
+    /**
+     * current user's password
+     */
     private String userPass;
     
+    /**
+     * Base constructor for this page
+     * @param previousPage the previous page
+     * @param userType the curretn user type
+     */
     public StudentLogin(Page previousPage, String userType){
         super(previousPage);
         this.userType = userType;
@@ -26,6 +62,12 @@ public class StudentLogin extends Page{
         }
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.StudentMain}, {@link main.Pages.Welcome}
+    */
     @Override
     public Page executable(){
         System.out.println("╔══════════════════════════════════════════════════════════╗");

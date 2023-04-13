@@ -4,7 +4,17 @@ import java.util.Comparator;
 
 import main.Models.Project;
 
+/**
+* Provide methods to sort project arraylist
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class ProjSortBy {
+    /**
+     * Comparator to sort by project ID
+     */
     public static Comparator<Project> ID = new Comparator<Project>() {
         
         @Override
@@ -16,6 +26,9 @@ public class ProjSortBy {
         }
     };
 
+    /**
+     * Comarator to sort by student name
+     */
     public static Comparator<Project> StudentName = new Comparator<Project>() {
         
         @Override
@@ -27,6 +40,9 @@ public class ProjSortBy {
         }
     };
 
+    /**
+     * Comparator to sort by project status
+     */
     public static Comparator<Project> Status = new Comparator<Project>() {
         
         @Override

@@ -9,17 +9,44 @@ import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
 
+/**
+* Page for Coordinator's main menu
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class CoordinatorMain extends Page{
+    /**
+     * scanner for user input
+     */
     Scanner sc = new Scanner(System.in);
+    /**
+     * console for user input
+     */
     Console console = System.console();
 
+    /**
+     * current user object
+     */
     Coordinator coordinator;
     
+    /**
+     * Base constructor for this page
+     * @param previousPage the previous page
+     * @param staff current user
+     */
     public CoordinatorMain(Page previousPage, Coordinator staff){
         super(previousPage);
         this.coordinator = staff;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.SetPassword}, {@link main.Pages.CoordAllProject}, {@link main.Pages.CoordMyProject}, {@link main.Pages.CoordViewRequest}, {@link main.Pages.CreateProjectPage}, {@link main.Pages.CoordEditTitle}, {@link main.Pages.CoordTransferStudent}, {@link main.Pages.StudentRequestHistory}, {@link main.Pages.Welcome}, {@link main.Pages.CoordinatorMain}
+    */
     @Override
     public Page executable(){
         ConsoleUtils.clearScreen();
@@ -102,6 +129,10 @@ public class CoordinatorMain extends Page{
         return this;
     }
 
+    /**
+     * Method to check if coordinator have pending requests
+     * @return True if have pending; else returns false
+     */
     private boolean havePending(){
         for(Request r : this.coordinator.getRequests()){
             if(r.getRequestStatus().equals(requestStatus_ENUM.PENDING)){

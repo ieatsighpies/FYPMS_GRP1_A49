@@ -11,16 +11,45 @@ import main.Utils.ReqSortBy;
 import main.Models.TransferStudentReq;
 import main.Models.requestStatus_ENUM;
 
+/**
+* Page for Coordinator to all request's history 
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class CoordRequestHistory extends Page{
+    /**
+     * scanner for user input
+     */
     private Scanner sc = new Scanner(System.in);
+    /**
+     * current coordinator object
+     */
     private Coordinator coordinator;
+    /**
+     * 1: sorted by requestID
+     * 2: sorted by student name
+     * 3: sort by request status
+     */
     private static int coord_req_sortedby = 1;
 
+    /**
+     * Base constructor for this page
+     * @param previousPage the previous page
+     * @param coordinator current user
+     */
     public CoordRequestHistory(Page previousPage, Coordinator coordinator) {
         super(previousPage);
         this.coordinator = coordinator;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return another page {@link main.Pages.CoordinatorMain}, {@link main.Pages.CoordRequestHistory}
+    */
     @Override
     public Page executable() {
         ConsoleUtils.clearScreen();

@@ -4,14 +4,24 @@ import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 
+/**
+* Provide methods to read and write file
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class FileHandler {
 
-    /* get filepath */
-    // public String getFilepath(String filename){
-    //     return System
-    // }
-
     /* read file and return target line */
+    /**
+     * Method to read file
+     * 
+     * @param filePath file to read
+     * @param check input to match against
+     * @param col column to check for "check" 
+     * @return Returns the line as String[] seperated by comma if match found, else return null
+     */
     public static String[] readFile(String filePath, String check, int col){
         String currentLine;
         String data[] = {};
@@ -38,6 +48,14 @@ public class FileHandler {
     }
 
     /* find target string in file by specified column, return boolean */
+    /**
+     * Method to find if target exist in file
+     * 
+     * @param filePath file to check
+     * @param check target to match for
+     * @param col column in csv to find target
+     * @return True if found, else return False
+     */
     public static boolean findFile(String filePath, String check, int col){
         String currentLine;
         String data[] = {};
@@ -67,6 +85,14 @@ public class FileHandler {
      * target line is found by matching target string with check
      * col is the column index that u want to check against
      * newString is the new string you want to replace target string with
+     */
+    /**
+     * Method to write input string to target line
+     * 
+     * @param filepath file to write to
+     * @param check target to match against
+     * @param col column in csv to find target
+     * @param newString new string to be written over target line
      */
     public static void writeFile(String filepath, String check, int col, String newString){
         String currentLine;

@@ -9,17 +9,47 @@ import main.Models.requestStatus_ENUM;
 import main.Utils.ConsoleColors;
 import main.Utils.ConsoleUtils;
 
+/**
+* Page for Supervisor's main menu
+*  
+* @author Dr. Heinz Doofenshmirtz
+* @version 1.0
+* @since 2023-4-13
+*/
 public class StaffMain extends Page{
+
+    /**
+     * scanner for user input
+     */
     Scanner sc = new Scanner(System.in);
+
+    /**
+     * console for user input
+     */
     Console console = System.console();
 
+    /**
+     * current supervisor object
+     */
     Supervisor staff;
     
+    /**
+     * Base constructor for this page
+     * 
+     * @param previousPage the previous page
+     * @param staff the current user
+     */
     public StaffMain(Page previousPage, Supervisor staff){
         super(previousPage);
         this.staff = staff;
     }
 
+    /**
+    * Main executable for this page
+    * 
+    * Please see the {@link main.Pages.Page} class for abstract method
+    * @return next page {@link main.Pages.SetPassword}, {@link main.Pages.supervisorProjectView}, {@link main.Pages.supervisorViewRequest}, {@link main.Pages.CreateProjectPage}, {@link main.Pages.SupervisorEditTitle}, {@link main.Pages.SupervisorTransferStudent}, {@link main.Pages.SupervisorRequestHistory}, {@link main.Pages.StaffMain}
+    */
     @Override
     public Page executable(){
         ConsoleUtils.clearScreen();
@@ -97,6 +127,10 @@ public class StaffMain extends Page{
         return this;
     }
 
+    /**
+     * Method to check if current supervisor have pending request from student
+     * @return True if have, else returns False
+     */
     private boolean havePending(){
         for(Request r : this.staff.getRequests()){
             if(r.getRequestStatus().equals(requestStatus_ENUM.PENDING) && r.getRequestType().equals("3")){
