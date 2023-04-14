@@ -22,9 +22,11 @@ import main.Utils.FileHandler;
 public class StudentProjectView extends Page{
     private Scanner sc = new Scanner(System.in);
     private Student student;
+    
     /**
-     * StudentProjectView constructor
-     *
+     * Constructor for this class
+     * @param previousPage the previous page
+     * @param student the current student object
      */
     public StudentProjectView(Page previousPage, Student student){
         super(previousPage);
@@ -32,7 +34,7 @@ public class StudentProjectView extends Page{
     }
     /**
      * Main executable for this page
-     * @return next page {@link main.Pages.StudentMain)
+     * @return next page {@link main.Pages.StudentMain}
      */
     @Override
     public Page executable(){

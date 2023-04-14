@@ -66,6 +66,11 @@ public class Student extends User implements IinitialiseRequest, IinitialiseProj
         return this.requestList;
     }
 
+    /**
+     * Method to get request by its ID
+     * @param requestID the target request ID
+     * @return the target request
+     */
     public Request getRequestbyID(String requestID) {
         for(Request r : this.requestList){
             if(r.getRequestID().equals(requestID)){

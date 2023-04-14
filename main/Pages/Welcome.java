@@ -15,7 +15,7 @@ public class Welcome extends Page{
     private String userType;
     /**
      * Constructor for the Welcome class
-     *
+     * @param previousPage the previous page
      */
     public Welcome(Page previousPage){
         super(previousPage);

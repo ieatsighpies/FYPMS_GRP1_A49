@@ -57,9 +57,17 @@ public class RegisterProjectReq extends Request{
 
         // return if rejected
         String rfilepath = System.getProperty("user.dir") + "\\main\\Data\\request_record.csv";
+
+        // get project data
+        String pfilepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
+        String[] projectdata = FileHandler.readFile(pfilepath, this.getProjectID(), 0);
+        String supervisor_email = projectdata[2];
+        
         if(decision.equals("REJECT")){
             String newString = this.getRequestID()+","+this.getRequesterID()+","+this.getRequesteeID()+","+this.getRequestType()+","+requestStatus_ENUM.REJECTED.toString()+","+this.getProjectID()+","+this.getComments()+",NaN,NaN";
             FileHandler.writeFile(rfilepath, this.getRequestID(), 0, newString);
+            String newString2 = projectdata[0]+","+projectdata[1]+","+projectdata[2]+","+projectdata[3]+","+projectStatus_ENUM.AVAILABLE.toString()+","+projectdata[5]+","+projectdata[6];
+            FileHandler.writeFile(pfilepath, this.getProjectID(), 0, newString2);
             System.out.println("╔═══════════════════════════════════════╗");
             System.out.println("║          -Request processed-          ║");
             System.out.println("╚═══════════════════════════════════════╝");
@@ -71,11 +79,6 @@ public class RegisterProjectReq extends Request{
         String[] studentdata = FileHandler.readFile(sfilepath, this.getRequesterID(), 2);
         String student_name = studentdata[0];
         String student_email = studentdata[1];
-
-        // get project data
-        String pfilepath = System.getProperty("user.dir") + "\\main\\Data\\project_record.csv";
-        String[] projectdata = FileHandler.readFile(pfilepath, this.getProjectID(), 0);
-        String supervisor_email = projectdata[2];
 
         // get faculty data
         String ffilepath = System.getProperty("user.dir") + "\\main\\Data\\faculty_list.csv";

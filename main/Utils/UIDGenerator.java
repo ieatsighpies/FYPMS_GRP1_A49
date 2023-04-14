@@ -2,6 +2,7 @@ package main.Utils;
 
 /**
 * Provide methods to generate Unique ID for request and project
+* The class does not have any public constructors and should be used as a static utility class.
 *  
 * @author Dr. Heinz Doofenshmirtz
 * @version 1.0

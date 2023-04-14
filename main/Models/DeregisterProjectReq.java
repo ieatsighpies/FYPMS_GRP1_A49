@@ -13,9 +13,17 @@ import main.Utils.FileHandler;
  * @since 13-4-2023
  */
 public class DeregisterProjectReq extends Request {
+    
     /**
-     * Constructing the DeregisterProjectReq class
-     *
+     * Constructor for DeregisterProjectReq
+     * 
+     * @param requestID request ID
+     * @param requesterID ID of the user making the request
+     * @param requesteeID ID of the user receiving the request
+     * @param requestType request type of this request
+     * @param status request status of this request
+     * @param projectID ID of project
+     * @param comment comments
      */
     public DeregisterProjectReq(String requestID, String requesterID, String requesteeID, String requestType,
                                 requestStatus_ENUM status, String projectID, String comment) {

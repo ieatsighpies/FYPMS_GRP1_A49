@@ -19,7 +19,8 @@ public class SupervisorEditTitle extends Page{
 
     /**
      * SupervisorEditTitle constructor
-     *
+     * @param previousPage the previous page
+     * @param staff the current user
      */
     public SupervisorEditTitle(Page previousPage, Supervisor staff) {
         super(previousPage);
@@ -27,7 +28,7 @@ public class SupervisorEditTitle extends Page{
     }
     /**
      * Main executable for SupervisorEditTitle page
-     * @return next page {@link main.Pages.StaffMain)
+     * @return next page {@link main.Pages.StaffMain}
      */
     @Override
     public Page executable() {

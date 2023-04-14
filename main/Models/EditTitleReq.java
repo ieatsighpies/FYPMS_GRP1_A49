@@ -13,10 +13,18 @@ public class EditTitleReq extends Request{
 
     private String newTitle;
 
+    
     /**
-     * Constructor of EditTitleReq
-     *
-     * @param newTitle new title of the project
+     * Constructor for EditTitleReq
+     * 
+     * @param requestID ID of this request
+     * @param requesterID ID of the user sending this request
+     * @param requesteeID ID of the user receiving this request
+     * @param requestType Type of this request
+     * @param status status of this request
+     * @param projectID project ID associated with this request
+     * @param comment comments
+     * @param newTitle new title to be changed to
      */
     public EditTitleReq(String requestID, String requesterID, String requesteeID,
                             String requestType, requestStatus_ENUM status, String projectID, String comment, String newTitle){

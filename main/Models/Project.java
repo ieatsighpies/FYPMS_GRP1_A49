@@ -19,16 +19,14 @@ public class Project {
 
 
     /**
-     * Method Description here
+     * Constructor of Project class
      *
-     * @param proejctID ID of project
+     * @param projectID ID of project
      * @param supervisorEmail the email of the project's supervisor
-     * @param supervisorID the ID of the project's supervisor
      * @param supervisorName the name of the project's supervisor
      * @param title the title of the project
      * @param status the status of the project
      * @param studentEmail the email of the project's student
-     * @param studentID the ID of the project's student
      * @param studentName the name of the project's student
      */
     public Project(String projectID, String supervisorName,
@@ -95,11 +93,13 @@ public class Project {
 
     /**
      * Method to assign the project to a student
+     * @param s student that we want to assign project to
      */
 
     public void setStudent(Student s){this.studentID= s.userID;}
     /**
      * Method to assign the project to a supervisor
+     * @param f supervisor we want to assign project to
      */
     public void setSupervisor(Supervisor f){this.supervisorID= f.userID;}
 
