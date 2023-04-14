@@ -37,6 +37,7 @@ Finally, run `MainApp`:
 ```
 java main/MainApp
 ```
+*Default password for any user is set to `password`*   
 Note: `Data copy` contains a fresh copy of the csv data files used in our app. You can easily factory reset the application by discarding the csv files in main/Data file and replace them with a copy of the csv files in `Data copy`.
 
 ---
