@@ -71,11 +71,13 @@ The dependency injection principle states that a high level module should not de
 
 In addition to the above, the following new features were also added:
 
-#### 3.1 Password Encryption   
-Users’ passwords are hashed with an encryption[2] algorithm ([PBKDF2WithHmacSHA1](https://en.wikipedia.org/wiki/PBKDF2)). This ensures the password to be secured even in the event that source file is leaked.   
+#### 3.1 Hidden Console Password Input   
+In order to ensure secure password entry, we have implemented a hidden console password input feature. This feature hides the password being typed by the user, thereby providing a safer method for entering passwords.    
+![Display](https://drive.google.com/uc?export=view&id=1QtFynDh40Y9EOGhzj5TXTFC9nnudLYQd)    
 
-#### 3.2 Hidden Console Password Input   
-In order to ensure secure password entry, we have implemented a hidden console password input feature. This feature hides the password being typed by the user, thereby providing a safer method for entering passwords.       
+#### 3.2 Password Encryption   
+Users’ passwords are hashed with an encryption[2] algorithm ([PBKDF2WithHmacSHA1](https://en.wikipedia.org/wiki/PBKDF2)). This ensures the password to be secured even in the event that source file is leaked.   
+![Display](https://drive.google.com/uc?export=view&id=1HkBbektojRi7j6tLUiW9tbsLVCKh-zw3)
 
 #### 3.3 Sorting Functionality   
 Our system includes the capability to sort projects and requests based on specific features such as status, student name, ID, and more. This feature enhances user convenience and enables users to arrange students/projects in a manner that suits their preferences.    
