@@ -80,10 +80,12 @@ Users’ passwords are hashed with an encryption[2] algorithm ([PBKDF2WithHmacSH
 ![Display](https://drive.google.com/uc?export=view&id=1HkBbektojRi7j6tLUiW9tbsLVCKh-zw3)
 
 #### 3.3 Sorting Functionality   
-Our system includes the capability to sort projects and requests based on specific features such as status, student name, ID, and more. This feature enhances user convenience and enables users to arrange students/projects in a manner that suits their preferences.    
+Our system includes the capability to sort projects and requests based on specific features such as status, student name, ID, and more. This feature enhances user convenience and enables users to arrange students/projects in a manner that suits their preferences.  
+![Display](https://drive.google.com/uc?export=view&id=1Yi1ZY8iA2cTVH0TBrpHV6h4JRWZ1-7gj)  
 
 #### 3.4 Unique ID Generation
-To ensure unique identification of projects and requests, we generate date time-based IDs using a UID Generator. To minimize the possibility of duplicate IDs being produced when two users generate an ID simultaneously, the UID Generator can generate up to 65536 unique IDs within the same millisecond.    
+To ensure unique identification of projects and requests, we generate date time-based IDs using a UID Generator. To minimize the possibility of duplicate IDs being produced when two users generate an ID simultaneously, the UID Generator can generate up to 65536 unique IDs within the same millisecond.     
+![Display](https://drive.google.com/uc?export=view&id=1E6Rc1-Qpa-T3IfjY900Cj0iUIeEGUEjp)    
 
 ---
 
