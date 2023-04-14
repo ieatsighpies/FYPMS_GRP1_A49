@@ -84,7 +84,7 @@ To ensure unique identification of projects and requests, we generate date time-
 
 ---
 
-### Section 3: Difficulties Encountered
+### Section 3: Post Development Reflection
 During the project development process, we encountered several challenges. These included issues with the object-oriented programming (OOP) design, implementing the request class due to complexities surrounding accountability and request execution, avoiding tight coupling between classes, and creating UML class diagrams that were appropriately designed. To overcome these challenges, we performed a thorough analysis of the object relationships and applied SOLID principles to better manage class structure. We also followed design principles when creating the UML class diagrams and performed debugging and revision to refine the application's functionality.
 
 In particular, we faced challenges when implementing the different request types as separate util classes. This approach proved to be too complex and inefficient. As a solution, we decided to implement the request class as an abstract class, which can be inherited by various child request classes. We added an abstract processRequest() method to the Request class, which the child request classes can implement. This approach allows for easier addition of more request types to the application in the future.
