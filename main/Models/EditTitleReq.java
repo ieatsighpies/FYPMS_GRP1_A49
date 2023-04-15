@@ -62,7 +62,7 @@ public class EditTitleReq extends Request{
         System.out.printf("║ Request ID: \u001B[33m%-25s\u001B[0m║Status: \u001B[33m%-13s\u001B[0m║ \n", this.getRequestID(), this.getRequestStatus().toString());
         System.out.println("╠══════════════════════════════════════╩═════════════════════╣");
         System.out.printf("║ Request from: \u001B[33m%-45s\u001B[0m║\n", this.getRequesterID());
-        System.out.printf("║ Request to: \u001B[33m%-47s\u001B[0m║\n", this.getRequestID());
+        System.out.printf("║ Request to: \u001B[33m%-47s\u001B[0m║\n", this.getRequesteeID());
         System.out.println("╠════════════════════════════════════════════════════════════╩═══════════════════════════════════╗"); 
         System.out.printf("║ Current Title: \u001B[33m%-80s\u001B[0m║\n", currentTitle);
         System.out.printf("║ New Title: \u001B[33m%-84s\u001B[0m║\n", this.getTitle());

@@ -37,6 +37,7 @@ Finally, run `MainApp`:
 ```
 java main/MainApp
 ```
+*Default password for any user is set to `password`*   
 Note: `Data copy` contains a fresh copy of the csv data files used in our app. You can easily factory reset the application by discarding the csv files in main/Data file and replace them with a copy of the csv files in `Data copy`.
 
 ---
@@ -47,7 +48,7 @@ The main objective was to design the Final Year Project Management System (FYPMS
 ---
 
 ### Section 2: Design Principles
-Through out this project we used SOLID principle extensively as a guideline for our designing process of the application[1].   
+Throughout this project we used SOLID principle extensively as a guideline for our designing process of the application[1].   
 
 #### 2.1 Single-responsibility principle (SRP)  
 Each type of class is catered to its role. There are three types of classes, and each type of class has a single responsibility. Our system is designed such that the classes are catered to do only one job. For instance, the registering of FYP projects is separated into multiple Pages i.e the coordinator facing pages(CoordAllProject, CoordEditTitle, CoordMyPRoject, etc.). Utils i.e. the logic and data handling (Authenticator, FileHandler, ReqType3, etc.) and Models i.e. data structures that are manipulated (Student, Supervisor, Coordinator, Request, etc.) instead of a single class to handle the entire process. This not only facilitates code readability, but also allows for ease of modification to our system should there be changes to a specific part of the system.    
@@ -70,24 +71,28 @@ The dependency injection principle states that a high level module should not de
 
 In addition to the above, the following new features were also added:
 
-#### 3.1 Password Encryption   
-Users’ passwords are hashed with an encryption[2] algorithm ([PBKDF2WithHmacSHA1](https://en.wikipedia.org/wiki/PBKDF2)). This ensures the password to be secured even in the event that source file is leaked.   
+#### 3.1 Hidden Console Password Input   
+In order to ensure secure password entry, we have implemented a hidden console password input feature. This feature hides the password being typed by the user, thereby providing a safer method for entering passwords.    
+![Display](https://drive.google.com/uc?export=view&id=1QtFynDh40Y9EOGhzj5TXTFC9nnudLYQd)    
 
-#### 3.2 Hidden Console Password Input   
-Password is hidden in console when the user is typing to provide a safer way for the user to securely enter a password.   
+#### 3.2 Password Encryption   
+Users’ passwords are hashed with an encryption[2] algorithm ([PBKDF2WithHmacSHA1](https://en.wikipedia.org/wiki/PBKDF2)). This ensures the password to be secured even in the event that source file is leaked.   
+![Display](https://drive.google.com/uc?export=view&id=1HkBbektojRi7j6tLUiW9tbsLVCKh-zw3)
 
 #### 3.3 Sorting Functionality   
-Functionality to sort projects and requests by a particular feature. Projects and requests could be sorted via status, student name, ID, etc. This would improve the convenience of the user experience and allow users to organize students/projects as per their preference. 
+Our system includes the capability to sort projects and requests based on specific features such as status, student name, ID, and more. This feature enhances user convenience and enables users to arrange students/projects in a manner that suits their preferences.  
+![Display](https://drive.google.com/uc?export=view&id=1Yi1ZY8iA2cTVH0TBrpHV6h4JRWZ1-7gj)  
 
 #### 3.4 Unique ID Generation
-When project and request IDs are date time based unique IDs. To reduce the chance of duplicate IDs from being generated when 2 users generate a ID at the same time, the UID Generator we used is able to generate 65536 UID in the same ms.   
+To ensure unique identification of projects and requests, we generate date time-based IDs using a UID Generator. To minimize the possibility of duplicate IDs being produced when two users generate an ID simultaneously, the UID Generator can generate up to 65536 unique IDs within the same millisecond.     
+![Display](https://drive.google.com/uc?export=view&id=1E6Rc1-Qpa-T3IfjY900Cj0iUIeEGUEjp)    
 
 ---
 
-### Section 3: Difficulties Encountered
-Some difficulties encountered include hurdles that arose in the OOP design, difficulty in implementing the request class due to the complexity in the accountability (whether supervisor or coordinator approves them) and execution of requests, the need to find ways to avoid tight-coupling between classes, and increased complexity in the UML relationships. To solve the same, a thorough analysis of the relationship between objects was undertaken. SOLID principles were applied to manage classes and design principles were followed in UML class diagram creation. Additionally, debugging and revision were performed to refine the function.   
+### Section 3: Post Development Reflection
+During the project development process, we encountered several challenges. These included issues with the object-oriented programming (OOP) design, implementing the request class due to complexities surrounding accountability and request execution, avoiding tight coupling between classes, and creating UML class diagrams that were appropriately designed. To overcome these challenges, we performed a thorough analysis of the object relationships and applied SOLID principles to better manage class structure. We also followed design principles when creating the UML class diagrams and performed debugging and revision to refine the application's functionality.
 
-Furthermore, specifically for the request class, we decided to change our approach. Initially, we had decided to implement the four different request types as separate utils classes (RequestType1, RequestType2, etc.). However, this was proving too complex and inefficient. Instead, the request class was implemented as a abstract class which will be inherited by the different types of request child classes. We added an abstract processRequest() method in the Request class, which will be implemented by the four child request classes. This allows more types of request to be added to our application in the future with ease.
+In particular, we faced challenges when implementing the different request types as separate util classes. This approach proved to be too complex and inefficient. As a solution, we decided to implement the request class as an abstract class, which can be inherited by various child request classes. We added an abstract processRequest() method to the Request class, which the child request classes can implement. This approach allows for easier addition of more request types to the application in the future.
 
 ---
 
